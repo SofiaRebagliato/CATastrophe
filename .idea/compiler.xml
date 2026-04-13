@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="catastrophe-gateway" />
+        <module name="catastrophe-notifications" />
+        <module name="catastrophe-profiles" />
+        <module name="catastrophe-social" />
+        <module name="catastrophe-commons" />
+        <module name="catastrophe-analytics" />
+        <module name="catastrophe-adventures" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="catastrophe-adventures" options="-parameters --enable-preview" />
+      <module name="catastrophe-analytics" options="-parameters --enable-preview" />
+      <module name="catastrophe-commons" options="-parameters --enable-preview" />
+      <module name="catastrophe-gateway" options="-parameters --enable-preview" />
+      <module name="catastrophe-notifications" options="-parameters --enable-preview" />
+      <module name="catastrophe-parent" options="-parameters --enable-preview" />
+      <module name="catastrophe-profiles" options="-parameters --enable-preview" />
+      <module name="catastrophe-social" options="-parameters --enable-preview" />
+    </option>
+  </component>
+</project>
