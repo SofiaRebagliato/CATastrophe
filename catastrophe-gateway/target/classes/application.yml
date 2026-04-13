@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: catastrophe-gateway
+
+  cloud:
+    gateway:
+      routes:
+        # ── Servicio de Perfiles ──
+        - id: profiles-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/humans/**, /api/v1/cats/**, /api/v1/auth/**
+
+        # ── Servicio Social ──
+        - id: social-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/v1/posts/**, /api/v1/comments/**, /api/v1/likes/**, /api/v1/follows/**, /api/v1/messages/**
+
+        # ── Servicio de Aventuras y Gamificación ──
+        - id: adventures-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/v1/adventures/**, /api/v1/challenges/**, /api/v1/badges/**, /api/v1/rankings/**
+
+        # ── Servicio de Notificaciones ──
+        - id: notifications-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/v1/notifications/**
+
+        # ── Servicio de Análisis ──
+        - id: analytics-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/v1/personalities/**
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin
+
+  # Redis para rate limiting
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, gateway
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
