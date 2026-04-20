@@ -9,6 +9,7 @@ com\catastrophe\profiles\domain\port\in\HumanUseCase$UpdateHumanCommand.class
 com\catastrophe\profiles\adapter\in\web\GlobalExceptionHandler.class
 com\catastrophe\profiles\config\RedisConfig.class
 com\catastrophe\profiles\adapter\in\web\HumanController$HumanResponse.class
+com\catastrophe\profiles\adapter\in\web\GlobalExceptionHandler$ErrorResponse.class
 com\catastrophe\profiles\adapter\out\messaging\KafkaEventPublisher.class
 com\catastrophe\profiles\domain\model\Human.class
 com\catastrophe\profiles\domain\port\in\CatUseCase$CreateCatCommand.class
