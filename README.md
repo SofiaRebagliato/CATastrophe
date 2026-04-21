@@ -90,7 +90,7 @@ cd ../catastrophe-gateway
 
 - [x] **F1**: Cimientos — Estructura multi-módulo, Docker Compose, migraciones
 - [x] **F2**: Identidad y perfiles — Registro, login, CRUD gatos, TheCatAPI, sesiones Redis
-- [ ] **F3**: Red social — Meows, feed, comentarios, likes, follows, mensajería
+- [x] **F3**: Red social — Meows, feed, comentarios, likes, follows, mensajería
 - [ ] **F4**: Gamificación — XP, aventuras, retos PvP, badges, rankings
 - [ ] **F5**: Inteligencia — Personalidades, notificaciones, Circuit Breakers
 - [ ] **F6**: Frontend — Thymeleaf + HTMX, dashboard, documentación
