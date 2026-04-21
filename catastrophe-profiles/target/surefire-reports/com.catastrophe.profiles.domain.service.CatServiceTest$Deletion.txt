@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.catastrophe.profiles.domain.service.CatServiceTest$Deletion
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.427 s -- in com.catastrophe.profiles.domain.service.CatServiceTest$Deletion
