@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.catastrophe.profiles.adapter.in.web.AuthIntegrationTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 3.122 s <<< FAILURE! -- in com.catastrophe.profiles.adapter.in.web.AuthIntegrationTest
-com.catastrophe.profiles.adapter.in.web.AuthIntegrationTest -- Time elapsed: 3.122 s <<< ERROR!
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.771 s <<< FAILURE! -- in com.catastrophe.profiles.adapter.in.web.AuthIntegrationTest
+com.catastrophe.profiles.adapter.in.web.AuthIntegrationTest -- Time elapsed: 2.771 s <<< ERROR!
 java.lang.IllegalStateException: Could not find a valid Docker environment. Please see logs and check configuration
 	at org.testcontainers.dockerclient.DockerClientProviderStrategy.lambda$getFirstValidStrategy$7(DockerClientProviderStrategy.java:274)
 	at java.base/java.util.Optional.orElseThrow(Optional.java:403)

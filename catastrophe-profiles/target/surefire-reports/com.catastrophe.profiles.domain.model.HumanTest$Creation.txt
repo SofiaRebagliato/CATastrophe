@@ -1,17 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.catastrophe.profiles.domain.model.HumanTest$Creation
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.030 s <<< FAILURE! -- in com.catastrophe.profiles.domain.model.HumanTest$Creation
-com.catastrophe.profiles.domain.model.HumanTest$Creation.newHumanIsActiveWithNoId -- Time elapsed: 0.025 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: El id lo genera la base de datos ==> expected: <null> but was: <c97ef7dd-0d4f-47a0-8cb5-a520af4fc4d5>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertNull.failNotNull(AssertNull.java:50)
-	at org.junit.jupiter.api.AssertNull.assertNull(AssertNull.java:35)
-	at org.junit.jupiter.api.Assertions.assertNull(Assertions.java:287)
-	at com.catastrophe.profiles.domain.model.HumanTest$Creation.newHumanIsActiveWithNoId(HumanTest.java:28)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.catastrophe.profiles.domain.model.HumanTest$Creation
