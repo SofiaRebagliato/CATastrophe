@@ -92,5 +92,5 @@ cd ../catastrophe-gateway
 - [x] **F2**: Identidad y perfiles — Registro, login, CRUD gatos, TheCatAPI, sesiones Redis
 - [x] **F3**: Red social — Meows, feed, comentarios, likes, follows, mensajería
 - [x] **F4**: Gamificación — XP, aventuras, retos PvP, badges, rankings
-- [~] **F5**: Inteligencia — **Notificaciones ✅** · Personalidades ⏳ · Circuit Breakers ⏳
+- [x] **F5**: Inteligencia — Notificaciones, personalidades, OpenWeatherMap, Cat Facts, Resilience4j
 - [ ] **F6**: Frontend — Thymeleaf + HTMX, dashboard, documentación

@@ -1,3 +1,4 @@
+C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\in\messaging\XpEventConsumer.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\in\web\AuthController.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\in\web\CatController.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\in\web\GlobalExceptionHandler.java
@@ -7,11 +8,14 @@ C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\m
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\CatPersistenceAdapter.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\entity\CatEntity.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\entity\HumanEntity.java
+C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\entity\ProcessedXpEventEntity.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\HumanPersistenceAdapter.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\mapper\CatMapper.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\mapper\HumanMapper.java
+C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\ProcessedXpEventPersistenceAdapter.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\repository\JpaCatRepository.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\repository\JpaHumanRepository.java
+C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\adapter\out\persistence\repository\JpaProcessedXpEventRepository.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\config\RedisConfig.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\config\SecurityConfig.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\model\Cat.java
@@ -22,6 +26,7 @@ C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\m
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\port\out\CatRepository.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\port\out\EventPublisher.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\port\out\HumanRepository.java
+C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\port\out\ProcessedXpEventRepository.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\service\CatastropheUserDetailsService.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\service\CatService.java
 C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\main\java\com\catastrophe\profiles\domain\service\HumanService.java

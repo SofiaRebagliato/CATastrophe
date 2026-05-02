@@ -7,9 +7,11 @@ com\catastrophe\profiles\domain\service\CatServiceTest$Creation.class
 com\catastrophe\profiles\domain\service\HumanServiceTest$Deactivation.class
 com\catastrophe\profiles\domain\model\HumanTest$Creation.class
 com\catastrophe\profiles\adapter\out\persistence\PersistenceIntegrationTest$HumanPersistence.class
+com\catastrophe\profiles\adapter\in\messaging\XpEventConsumerTest.class
 com\catastrophe\profiles\domain\service\HumanServiceTest$Update.class
 com\catastrophe\profiles\adapter\in\web\AuthIntegrationTest.class
 com\catastrophe\profiles\adapter\in\web\CatIntegrationTest.class
+com\catastrophe\profiles\domain\service\CatServiceTest$XpApplication.class
 com\catastrophe\profiles\domain\service\CatServiceTest$Deletion.class
 com\catastrophe\profiles\domain\service\HumanServiceTest.class
 com\catastrophe\profiles\domain\service\CatServiceTest.class
