@@ -42,6 +42,13 @@ spring:
       properties:
         spring.json.type.mapping: >
           catastropheEvent:com.catastrophe.commons.event.CatastropheEvent
+    consumer:
+      group-id: profiles-xp-applier
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.catastrophe.commons.event
 
   # ── Virtual Threads (Java 21) ──
   threads:
@@ -54,12 +61,30 @@ catastrophe:
     base-url: https://api.thecatapi.com/v1
     api-key: ${CATAPI_KEY:}
 
+# ── Resilience4j ──
+# Circuit Breaker que protege la llamada a TheCatAPI. Si la API empieza a
+# fallar repetidamente, el circuito se abre y los siguientes fetchRandomAvatar
+# devuelven inmediatamente el fallback (Optional.empty), que CatService traduce
+# en "avatar por defecto".
+resilience4j:
+  circuitbreaker:
+    instances:
+      thecatapi:
+        sliding-window-size: 10           # ventana de las últimas 10 llamadas
+        failure-rate-threshold: 50        # >50% fallos → abrir circuito
+        wait-duration-in-open-state: 30s  # tiempo que el circuito permanece abierto
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+
 # ── Actuator ──
 management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics
+        include: health, info, metrics, circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true
 
 # ── Logging ──
 logging:

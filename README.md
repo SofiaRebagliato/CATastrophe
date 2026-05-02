@@ -91,6 +91,6 @@ cd ../catastrophe-gateway
 - [x] **F1**: Cimientos — Estructura multi-módulo, Docker Compose, migraciones
 - [x] **F2**: Identidad y perfiles — Registro, login, CRUD gatos, TheCatAPI, sesiones Redis
 - [x] **F3**: Red social — Meows, feed, comentarios, likes, follows, mensajería
-- [ ] **F4**: Gamificación — XP, aventuras, retos PvP, badges, rankings
-- [ ] **F5**: Inteligencia — Personalidades, notificaciones, Circuit Breakers
+- [x] **F4**: Gamificación — XP, aventuras, retos PvP, badges, rankings
+- [x] **F5**: Inteligencia — Notificaciones, personalidades, OpenWeatherMap, Cat Facts, Resilience4j
 - [ ] **F6**: Frontend — Thymeleaf + HTMX, dashboard, documentación

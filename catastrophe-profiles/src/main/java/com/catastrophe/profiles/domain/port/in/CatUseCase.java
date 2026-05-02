@@ -29,6 +29,19 @@ public interface CatUseCase {
     /** Eliminar un gato. */
     void delete(UUID catId);
 
+    /**
+     * Aplica una ganancia de XP al gato. Es idempotente: si el {@code eventId}
+     * ya se procesó previamente (mismo evento de gamificación replayed), no
+     * vuelve a aplicar el XP.
+     * <p>
+     * Si la ganancia produce subida de nivel, el evento publicado lo reflejará
+     * en {@code newLevel}. El consumidor de notificaciones detectará el level-up.
+     *
+     * @return el gato actualizado, o {@link Optional#empty()} si el evento ya
+     *         estaba procesado o el gato no existe
+     */
+    Optional<Cat> applyXpGain(UUID eventId, UUID catId, int amount, String source);
+
     // ── Commands (records inmutables) ──
 
     record CreateCatCommand(

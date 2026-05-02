@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>catastrophe-notifications</artifactId>
-    <description>Servicio de </description>
+    <description>Servicio de notificaciones — consume eventos del bus y materializa notificaciones por gato</description>
 
     <dependencies>
         <dependency>

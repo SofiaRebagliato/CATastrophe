@@ -1,6 +1,7 @@
 package com.catastrophe.profiles.domain.service;
 
 import com.catastrophe.commons.event.CatastropheEvent.CatCreated;
+import com.catastrophe.commons.event.CatastropheEvent.XpGained;
 import com.catastrophe.commons.exception.CatastropheExceptions.BusinessRuleViolationException;
 import com.catastrophe.commons.exception.CatastropheExceptions.ResourceNotFoundException;
 import com.catastrophe.profiles.domain.model.Cat;
@@ -9,6 +10,7 @@ import com.catastrophe.profiles.domain.port.in.CatUseCase.UpdateCatCommand;
 import com.catastrophe.profiles.domain.port.out.CatAvatarProvider;
 import com.catastrophe.profiles.domain.port.out.CatRepository;
 import com.catastrophe.profiles.domain.port.out.EventPublisher;
+import com.catastrophe.profiles.domain.port.out.ProcessedXpEventRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -39,6 +41,7 @@ class CatServiceTest {
     @Mock private CatRepository catRepository;
     @Mock private CatAvatarProvider avatarProvider;
     @Mock private EventPublisher eventPublisher;
+    @Mock private ProcessedXpEventRepository processedXpEvents;
 
     private CatService catService;
 
@@ -46,7 +49,7 @@ class CatServiceTest {
 
     @BeforeEach
     void setUp() {
-        catService = new CatService(catRepository, avatarProvider, eventPublisher);
+        catService = new CatService(catRepository, avatarProvider, eventPublisher, processedXpEvents);
     }
 
     @Nested
@@ -243,6 +246,85 @@ class CatServiceTest {
 
             assertThrows(ResourceNotFoundException.class,
                     () -> catService.delete(fakeId));
+        }
+    }
+
+    @Nested
+    @DisplayName("Aplicación de XP")
+    class XpApplication {
+
+        private final UUID catId = UUID.randomUUID();
+        private final UUID eventId = UUID.randomUUID();
+
+        @Test
+        @DisplayName("applyXpGain ignora eventos ya procesados (idempotencia)")
+        void alreadyProcessedReturnsEmpty() {
+            when(processedXpEvents.markProcessed(eventId, catId, 50, "adventure"))
+                    .thenReturn(false);
+
+            var result = catService.applyXpGain(eventId, catId, 50, "adventure");
+
+            assertTrue(result.isEmpty());
+            verify(catRepository, never()).findById(any());
+            verify(eventPublisher, never()).publish(any());
+        }
+
+        @Test
+        @DisplayName("applyXpGain con gato inexistente marca como procesado y descarta")
+        void unknownCatIsDiscarded() {
+            when(processedXpEvents.markProcessed(eventId, catId, 50, "adventure"))
+                    .thenReturn(true);
+            when(catRepository.findById(catId)).thenReturn(Optional.empty());
+
+            var result = catService.applyXpGain(eventId, catId, 50, "adventure");
+
+            assertTrue(result.isEmpty());
+            verify(catRepository, never()).save(any());
+            verify(eventPublisher, never()).publish(any());
+        }
+
+        @Test
+        @DisplayName("applyXpGain suma XP al gato y publica XpGained")
+        void appliesAndPublishes() {
+            var cat = new Cat(catId, humanId, "Luna", "siamese", 12, null, null,
+                    50, 1, "curious", Instant.now(), null);
+            when(processedXpEvents.markProcessed(eventId, catId, 80, "adventure"))
+                    .thenReturn(true);
+            when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
+            when(catRepository.save(any(Cat.class))).thenAnswer(i -> i.getArgument(0));
+
+            var result = catService.applyXpGain(eventId, catId, 80, "adventure");
+
+            assertTrue(result.isPresent());
+            assertEquals(130, result.get().xp()); // 50 + 80
+            // 130 < 4·100 → sigue en nivel 1 (umbral cuadrático: nivel 2 requiere 400)
+            assertEquals(1, result.get().level());
+
+            var captor = ArgumentCaptor.forClass(XpGained.class);
+            verify(eventPublisher).publish(captor.capture());
+            assertEquals(catId, captor.getValue().catId());
+            assertEquals(80, captor.getValue().amount());
+            assertEquals("adventure", captor.getValue().source());
+            assertEquals(130, captor.getValue().newTotalXp());
+            assertEquals(1, captor.getValue().newLevel());
+        }
+
+        @Test
+        @DisplayName("applyXpGain detona level-up cuando se cruza el umbral cuadrático")
+        void triggersLevelUp() {
+            // Nivel 2 requiere 2²·100 = 400 XP totales
+            var cat = new Cat(catId, humanId, "Luna", null, 12, null, null,
+                    350, 1, "curious", Instant.now(), null);
+            when(processedXpEvents.markProcessed(eventId, catId, 100, "challenge"))
+                    .thenReturn(true);
+            when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
+            when(catRepository.save(any(Cat.class))).thenAnswer(i -> i.getArgument(0));
+
+            var result = catService.applyXpGain(eventId, catId, 100, "challenge");
+
+            assertTrue(result.isPresent());
+            assertEquals(450, result.get().xp());
+            assertEquals(2, result.get().level()); // 450 ≥ 400 → sube a nivel 2
         }
     }
 }

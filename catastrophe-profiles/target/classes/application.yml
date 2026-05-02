@@ -42,6 +42,13 @@ spring:
       properties:
         spring.json.type.mapping: >
           catastropheEvent:com.catastrophe.commons.event.CatastropheEvent
+    consumer:
+      group-id: profiles-xp-applier
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.catastrophe.commons.event
 
   # ── Virtual Threads (Java 21) ──
   threads:

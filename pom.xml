@@ -84,6 +84,31 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+            <!-- Surefire (tests unitarios) y Failsafe (tests integración):
+                 también necesitan --enable-preview porque algunos features
+                 (StructuredTaskScope) lo siguen requiriendo en Java 21. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <argLine>--enable-preview</argLine>
+                </configuration>
+            </plugin>
+            <!-- Run-time: el JAR ejecutable también ha de usar preview. -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>--enable-preview</jvmArguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

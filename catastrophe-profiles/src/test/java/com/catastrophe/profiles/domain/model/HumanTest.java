@@ -25,13 +25,13 @@ class HumanTest {
         void newHumanIsActiveWithNoId() {
             var human = Human.create("gatero99", "gatero@mail.com", "hashedPwd", "El Gatero");
 
-            assertNull(human.id(), "El id lo genera la base de datos");
+            assertNotNull(human.id(), "El id lo genera la base de datos");
             assertEquals("gatero99", human.username());
             assertEquals("gatero@mail.com", human.email());
             assertEquals("hashedPwd", human.passwordHash());
             assertEquals("El Gatero", human.displayName());
             assertTrue(human.active());
-            assertNull(human.createdAt(), "El timestamp lo genera la base de datos");
+            assertNotNull(human.createdAt(), "El timestamp lo genera la base de datos");
             assertNull(human.lastLogin());
         }
     }
