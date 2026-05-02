@@ -50,33 +50,45 @@ public record Cat(
     }
 
     /**
-     * Calcula el XP necesario para el siguiente nivel.
-     * Fórmula progresiva: nivel * 100.
+     * Umbral de XP total acumulado necesario para alcanzar un nivel dado.
+     * Curva cuadrática: nivel N requiere N² · 100 XP en total.
+     * <p>
+     * Coherente con {@code XpResult} en {@code catastrophe-adventures} —
+     * ambos servicios deben usar la misma fórmula para que la cadena
+     * de eventos XP sea consistente.
      */
-    public int xpForNextLevel() {
-        return level * 100;
+    public static int xpForLevel(int level) {
+        return level * level * 100;
     }
 
     /**
-     * Comprueba si el gato puede subir de nivel.
+     * Calcula el XP necesario para alcanzar el siguiente nivel.
+     */
+    public int xpForNextLevel() {
+        return xpForLevel(level + 1);
+    }
+
+    /**
+     * Comprueba si el gato puede subir de nivel con su XP actual.
      */
     public boolean canLevelUp() {
         return xp >= xpForNextLevel();
     }
 
     /**
-     * Añade XP y sube de nivel si corresponde.
+     * Añade XP y sube de nivel si corresponde. {@code xp} representa
+     * el total acumulado (no residual): a mayor xp, mayor progreso.
      * Devuelve una nueva instancia (inmutabilidad).
      */
     public Cat addXp(int amount) {
         int newXp = this.xp + amount;
         int newLevel = this.level;
 
-        while (newXp >= newLevel * 100) {
-            newXp -= newLevel * 100;
+        while (newXp >= xpForLevel(newLevel + 1)) {
             newLevel++;
         }
 
-        return new Cat(id, humanId, name, breed, ageMonths, avatarUrl, bio, newXp, newLevel, mood, createdAt, Instant.now());
+        return new Cat(id, humanId, name, breed, ageMonths, avatarUrl, bio,
+                newXp, newLevel, mood, createdAt, Instant.now());
     }
 }

@@ -1,6 +1,7 @@
 package com.catastrophe.profiles.domain.service;
 
 import com.catastrophe.commons.event.CatastropheEvent.CatCreated;
+import com.catastrophe.commons.event.CatastropheEvent.XpGained;
 import com.catastrophe.commons.exception.CatastropheExceptions.BusinessRuleViolationException;
 import com.catastrophe.commons.exception.CatastropheExceptions.ResourceNotFoundException;
 import com.catastrophe.profiles.domain.model.Cat;
@@ -8,6 +9,9 @@ import com.catastrophe.profiles.domain.port.in.CatUseCase;
 import com.catastrophe.profiles.domain.port.out.CatAvatarProvider;
 import com.catastrophe.profiles.domain.port.out.CatRepository;
 import com.catastrophe.profiles.domain.port.out.EventPublisher;
+import com.catastrophe.profiles.domain.port.out.ProcessedXpEventRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,16 +30,21 @@ import java.util.UUID;
 @Transactional
 public class CatService implements CatUseCase {
 
+    private static final Logger log = LoggerFactory.getLogger(CatService.class);
+
     private final CatRepository catRepository;
     private final CatAvatarProvider avatarProvider;
     private final EventPublisher eventPublisher;
+    private final ProcessedXpEventRepository processedXpEvents;
 
     public CatService(CatRepository catRepository,
                       CatAvatarProvider avatarProvider,
-                      EventPublisher eventPublisher) {
+                      EventPublisher eventPublisher,
+                      ProcessedXpEventRepository processedXpEvents) {
         this.catRepository = catRepository;
         this.avatarProvider = avatarProvider;
         this.eventPublisher = eventPublisher;
+        this.processedXpEvents = processedXpEvents;
     }
 
     @Override
@@ -127,5 +136,44 @@ public class CatService implements CatUseCase {
             throw new ResourceNotFoundException("Cat", catId);
         }
         catRepository.deleteById(catId);
+    }
+
+    @Override
+    public Optional<Cat> applyXpGain(UUID eventId, UUID catId, int amount, String source) {
+        // Idempotencia: si el evento ya se procesó, salir sin tocar nada.
+        if (!processedXpEvents.markProcessed(eventId, catId, amount, source)) {
+            log.debug("Evento XP {} ya procesado para gato {}, ignorando", eventId, catId);
+            return Optional.empty();
+        }
+
+        // Si el gato no existe, dejamos el evento marcado como procesado igualmente
+        // (no queremos reintentar indefinidamente un evento huérfano).
+        var optCat = catRepository.findById(catId);
+        if (optCat.isEmpty()) {
+            log.warn("Evento XP {} para gato inexistente {}; se descarta", eventId, catId);
+            return Optional.empty();
+        }
+
+        var cat = optCat.get();
+        var updated = cat.addXp(amount);
+        var saved = catRepository.save(updated);
+
+        log.info("XP aplicada a gato {}: +{} ({}). Total: {}, Nivel: {}",
+                catId, amount, source, saved.xp(), saved.level());
+
+        // Publicamos XpGained para que adventures actualice rankings y notifications
+        // detecte level-ups. Reutilizamos el eventId entrante como correlation key
+        // sería lo ideal, pero el evento XpGained tiene su propia identidad.
+        eventPublisher.publish(new XpGained(
+                UUID.randomUUID(),
+                Instant.now(),
+                saved.id(),
+                amount,
+                source,
+                saved.xp(),
+                saved.level()
+        ));
+
+        return Optional.of(saved);
     }
 }
