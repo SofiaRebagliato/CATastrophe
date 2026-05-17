@@ -5,45 +5,83 @@ spring:
   application:
     name: catastrophe-analytics
 
+  # ── PostgreSQL ──
   datasource:
     url: jdbc:postgresql://localhost:5432/catastrophe_analytics
     username: catastrophe
     password: catastrophe_dev
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: validate  # Flyway gestiona el esquema
     open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
 
+  # ── Flyway ──
   flyway:
     enabled: true
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+  # ── Redis (caché de weather) ──
   data:
     redis:
       host: localhost
       port: 6379
 
+  # ── Kafka ──
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
-      group-id: catastrophe-analytics
+      group-id: catastrophe-analytics-personality
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
         spring.json.trusted.packages: com.catastrophe.commons.event
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
+  # ── Virtual Threads (Java 21) ──
   threads:
     virtual:
       enabled: true
 
+# ── Integraciones externas ──
+catastrophe:
+  openweather:
+    base-url: https://api.openweathermap.org/data/2.5
+    # Sin key en dev: el adapter lo detecta y sirve desde caché Redis
+    api-key: ${OPENWEATHER_KEY:}
+
+# ── Resilience4j ──
+# Patrón Circuit Breaker para las llamadas externas. Si la API falla
+# repetidamente, el circuito se abre y todas las llamadas siguientes van
+# directas al fallback (caché Redis para weather, pool fijo para facts).
+resilience4j:
+  circuitbreaker:
+    instances:
+      openweathermap:
+        sliding-window-size: 10           # ventana de las últimas 10 llamadas
+        failure-rate-threshold: 50        # >50% fallos → abrir circuito
+        wait-duration-in-open-state: 30s  # tiempo que el circuito permanece abierto
+        permitted-number-of-calls-in-half-open-state: 3
+        register-health-indicator: true
+
+# ── Actuator ──
 management:
   endpoints:
     web:
       exposure:
-        include: health, info, metrics
+        include: health, info, metrics, circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true
+
+# ── Logging ──
+logging:
+  level:
+    com.catastrophe.analytics: DEBUG
+    io.github.resilience4j: INFO

@@ -1,50 +1,50 @@
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\CommentController.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\FollowController.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\GlobalExceptionHandler.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\LikeController.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\MessageController.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\in\web\PostController.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\messaging\KafkaEventPublisher.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\CommentPersistenceAdapter.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\entity\CommentEntity.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\entity\FollowEntity.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\entity\LikeEntity.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\entity\MessageEntity.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\entity\PostEntity.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\FollowPersistenceAdapter.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\LikePersistenceAdapter.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\mapper\CommentMapper.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\mapper\FollowMapper.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\mapper\LikeMapper.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\mapper\MessageMapper.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\mapper\PostMapper.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\MessagePersistenceAdapter.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\PostPersistenceAdapter.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\repository\JpaCommentRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\repository\JpaFollowRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\repository\JpaLikeRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\repository\JpaMessageRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\adapter\out\persistence\repository\JpaPostRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\config\KafkaConfig.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\model\Comment.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\model\Follow.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\model\Like.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\model\Message.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\model\Post.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\in\CommentUseCase.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\in\FollowUseCase.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\in\LikeUseCase.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\in\MessageUseCase.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\in\PostUseCase.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\CommentRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\EventPublisher.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\FollowRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\LikeRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\MessageRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\port\out\PostRepository.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\service\CommentService.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\service\FollowService.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\service\LikeService.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\service\MessageService.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\domain\service\PostService.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-social\src\main\java\com\catastrophe\social\SocialApplication.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/SocialApplication.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/CommentController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/FollowController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/GlobalExceptionHandler.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/LikeController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/MessageController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/in/web/PostController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/messaging/KafkaEventPublisher.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/CommentPersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/FollowPersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/LikePersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/MessagePersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/PostPersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/entity/CommentEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/entity/FollowEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/entity/LikeEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/entity/MessageEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/entity/PostEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/mapper/CommentMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/mapper/FollowMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/mapper/LikeMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/mapper/MessageMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/mapper/PostMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/repository/JpaCommentRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/repository/JpaFollowRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/repository/JpaLikeRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/repository/JpaMessageRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/adapter/out/persistence/repository/JpaPostRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/config/KafkaConfig.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/model/Comment.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/model/Follow.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/model/Like.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/model/Message.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/model/Post.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/in/CommentUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/in/FollowUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/in/LikeUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/in/MessageUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/in/PostUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/CommentRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/EventPublisher.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/FollowRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/LikeRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/MessageRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/port/out/PostRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/service/CommentService.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/service/FollowService.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/service/LikeService.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/service/MessageService.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-social/src/main/java/com/catastrophe/social/domain/service/PostService.java
