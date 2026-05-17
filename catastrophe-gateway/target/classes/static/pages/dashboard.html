@@ -1,0 +1,114 @@
+<div class="fade-in">
+    <!-- Header del dashboard -->
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h2 class="text-2xl font-bold text-gray-900">Panel de control 🐱</h2>
+            <p class="text-gray-500 text-sm mt-1">Gestiona tus gatos y sus aventuras</p>
+        </div>
+        <button onclick="App.showAddCat()"
+                class="bg-cat-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cat-700 transition">
+            + Nuevo gato
+        </button>
+    </div>
+
+    <!-- Mis gatos -->
+    <section class="mb-10">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">🐾 Mis gatos</h3>
+        <div id="my-cats" hx-get="/api/v1/cats/mine" hx-trigger="load" hx-swap="innerHTML">
+            <div class="text-center py-8 text-gray-400">
+                <span class="htmx-indicator">Cargando gatos... 🐱</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario para añadir gato (oculto inicialmente) -->
+    <div id="add-cat-form" class="hidden mb-10">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 max-w-lg">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">🐱 Registrar nuevo gato</h3>
+            <form hx-post="/api/v1/cats"
+                  hx-ext="json-enc"
+                  hx-target="#add-cat-result"
+                  hx-swap="innerHTML"
+                  hx-on::after-request="if(event.detail.successful){document.getElementById('add-cat-form').classList.add('hidden'); htmx.trigger('#my-cats','load'); App.toast('¡Gato registrado! 🎉')}">
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+                        <input type="text" name="name" required
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none"
+                               placeholder="Luna">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Raza</label>
+                            <input type="text" name="breed"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none"
+                                   placeholder="Siamés">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Edad (meses)</label>
+                            <input type="number" name="ageMonths" min="0"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none"
+                                   placeholder="12">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+                        <textarea name="bio" rows="2"
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none"
+                                  placeholder="Reina del sofá, amante del atún..."></textarea>
+                    </div>
+                </div>
+                <div class="flex space-x-3 mt-4">
+                    <button type="submit"
+                            class="bg-cat-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cat-700 transition">
+                        Guardar 🐾
+                    </button>
+                    <button type="button" onclick="document.getElementById('add-cat-form').classList.add('hidden')"
+                            class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-200 transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+            <div id="add-cat-result" class="mt-3"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    App.showAddCat = function() {
+        document.getElementById('add-cat-form').classList.remove('hidden');
+    };
+
+    // Manejar la respuesta de /api/v1/cats/mine — renderizar tarjetas
+    document.body.addEventListener('htmx:beforeSwap', function(e) {
+        if (e.detail.pathInfo && e.detail.pathInfo.requestPath === '/api/v1/cats/mine') {
+            try {
+                const cats = JSON.parse(e.detail.xhr.responseText);
+                if (Array.isArray(cats) && cats.length > 0) {
+                    e.detail.serverResponse = cats.map(cat => `
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">${cat.name} 🐱</h4>
+                                    <p class="text-sm text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageMonths ? cat.ageMonths + ' meses' : ''}</p>
+                                </div>
+                                <span class="text-xs bg-cat-100 text-cat-700 px-2 py-1 rounded-full font-medium">
+                                    ${cat.xp || 0} XP
+                                </span>
+                            </div>
+                            ${cat.bio ? `<p class="text-sm text-gray-600 mt-2">${cat.bio}</p>` : ''}
+                        </div>
+                    `).join('');
+                } else if (Array.isArray(cats) && cats.length === 0) {
+                    e.detail.serverResponse = `
+                        <div class="text-center py-8 bg-white rounded-xl border border-dashed border-gray-300">
+                            <p class="text-gray-500">Aún no tienes gatos registrados</p>
+                            <button onclick="App.showAddCat()" class="text-cat-600 font-medium text-sm mt-2 hover:text-cat-700">
+                                + Registrar mi primer gato
+                            </button>
+                        </div>`;
+                }
+            } catch(err) { /* let default handling work */ }
+        }
+    });
+</script>

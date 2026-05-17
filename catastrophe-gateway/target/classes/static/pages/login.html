@@ -1,0 +1,44 @@
+<div class="max-w-md mx-auto fade-in">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div class="text-center mb-6">
+            <span class="text-5xl">🔐</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-3">Iniciar sesión</h2>
+            <p class="text-gray-500 text-sm mt-1">Tu gato te espera al otro lado</p>
+        </div>
+
+        <form hx-post="/api/v1/auth/login"
+              hx-ext="json-enc"
+              hx-target="#login-result"
+              hx-swap="innerHTML"
+              hx-on::after-request="if(event.detail.successful) document.body.dispatchEvent(new Event('loginSuccess'))">
+
+            <div class="space-y-4">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Usuario</label>
+                    <input type="text" id="username" name="username" required
+                           class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none transition"
+                           placeholder="gatero99">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                    <input type="password" id="password" name="password" required
+                           class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none transition"
+                           placeholder="••••••••">
+                </div>
+            </div>
+
+            <button type="submit"
+                    class="w-full mt-6 bg-cat-600 text-white py-2.5 rounded-lg font-medium hover:bg-cat-700 transition">
+                <span class="htmx-indicator">⏳</span>
+                Entrar 🐾
+            </button>
+        </form>
+
+        <div id="login-result" class="mt-4"></div>
+
+        <p class="text-center text-sm text-gray-500 mt-6">
+            ¿No tienes cuenta?
+            <a href="#" onclick="App.showRegister()" class="text-cat-600 hover:text-cat-700 font-medium">Regístrate</a>
+        </p>
+    </div>
+</div>
