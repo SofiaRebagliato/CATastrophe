@@ -85,32 +85,9 @@ const App = {
 
 // ── Event listeners para HTMX ──
 
-// Después de login exitoso
-document.body.addEventListener('loginSuccess', async (e) => {
-    await App.checkSession();
-    App.refreshNav();
-    App.showDashboard();
-    App.toast('¡Bienvenido de vuelta! Tu gato te estaba esperando. 🐱');
-});
-
-// Después de registro exitoso
-document.body.addEventListener('registerSuccess', (e) => {
-    App.showLogin();
-    App.toast('¡Registro exitoso! Ahora inicia sesión.', 'success');
-});
-
-// Manejar errores de HTMX
+// Manejar errores de HTMX (para navegación de páginas)
 document.body.addEventListener('htmx:responseError', (e) => {
-    const status = e.detail.xhr.status;
-    if (status === 401) {
-        App.toast('Credenciales incorrectas', 'error');
-    } else if (status === 409) {
-        App.toast('El usuario ya existe', 'error');
-    } else if (status === 400) {
-        App.toast('Datos inválidos. Revisa el formulario.', 'error');
-    } else {
-        App.toast('Error del servidor. Intenta de nuevo.', 'error');
-    }
+    App.toast('Error al cargar la página.', 'error');
 });
 
 // Init
