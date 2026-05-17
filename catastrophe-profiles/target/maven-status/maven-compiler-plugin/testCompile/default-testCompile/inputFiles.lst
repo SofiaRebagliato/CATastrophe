@@ -1,7 +1,8 @@
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\adapter\in\messaging\XpEventConsumerTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\adapter\in\web\AuthIntegrationTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\adapter\in\web\CatIntegrationTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\adapter\out\persistence\PersistenceIntegrationTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\domain\model\HumanTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\domain\service\CatServiceTest.java
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-profiles\src\test\java\com\catastrophe\profiles\domain\service\HumanServiceTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/adapter/in/messaging/XpEventConsumerTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/adapter/in/web/AuthIntegrationTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/adapter/in/web/CatIntegrationTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/adapter/out/external/TheCatApiAdapterTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/adapter/out/persistence/PersistenceIntegrationTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/domain/model/HumanTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/domain/service/CatServiceTest.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/src/test/java/com/catastrophe/profiles/domain/service/HumanServiceTest.java

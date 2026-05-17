@@ -85,8 +85,8 @@
                 </configuration>
             </plugin>
             <!-- Surefire (tests unitarios) y Failsafe (tests integración):
-                 también necesitan --enable-preview porque algunos features
-                 (StructuredTaskScope) lo siguen requiriendo en Java 21. -->
+                 también requieren la flag de preview, porque algunos features
+                 (StructuredTaskScope) la siguen necesitando en Java 21. -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

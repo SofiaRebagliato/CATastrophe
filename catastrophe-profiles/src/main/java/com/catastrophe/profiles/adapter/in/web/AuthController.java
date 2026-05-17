@@ -64,7 +64,12 @@ public class AuthController {
         // Autenticar con Spring Security
         var authToken = new UsernamePasswordAuthenticationToken(
                 request.username(), request.password());
-        Authentication authentication = authenticationManager.authenticate(authToken);
+        Authentication authentication;
+        try {
+            authentication = authenticationManager.authenticate(authToken);
+        } catch (org.springframework.security.authentication.BadCredentialsException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
 
         // Establecer el contexto de seguridad
         var context = SecurityContextHolder.createEmptyContext();

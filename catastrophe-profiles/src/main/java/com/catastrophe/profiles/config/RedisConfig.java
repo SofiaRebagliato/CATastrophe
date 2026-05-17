@@ -1,8 +1,11 @@
 package com.catastrophe.profiles.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.security.jackson2.SecurityJackson2Modules;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 /**
@@ -21,11 +24,13 @@ public class RedisConfig {
 
     /**
      * Serializador JSON para las sesiones en Redis.
-     * Más legible que la serialización Java por defecto y evita
-     * problemas de compatibilidad entre versiones.
+     * Usa los mixins de Spring Security para poder serializar/deserializar
+     * correctamente los objetos de autenticación (UsernamePasswordAuthenticationToken, etc.).
      */
     @Bean
     public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
-        return RedisSerializer.json();
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModules(SecurityJackson2Modules.getModules(getClass().getClassLoader()));
+        return new GenericJackson2JsonRedisSerializer(mapper);
     }
 }

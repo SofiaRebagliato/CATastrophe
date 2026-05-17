@@ -1,1 +1,18 @@
-C:\Users\Sofia\Desktop\DAW\Proyecto final\catastrophe\catastrophe-notifications\src\main\java\com\catastrophe\notifications\NotificationsApplication.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/NotificationsApplication.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/in/messaging/NotificationEventConsumer.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/in/web/GlobalExceptionHandler.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/in/web/NotificationController.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/CatLevelTrackerPersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/NotificationPersistenceAdapter.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/entity/CatLevelStateEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/entity/NotificationEntity.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/mapper/NotificationMapper.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/repository/JpaCatLevelStateRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/adapter/out/persistence/repository/JpaNotificationRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/model/Notification.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/model/NotificationType.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/port/in/NotificationUseCase.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/port/out/CatLevelTrackerRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/port/out/NotificationRepository.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/service/NotificationFactory.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-notifications/src/main/java/com/catastrophe/notifications/domain/service/NotificationService.java
