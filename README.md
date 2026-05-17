@@ -93,4 +93,4 @@ cd ../catastrophe-gateway
 - [x] **F3**: Red social — Meows, feed, comentarios, likes, follows, mensajería
 - [x] **F4**: Gamificación — XP, aventuras, retos PvP, badges, rankings
 - [x] **F5**: Inteligencia — Notificaciones, personalidades, OpenWeatherMap, Cat Facts, Resilience4j
-- [ ] **F6**: Frontend — Thymeleaf + HTMX, dashboard, documentación
+- [x] **F6**: Frontend — HTML + HTMX + Tailwind CSS, dashboard, registro/login
