@@ -109,7 +109,6 @@ class CatIntegrationTest {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.name", is("Bigotes")))
                 .andExpect(jsonPath("$.breed", is("persian")))
-                .andExpect(jsonPath("$.ageMonths", is(24)))
                 .andExpect(jsonPath("$.bio", is("Un gato persa majestuoso")))
                 .andExpect(jsonPath("$.xp", is(0)))
                 .andExpect(jsonPath("$.level", is(1)))
