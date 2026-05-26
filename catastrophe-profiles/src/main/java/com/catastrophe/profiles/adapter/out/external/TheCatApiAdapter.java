@@ -61,10 +61,10 @@ public class TheCatApiAdapter implements CatAvatarProvider {
     @CircuitBreaker(name = CB_NAME, fallbackMethod = "fallbackAvatar")
     @SuppressWarnings("unchecked")
     public Optional<String> fetchRandomAvatar(String breed) {
+        // TheCatAPI breed_ids son códigos cortos (e.g., "siam", "beng").
+        // Como el usuario escribe nombres libres, siempre pedimos una imagen aleatoria.
+        // Si en el futuro se mapean razas a IDs, se puede añadir el filtro.
         var uri = "/images/search?limit=1";
-        if (breed != null && !breed.isBlank()) {
-            uri += "&breed_ids=" + breed;
-        }
 
         var response = restClient.get()
                 .uri(uri)

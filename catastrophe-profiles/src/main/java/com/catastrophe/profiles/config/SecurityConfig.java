@@ -47,8 +47,9 @@ public class SecurityConfig {
                         // Endpoints públicos
                         .requestMatchers("/api/v1/auth/register", "/api/v1/auth/login").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
-                        // Perfil público de gatos: lectura sin autenticación
+                        // Perfil público de gatos y humanos: lectura sin autenticación
                         .requestMatchers(HttpMethod.GET, "/api/v1/cats/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/humans/**").permitAll()
                         // Todo lo demás requiere autenticación
                         .anyRequest().authenticated()
                 )

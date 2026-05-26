@@ -2,6 +2,7 @@ package com.catastrophe.profiles.domain.port.in;
 
 import com.catastrophe.profiles.domain.model.Cat;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -48,14 +49,14 @@ public interface CatUseCase {
             UUID humanId,
             String name,
             String breed,
-            Integer ageMonths,
+            LocalDate birthDate,
             String bio
     ) {}
 
     record UpdateCatCommand(
             String name,
             String breed,
-            Integer ageMonths,
+            LocalDate birthDate,
             String bio
     ) {}
 }

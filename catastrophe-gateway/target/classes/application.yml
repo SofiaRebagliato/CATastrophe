@@ -37,7 +37,7 @@ spring:
         - id: analytics-service
           uri: http://localhost:8085
           predicates:
-            - Path=/api/v1/personalities/**
+            - Path=/api/v1/personalities/**, /api/v1/mood-forecast, /api/v1/cat-facts/**
 
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Origin

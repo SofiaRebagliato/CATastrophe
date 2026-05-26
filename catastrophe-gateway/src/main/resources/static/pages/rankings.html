@@ -1,0 +1,99 @@
+<div class="fade-in max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">🏆 Rankings</h2>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex space-x-2 mb-6">
+        <button onclick="loadRanking('global')" id="tab-global" class="text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg">🌍 Global (XP)</button>
+        <button onclick="loadRanking('badges')" id="tab-badges" class="text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg">🎖️ Insignias</button>
+    </div>
+
+    <!-- Mi posición -->
+    <div id="my-rank" class="mb-4"></div>
+
+    <!-- Tabla de ranking -->
+    <div id="ranking-table">
+        <div class="text-center py-8 text-gray-400">Cargando ranking...</div>
+    </div>
+</div>
+
+<script>
+async function loadRanking(type = 'global') {
+    // Update tabs
+    document.getElementById('tab-global').className = type === 'global'
+        ? 'text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg'
+        : 'text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg';
+    document.getElementById('tab-badges').className = type === 'badges'
+        ? 'text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg'
+        : 'text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg';
+
+    const container = document.getElementById('ranking-table');
+    const myRankDiv = document.getElementById('my-rank');
+
+    try {
+        const url = type === 'global' ? '/api/v1/rankings/global?top=20' : '/api/v1/rankings/badges?top=20';
+        const res = await fetch(url);
+        if (res.ok) {
+            const entries = await res.json();
+            if (entries.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-500">No hay datos en el ranking.</p>';
+                return;
+            }
+
+            // Resolve cat names
+            await App.resolveCatNames(entries.map(e => e.catId));
+
+            const medals = ['🥇', '🥈', '🥉'];
+            container.innerHTML = `
+                <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
+                    <table class="w-full">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">#</th>
+                                <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">Gato</th>
+                                <th class="px-4 py-3 text-right text-xs font-medium text-gray-500">${type === 'global' ? 'XP' : 'Insignias'}</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-50">
+                            ${entries.map((e, i) => {
+                                const avatar = App.getCatAvatar(e.catId);
+                                const displayName = App.getCatDisplayName(e.catId);
+                                return `
+                                <tr class="hover:bg-gray-50 cursor-pointer" onclick="App.showCatProfile('${e.catId}')">
+                                    <td class="px-4 py-3 text-sm">${i < 3 ? medals[i] : i + 1}</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">
+                                        <div class="flex items-center space-x-2">
+                                            ${avatar ? `<img src="${avatar}" class="w-6 h-6 rounded-full object-cover" onerror="this.style.display='none'">` : '<span>🐱</span>'}
+                                            <span>${displayName}</span>
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3 text-sm text-right font-semibold text-cat-700">${Math.round(e.score)}</td>
+                                </tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>`;
+        }
+
+        // Load my rank
+        if (App.activeCat) {
+            const myRes = await fetch(`/api/v1/rankings/cat/${App.activeCat.id}`);
+            if (myRes.ok) {
+                const myEntry = await myRes.json();
+                myRankDiv.innerHTML = `
+                    <div class="bg-cat-50 border border-cat-200 rounded-lg p-3 text-sm">
+                        Tu posición: <strong>#${myEntry.rank}</strong> con <strong>${Math.round(myEntry.score)}</strong> puntos
+                    </div>`;
+            } else {
+                myRankDiv.innerHTML = '';
+            }
+        }
+    } catch (err) {
+        container.innerHTML = '<p class="text-red-500 text-center">Error al cargar el ranking.</p>';
+    }
+}
+
+loadRanking('global');
+</script>

@@ -65,7 +65,7 @@ public class CatService implements CatUseCase {
                 command.humanId(),
                 command.name(),
                 command.breed(),
-                command.ageMonths(),
+                command.birthDate(),
                 command.bio()
         ).withAvatar(avatarUrl);
 
@@ -106,7 +106,7 @@ public class CatService implements CatUseCase {
                 cat.humanId(),
                 command.name() != null ? command.name() : cat.name(),
                 command.breed() != null ? command.breed() : cat.breed(),
-                command.ageMonths() != null ? command.ageMonths() : cat.ageMonths(),
+                command.birthDate() != null ? command.birthDate() : cat.birthDate(),
                 cat.avatarUrl(),
                 command.bio() != null ? command.bio() : cat.bio(),
                 cat.xp(),

@@ -21,6 +21,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -59,7 +60,7 @@ class CatServiceTest {
         @Test
         @DisplayName("Crear gato exitosamente obtiene avatar de TheCatAPI y publica evento")
         void createCatSuccessfully() {
-            var command = new CreateCatCommand(humanId, "Bigotes", "persian", 24, "Un gato persa");
+            var command = new CreateCatCommand(humanId, "Bigotes", "persian", LocalDate.of(2024, 5, 1), "Un gato persa");
 
             when(catRepository.existsByHumanIdAndName(humanId, "Bigotes")).thenReturn(false);
             when(avatarProvider.fetchRandomAvatar("persian"))
@@ -67,7 +68,7 @@ class CatServiceTest {
             when(catRepository.save(any(Cat.class))).thenAnswer(invocation -> {
                 Cat c = invocation.getArgument(0);
                 return new Cat(UUID.randomUUID(), c.humanId(), c.name(), c.breed(),
-                        c.ageMonths(), c.avatarUrl(), c.bio(), c.xp(), c.level(),
+                        c.birthDate(), c.avatarUrl(), c.bio(), c.xp(), c.level(),
                         c.mood(), Instant.now(), null);
             });
 
@@ -86,14 +87,14 @@ class CatServiceTest {
         @Test
         @DisplayName("Crear gato usa avatar por defecto si TheCatAPI falla")
         void createCatWithDefaultAvatar() {
-            var command = new CreateCatCommand(humanId, "Luna", null, 12, null);
+            var command = new CreateCatCommand(humanId, "Luna", null, LocalDate.of(2025, 5, 1), null);
 
             when(catRepository.existsByHumanIdAndName(humanId, "Luna")).thenReturn(false);
             when(avatarProvider.fetchRandomAvatar(null)).thenReturn(Optional.empty());
             when(catRepository.save(any(Cat.class))).thenAnswer(invocation -> {
                 Cat c = invocation.getArgument(0);
                 return new Cat(UUID.randomUUID(), c.humanId(), c.name(), c.breed(),
-                        c.ageMonths(), c.avatarUrl(), c.bio(), c.xp(), c.level(),
+                        c.birthDate(), c.avatarUrl(), c.bio(), c.xp(), c.level(),
                         c.mood(), Instant.now(), null);
             });
 
@@ -105,7 +106,7 @@ class CatServiceTest {
         @Test
         @DisplayName("No se puede crear dos gatos con el mismo nombre para el mismo humano")
         void duplicateCatNameThrows() {
-            var command = new CreateCatCommand(humanId, "Bigotes", null, 12, null);
+            var command = new CreateCatCommand(humanId, "Bigotes", null, LocalDate.of(2025, 5, 1), null);
             when(catRepository.existsByHumanIdAndName(humanId, "Bigotes")).thenReturn(true);
 
             var ex = assertThrows(BusinessRuleViolationException.class,
@@ -125,22 +126,20 @@ class CatServiceTest {
         @DisplayName("findById devuelve el gato si existe")
         void findByIdReturns() {
             var catId = UUID.randomUUID();
-            var cat = new Cat(catId, humanId, "Luna", null, 12, null, null,
+            var cat = new Cat(catId, humanId, "Luna", null, LocalDate.of(2025, 5, 1), null, null,
                     0, 1, "curious", Instant.now(), null);
             when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
 
             var result = catService.findById(catId);
-
-            assertTrue(result.isPresent());
             assertEquals("Luna", result.get().name());
         }
 
         @Test
         @DisplayName("findByHumanId devuelve todos los gatos del humano")
         void findByHumanIdReturnsList() {
-            var cat1 = new Cat(UUID.randomUUID(), humanId, "Luna", null, 12, null, null,
+            var cat1 = new Cat(UUID.randomUUID(), humanId, "Luna", null, LocalDate.of(2025, 5, 1), null, null,
                     0, 1, "curious", Instant.now(), null);
-            var cat2 = new Cat(UUID.randomUUID(), humanId, "Bigotes", null, 24, null, null,
+            var cat2 = new Cat(UUID.randomUUID(), humanId, "Bigotes", null, LocalDate.of(2024, 5, 1), null, null,
                     50, 1, "playful", Instant.now(), null);
             when(catRepository.findByHumanId(humanId)).thenReturn(List.of(cat1, cat2));
 
@@ -155,7 +154,7 @@ class CatServiceTest {
     class Update {
 
         private final UUID catId = UUID.randomUUID();
-        private final Cat existingCat = new Cat(catId, humanId, "Luna", "siamese", 12,
+        private final Cat existingCat = new Cat(catId, humanId, "Luna", "siamese", LocalDate.of(2025, 5, 1),
                 "https://cat.jpg", "Bio original", 50, 1, "curious", Instant.now(), null);
 
         @Test
@@ -170,7 +169,7 @@ class CatServiceTest {
             assertEquals("Nueva bio felina", result.bio());
             assertEquals("Luna", result.name());       // No cambió
             assertEquals("siamese", result.breed());    // No cambió
-            assertEquals(12, result.ageMonths());       // No cambió
+            assertEquals(LocalDate.of(2025, 5, 1), result.birthDate()); // No cambió
         }
 
         @Test
@@ -192,7 +191,7 @@ class CatServiceTest {
         @DisplayName("Refrescar avatar obtiene nueva URL de TheCatAPI")
         void refreshAvatarGetsNewUrl() {
             var catId = UUID.randomUUID();
-            var cat = new Cat(catId, humanId, "Luna", "persian", 12,
+            var cat = new Cat(catId, humanId, "Luna", "persian", LocalDate.of(2025, 5, 1),
                     "https://old.jpg", null, 0, 1, "curious", Instant.now(), null);
 
             when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
@@ -209,7 +208,7 @@ class CatServiceTest {
         @DisplayName("Si TheCatAPI falla, se mantiene el avatar actual")
         void refreshAvatarKeepsCurrent() {
             var catId = UUID.randomUUID();
-            var cat = new Cat(catId, humanId, "Luna", "persian", 12,
+            var cat = new Cat(catId, humanId, "Luna", "persian", LocalDate.of(2025, 5, 1),
                     "https://current.jpg", null, 0, 1, "curious", Instant.now(), null);
 
             when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
@@ -230,7 +229,7 @@ class CatServiceTest {
         @DisplayName("Eliminar gato existente funciona")
         void deleteExistingCat() {
             var catId = UUID.randomUUID();
-            var cat = new Cat(catId, humanId, "Luna", null, 12, null, null,
+            var cat = new Cat(catId, humanId, "Luna", null, LocalDate.of(2025, 5, 1), null, null,
                     0, 1, "curious", Instant.now(), null);
             when(catRepository.findById(catId)).thenReturn(Optional.of(cat));
 
@@ -286,7 +285,7 @@ class CatServiceTest {
         @Test
         @DisplayName("applyXpGain suma XP al gato y publica XpGained")
         void appliesAndPublishes() {
-            var cat = new Cat(catId, humanId, "Luna", "siamese", 12, null, null,
+            var cat = new Cat(catId, humanId, "Luna", "siamese", LocalDate.of(2025, 5, 1), null, null,
                     50, 1, "curious", Instant.now(), null);
             when(processedXpEvents.markProcessed(eventId, catId, 80, "adventure"))
                     .thenReturn(true);
@@ -313,7 +312,7 @@ class CatServiceTest {
         @DisplayName("applyXpGain detona level-up cuando se cruza el umbral cuadrático")
         void triggersLevelUp() {
             // Nivel 2 requiere 2²·100 = 400 XP totales
-            var cat = new Cat(catId, humanId, "Luna", null, 12, null, null,
+            var cat = new Cat(catId, humanId, "Luna", null, LocalDate.of(2025, 5, 1), null, null,
                     350, 1, "curious", Instant.now(), null);
             when(processedXpEvents.markProcessed(eventId, catId, 100, "challenge"))
                     .thenReturn(true);

@@ -1,0 +1,109 @@
+<div class="fade-in max-w-4xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">⚔️ Retos PvP</h2>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+    </div>
+
+    <!-- Mis retos -->
+    <section class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">🎮 Mis retos</h3>
+        <div id="my-challenges">
+            <div class="text-center py-4 text-gray-400">Cargando...</div>
+        </div>
+    </section>
+
+    <!-- Retos disponibles para crear -->
+    <section class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">📋 Catálogo de retos</h3>
+        <div id="challenge-catalog">
+            <div class="text-center py-4 text-gray-400">Cargando...</div>
+        </div>
+    </section>
+
+    <!-- Retos pendientes de aceptar -->
+    <section>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">⏳ Retos pendientes</h3>
+        <div id="pending-challenges">
+            <div class="text-center py-4 text-gray-400">Cargando...</div>
+        </div>
+    </section>
+</div>
+
+<script>
+async function loadMyChallenges() {
+    if (!App.activeCat) return;
+    const container = document.getElementById('my-challenges');
+    try {
+        const res = await fetch('/api/v1/challenges/my', { headers: App.getCatHeaders() });
+        if (res.ok) {
+            const challenges = await res.json();
+            if (challenges.length === 0) { container.innerHTML = '<p class="text-sm text-gray-500">No has participado en retos aún.</p>'; return; }
+            container.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">' + challenges.map(c => `
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-sm text-gray-800">Reto #${c.challengeId.substring(0, 8)}</span>
+                        <span class="text-xs px-2 py-0.5 rounded ${c.status === 'WON' ? 'bg-green-100 text-green-700' : c.status === 'LOST' ? 'bg-red-100 text-red-700' : 'bg-yellow-100 text-yellow-700'}">${c.status}</span>
+                    </div>
+                    ${c.opponentId ? `<p class="text-xs text-gray-500 mt-1">vs ${c.opponentId.substring(0, 8)}...</p>` : ''}
+                    ${c.score !== null && c.score !== undefined ? `<p class="text-xs text-gray-500">Puntuación: ${c.score}</p>` : ''}
+                </div>
+            `).join('') + '</div>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error.</p>'; }
+}
+
+async function loadChallengeCatalog() {
+    const container = document.getElementById('challenge-catalog');
+    try {
+        const res = await fetch('/api/v1/challenges');
+        if (res.ok) {
+            const challenges = await res.json();
+            if (challenges.length === 0) { container.innerHTML = '<p class="text-sm text-gray-500">No hay retos disponibles.</p>'; return; }
+            container.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">' + challenges.map(c => `
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <h4 class="font-semibold text-sm text-gray-800">${c.title}</h4>
+                    <p class="text-xs text-gray-500 mt-1">${c.description || ''}</p>
+                    <div class="flex justify-between items-center mt-3">
+                        <span class="text-xs text-gray-500">🎯 ${c.xpReward} XP · ${c.challengeType || ''}</span>
+                        <button onclick="createChallenge('${c.id}')" class="text-xs bg-cat-600 text-white px-3 py-1 rounded-lg hover:bg-cat-700">Crear reto</button>
+                    </div>
+                </div>
+            `).join('') + '</div>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error.</p>'; }
+}
+
+async function loadPendingChallenges() {
+    const container = document.getElementById('pending-challenges');
+    // We need a challengeId to check pending; skip if no catalog loaded
+    container.innerHTML = '<p class="text-sm text-gray-500">Selecciona un reto del catálogo para ver pendientes.</p>';
+}
+
+async function createChallenge(challengeId) {
+    if (!App.requireCat()) return;
+    try {
+        const res = await fetch('/api/v1/challenges/create', {
+            method: 'POST', headers: App.getHeaders(),
+            body: JSON.stringify({ challengeId })
+        });
+        if (res.ok || res.status === 201) {
+            App.toast('¡Reto creado! Esperando oponente... ⚔️');
+            loadMyChallenges();
+        } else { App.toast('No se pudo crear el reto.', 'error'); }
+    } catch (err) { App.toast('Error.', 'error'); }
+}
+
+async function acceptChallenge(catChallengeId) {
+    if (!App.requireCat()) return;
+    try {
+        const res = await fetch(`/api/v1/challenges/${catChallengeId}/accept`, {
+            method: 'POST', headers: App.getCatHeaders()
+        });
+        if (res.ok) { App.toast('¡Reto aceptado! ⚔️'); loadMyChallenges(); }
+    } catch (err) { App.toast('Error.', 'error'); }
+}
+
+loadMyChallenges();
+loadChallengeCatalog();
+loadPendingChallenges();
+</script>
