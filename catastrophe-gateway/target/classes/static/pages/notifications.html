@@ -1,0 +1,72 @@
+<div class="fade-in max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">🔔 Notificaciones</h2>
+        <div class="flex space-x-2">
+            <button onclick="markAllRead()" class="text-xs bg-gray-100 text-gray-600 px-3 py-1.5 rounded-lg hover:bg-gray-200">Marcar todo leído</button>
+            <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+        </div>
+    </div>
+
+    <div class="flex space-x-2 mb-4">
+        <button onclick="loadNotifications(false)" id="tab-all" class="text-xs bg-cat-600 text-white px-3 py-1 rounded-lg">Todas</button>
+        <button onclick="loadNotifications(true)" id="tab-unread" class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-lg">No leídas</button>
+    </div>
+
+    <div id="notifications-list">
+        <div class="text-center py-8 text-gray-400">Cargando...</div>
+    </div>
+</div>
+
+<script>
+async function loadNotifications(unreadOnly = false) {
+    if (!App.activeCat) { App.showDashboard(); return; }
+
+    document.getElementById('tab-all').className = !unreadOnly ? 'text-xs bg-cat-600 text-white px-3 py-1 rounded-lg' : 'text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-lg';
+    document.getElementById('tab-unread').className = unreadOnly ? 'text-xs bg-cat-600 text-white px-3 py-1 rounded-lg' : 'text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-lg';
+
+    const container = document.getElementById('notifications-list');
+    try {
+        const res = await fetch(`/api/v1/notifications?unreadOnly=${unreadOnly}&page=0&size=30`, { headers: App.getCatHeaders() });
+        if (res.ok) {
+            const notifications = await res.json();
+            if (notifications.length === 0) {
+                container.innerHTML = '<p class="text-center py-8 text-gray-500">No hay notificaciones.</p>';
+                return;
+            }
+            container.innerHTML = notifications.map(n => `
+                <div class="bg-white rounded-lg border ${n.read ? 'border-gray-100' : 'border-cat-200 bg-cat-50'} p-4 mb-2 flex justify-between items-center">
+                    <div>
+                        <p class="text-sm text-gray-800">${n.message || notificationIcon(n.type) + ' ' + n.type}</p>
+                        <span class="text-xs text-gray-400">${App.timeAgo(n.createdAt)}</span>
+                    </div>
+                    ${!n.read ? `<button onclick="markRead('${n.id}')" class="text-xs text-cat-600 hover:text-cat-700">✓</button>` : ''}
+                </div>
+            `).join('');
+        }
+    } catch (err) {
+        container.innerHTML = '<p class="text-red-500 text-center">Error al cargar notificaciones.</p>';
+    }
+}
+
+function notificationIcon(type) {
+    const icons = { LIKE: '❤️', COMMENT: '💬', FOLLOW: '🐾', MESSAGE: '✉️', LEVEL_UP: '⬆️', CHALLENGE: '⚔️', ADVENTURE: '🗺️' };
+    return icons[type] || '🔔';
+}
+
+async function markRead(id) {
+    try {
+        await fetch(`/api/v1/notifications/${id}/read`, { method: 'PATCH', headers: App.getCatHeaders() });
+        loadNotifications();
+    } catch (err) { /* ignore */ }
+}
+
+async function markAllRead() {
+    try {
+        await fetch('/api/v1/notifications/read-all', { method: 'PATCH', headers: App.getCatHeaders() });
+        App.toast('Todas las notificaciones marcadas como leídas ✓');
+        loadNotifications();
+    } catch (err) { App.toast('Error.', 'error'); }
+}
+
+loadNotifications();
+</script>

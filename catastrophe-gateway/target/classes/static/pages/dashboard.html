@@ -1,6 +1,6 @@
 <div class="fade-in">
     <!-- Header del dashboard -->
-    <div class="flex justify-between items-center mb-8">
+    <div class="flex justify-between items-center mb-6">
         <div>
             <h2 class="text-2xl font-bold text-gray-900">Panel de control 🐱</h2>
             <p class="text-gray-500 text-sm mt-1">Gestiona tus gatos y sus aventuras</p>
@@ -8,6 +8,31 @@
         <button onclick="document.getElementById('add-cat-form').classList.remove('hidden')"
                 class="bg-cat-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-cat-700 transition">
             + Nuevo gato
+        </button>
+    </div>
+
+    <!-- Navegación rápida -->
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mb-8">
+        <button onclick="App.showFeed()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">📰</div><div class="text-xs text-gray-600 mt-1">Feed</div>
+        </button>
+        <button onclick="App.showMessages()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">💬</div><div class="text-xs text-gray-600 mt-1">Mensajes</div>
+        </button>
+        <button onclick="App.showAdventures()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">🗺️</div><div class="text-xs text-gray-600 mt-1">Aventuras</div>
+        </button>
+        <button onclick="App.showChallenges()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">⚔️</div><div class="text-xs text-gray-600 mt-1">Retos</div>
+        </button>
+        <button onclick="App.showRankings()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">🏆</div><div class="text-xs text-gray-600 mt-1">Rankings</div>
+        </button>
+        <button onclick="App.showBadges()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">🎖️</div><div class="text-xs text-gray-600 mt-1">Insignias</div>
+        </button>
+        <button onclick="App.showPersonality()" class="bg-white rounded-xl border border-gray-100 p-3 text-center hover:shadow-md transition">
+            <div class="text-2xl">🧠</div><div class="text-xs text-gray-600 mt-1">Personalidad</div>
         </button>
     </div>
 
@@ -78,17 +103,27 @@ async function loadMyCats() {
             if (Array.isArray(cats) && cats.length > 0) {
                 container.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">' +
                     cats.map(cat => `
-                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h4 class="font-semibold text-gray-900">${cat.name} 🐱</h4>
-                                    <p class="text-sm text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageMonths ? cat.ageMonths + ' meses' : ''}</p>
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 hover:shadow-md transition cursor-pointer"
+                             onclick="App.showCatProfile('${cat.id}')">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-3">
+                                    ${cat.avatarUrl ? `<img src="${cat.avatarUrl}" class="w-10 h-10 rounded-full object-cover">` : '<span class="text-2xl">🐱</span>'}
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900">${cat.name}</h4>
+                                        <p class="text-xs text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageMonths ? cat.ageMonths + ' meses' : ''}</p>
+                                    </div>
                                 </div>
                                 <span class="text-xs bg-cat-100 text-cat-700 px-2 py-1 rounded-full font-medium">
-                                    ${cat.xp || 0} XP
+                                    Lv.${cat.level || 0} · ${cat.xp || 0} XP
                                 </span>
                             </div>
                             ${cat.bio ? `<p class="text-sm text-gray-600 mt-2">${cat.bio}</p>` : ''}
+                            <div class="mt-3 flex space-x-2">
+                                <button onclick="event.stopPropagation(); App.setActiveCat(${JSON.stringify(cat).replace(/"/g, '&quot;')})"
+                                        class="text-xs ${App.activeCat && App.activeCat.id === cat.id ? 'bg-cat-600 text-white' : 'bg-gray-100 text-gray-600'} px-2 py-1 rounded hover:bg-cat-200 transition">
+                                    ${App.activeCat && App.activeCat.id === cat.id ? '✓ Activo' : 'Activar'}
+                                </button>
+                            </div>
                         </div>
                     `).join('') + '</div>';
             } else {
@@ -103,7 +138,7 @@ async function loadMyCats() {
             }
         } else if (res.status === 401) {
             App.showLogin();
-            App.toast('Tu sesión ha expirado. Inicia sesión de nuevo.', 'error');
+            App.toast('Tu sesión ha expirado.', 'error');
         }
     } catch (err) {
         container.innerHTML = '<p class="text-center py-8 text-red-500">Error al cargar los gatos.</p>';
@@ -137,6 +172,8 @@ async function handleAddCat(e) {
             document.getElementById('add-cat-form').classList.add('hidden');
             document.getElementById('cat-form').reset();
             App.toast('¡Gato registrado! 🎉');
+            await App.loadActiveCat();
+            App.refreshNav();
             loadMyCats();
         } else if (res.status === 401) {
             App.showLogin();
@@ -154,6 +191,5 @@ async function handleAddCat(e) {
     }
 }
 
-// Cargar gatos al abrir el dashboard
 loadMyCats();
 </script>

@@ -1,0 +1,88 @@
+<div class="fade-in max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">🎖️ Insignias</h2>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+    </div>
+
+    <!-- Mis insignias -->
+    <section class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">🏅 Mis insignias</h3>
+        <div id="my-badges">
+            <div class="text-center py-4 text-gray-400">Cargando...</div>
+        </div>
+    </section>
+
+    <!-- Catálogo completo -->
+    <section>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">📋 Todas las insignias</h3>
+        <div id="all-badges">
+            <div class="text-center py-4 text-gray-400">Cargando catálogo...</div>
+        </div>
+    </section>
+</div>
+
+<script>
+const rarityColors = {
+    COMMON: 'bg-gray-100 text-gray-700',
+    RARE: 'bg-blue-100 text-blue-700',
+    EPIC: 'bg-purple-100 text-purple-700',
+    LEGENDARY: 'bg-yellow-100 text-yellow-700'
+};
+
+const rarityLabels = {
+    COMMON: 'Común',
+    RARE: 'Rara',
+    EPIC: 'Épica',
+    LEGENDARY: 'Legendaria'
+};
+
+async function loadMyBadges() {
+    if (!App.activeCat) { document.getElementById('my-badges').innerHTML = '<p class="text-sm text-gray-500">Activa un gato.</p>'; return; }
+    const container = document.getElementById('my-badges');
+    try {
+        const res = await fetch(`/api/v1/badges/cat/${App.activeCat.id}`);
+        if (res.ok) {
+            const badges = await res.json();
+            if (badges.length === 0) {
+                container.innerHTML = '<p class="text-sm text-gray-500">Aún no has desbloqueado insignias. ¡Completa aventuras y retos!</p>';
+                return;
+            }
+            container.innerHTML = '<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">' + badges.map(b => `
+                <div class="bg-white rounded-xl border border-gray-100 p-3 text-center">
+                    <span class="text-3xl">${b.iconUrl || '🏅'}</span>
+                    <p class="text-xs font-medium text-gray-800 mt-2">${b.badgeId.substring(0, 8)}</p>
+                    <p class="text-xs text-gray-400">${App.timeAgo(b.earnedAt)}</p>
+                </div>
+            `).join('') + '</div>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error.</p>'; }
+}
+
+async function loadAllBadges() {
+    const container = document.getElementById('all-badges');
+    try {
+        const res = await fetch('/api/v1/badges');
+        if (res.ok) {
+            const badges = await res.json();
+            if (badges.length === 0) { container.innerHTML = '<p class="text-sm text-gray-500">No hay insignias definidas.</p>'; return; }
+            container.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">' + badges.map(b => `
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl">${b.iconUrl || '🎖️'}</span>
+                        <div>
+                            <h4 class="font-semibold text-sm text-gray-800">${b.name}</h4>
+                            <p class="text-xs text-gray-500">${b.description || ''}</p>
+                        </div>
+                    </div>
+                    <span class="inline-block mt-2 text-xs px-2 py-0.5 rounded ${rarityColors[b.rarity] || 'bg-gray-100 text-gray-600'}">
+                        ${rarityLabels[b.rarity] || b.rarity}
+                    </span>
+                </div>
+            `).join('') + '</div>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error al cargar insignias.</p>'; }
+}
+
+loadMyBadges();
+loadAllBadges();
+</script>

@@ -1,0 +1,128 @@
+<div class="fade-in max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">🧠 Personalidad y Humor</h2>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+    </div>
+
+    <!-- Personalidad -->
+    <section class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">🎭 Rasgos de personalidad</h3>
+        <div id="personality-traits">
+            <div class="text-center py-4 text-gray-400">Cargando personalidad...</div>
+        </div>
+    </section>
+
+    <!-- Pronóstico de humor -->
+    <section class="mb-8">
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">🌤️ Pronóstico de humor gatuno</h3>
+        <div class="bg-white rounded-xl border border-gray-100 p-4">
+            <p class="text-sm text-gray-500 mb-3">Obtén un pronóstico basado en la personalidad de tu gato, el clima y curiosidades felinas.</p>
+            <div class="grid grid-cols-2 gap-3 mb-3">
+                <input type="number" id="mood-lat" step="any" placeholder="Latitud (ej: 39.47)" value="39.47"
+                       class="text-sm px-3 py-2 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
+                <input type="number" id="mood-lon" step="any" placeholder="Longitud (ej: -0.37)" value="-0.37"
+                       class="text-sm px-3 py-2 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
+            </div>
+            <button onclick="getMoodForecast()" class="text-sm bg-cat-600 text-white px-4 py-2 rounded-lg hover:bg-cat-700 transition">
+                Consultar humor 🔮
+            </button>
+            <div id="mood-result" class="mt-4"></div>
+        </div>
+    </section>
+
+    <!-- Cat Fact -->
+    <section>
+        <h3 class="text-lg font-semibold text-gray-800 mb-3">🐱 Curiosidad felina</h3>
+        <div id="cat-fact" class="bg-white rounded-xl border border-gray-100 p-4">
+            <button onclick="getRandomFact()" class="text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-200">
+                Obtener curiosidad 🎲
+            </button>
+            <p id="fact-text" class="text-sm text-gray-600 mt-3"></p>
+        </div>
+    </section>
+</div>
+
+<script>
+const traitLabels = {
+    PLAYFUL: '🎾 Juguetón',
+    LAZY: '😴 Perezoso',
+    HUNTER: '🐭 Cazador',
+    SOCIAL: '🤝 Social',
+    MYSTERIOUS: '🌙 Misterioso'
+};
+
+async function loadPersonality() {
+    if (!App.activeCat) { document.getElementById('personality-traits').innerHTML = '<p class="text-sm text-gray-500">Activa un gato primero.</p>'; return; }
+    const container = document.getElementById('personality-traits');
+    try {
+        const res = await fetch(`/api/v1/personalities/${App.activeCat.id}`);
+        if (res.ok) {
+            const data = await res.json();
+            if (!data.scores || Object.keys(data.scores).length === 0) {
+                container.innerHTML = '<p class="text-sm text-gray-500">Tu gato aún no tiene datos de personalidad. ¡Interactúa para generarlos!</p>';
+                return;
+            }
+            container.innerHTML = `
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    ${data.dominant ? `<p class="text-sm font-medium text-cat-700 mb-3">Rasgo dominante: ${traitLabels[data.dominant] || data.dominant}</p>` : ''}
+                    <div class="space-y-3">
+                        ${Object.entries(data.scores).map(([trait, score]) => `
+                            <div>
+                                <div class="flex justify-between text-xs text-gray-600 mb-1">
+                                    <span>${traitLabels[trait] || trait}</span>
+                                    <span>${(score * 100).toFixed(1)}%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="bg-cat-500 h-2 rounded-full transition-all" style="width: ${score * 100}%"></div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    ${data.updatedAt ? `<p class="text-xs text-gray-400 mt-3">Actualizado: ${App.timeAgo(data.updatedAt)}</p>` : ''}
+                </div>`;
+        } else if (res.status === 404) {
+            container.innerHTML = '<p class="text-sm text-gray-500">No hay datos de personalidad aún.</p>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error al cargar personalidad.</p>'; }
+}
+
+async function getMoodForecast() {
+    if (!App.activeCat) { App.toast('Activa un gato primero.', 'error'); return; }
+    const lat = document.getElementById('mood-lat').value;
+    const lon = document.getElementById('mood-lon').value;
+    const container = document.getElementById('mood-result');
+    container.innerHTML = '<p class="text-sm text-gray-400">Consultando...</p>';
+
+    try {
+        const res = await fetch(`/api/v1/mood-forecast?catId=${App.activeCat.id}&lat=${lat}&lon=${lon}`);
+        if (res.ok) {
+            const data = await res.json();
+            container.innerHTML = `
+                <div class="bg-cat-50 border border-cat-200 rounded-lg p-4">
+                    <p class="text-sm text-gray-800 font-medium mb-2">🔮 ${data.message || 'Sin mensaje'}</p>
+                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                        ${data.dominantTrait ? `<p>🎭 Rasgo: ${traitLabels[data.dominantTrait] || data.dominantTrait}</p>` : ''}
+                        ${data.weather ? `<p>🌤️ Clima: ${data.weather}</p>` : ''}
+                        ${data.fact ? `<p class="col-span-2">🐱 Dato: ${data.fact}</p>` : ''}
+                    </div>
+                </div>`;
+        } else {
+            container.innerHTML = '<p class="text-sm text-red-500">No se pudo obtener el pronóstico.</p>';
+        }
+    } catch (err) { container.innerHTML = '<p class="text-sm text-red-500">Error de conexión.</p>'; }
+}
+
+async function getRandomFact() {
+    try {
+        const res = await fetch('/api/v1/cat-facts/random');
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById('fact-text').textContent = data.text || 'Sin datos disponibles.';
+        } else {
+            document.getElementById('fact-text').textContent = 'No hay curiosidades disponibles ahora.';
+        }
+    } catch (err) { document.getElementById('fact-text').textContent = 'Error al obtener curiosidad.'; }
+}
+
+loadPersonality();
+</script>

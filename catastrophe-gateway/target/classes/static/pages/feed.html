@@ -1,0 +1,180 @@
+<div class="fade-in max-w-2xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-bold text-gray-900">📰 Feed</h2>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+    </div>
+
+    <!-- Nuevo meow -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
+        <form id="meow-form" onsubmit="return handleNewMeow(event)">
+            <textarea id="meow-content" rows="3" required maxlength="280"
+                      class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-cat-500 outline-none resize-none"
+                      placeholder="¿Qué está haciendo tu gato? 🐱"></textarea>
+            <div class="flex justify-between items-center mt-2">
+                <input type="text" id="meow-image" placeholder="URL de imagen (opcional)"
+                       class="text-sm px-3 py-1.5 border border-gray-200 rounded-lg w-2/3 outline-none focus:ring-1 focus:ring-cat-300">
+                <button type="submit" class="bg-cat-600 text-white px-4 py-1.5 rounded-lg text-sm font-medium hover:bg-cat-700 transition">
+                    Meow! 🐾
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Posts del feed -->
+    <div id="feed-posts">
+        <div class="text-center py-8 text-gray-400">Cargando feed... 🐱</div>
+    </div>
+    <div class="text-center mt-4">
+        <button id="load-more-btn" onclick="loadMoreFeed()" class="hidden text-sm text-cat-600 hover:text-cat-700 font-medium">
+            Cargar más...
+        </button>
+    </div>
+</div>
+
+<script>
+let feedPage = 0;
+
+async function handleNewMeow(e) {
+    e.preventDefault();
+    if (!App.requireCat()) return;
+    const content = document.getElementById('meow-content').value;
+    const imageUrl = document.getElementById('meow-image').value;
+    try {
+        const res = await fetch('/api/v1/posts', {
+            method: 'POST',
+            headers: App.getHeaders(),
+            body: JSON.stringify({ content, imageUrl: imageUrl || null, postType: 'MEOW' })
+        });
+        if (res.ok || res.status === 201) {
+            document.getElementById('meow-content').value = '';
+            document.getElementById('meow-image').value = '';
+            App.toast('¡Meow publicado! 🐱');
+            feedPage = 0;
+            loadFeed();
+        } else {
+            App.toast('No se pudo publicar el meow.', 'error');
+        }
+    } catch (err) {
+        App.toast('Error de conexión.', 'error');
+    }
+}
+
+async function loadFeed(append = false) {
+    const container = document.getElementById('feed-posts');
+    if (!append) container.innerHTML = '<div class="text-center py-8 text-gray-400">Cargando...</div>';
+    if (!App.activeCat) {
+        container.innerHTML = '<div class="text-center py-8 text-gray-500">Activa un gato para ver el feed.</div>';
+        return;
+    }
+    try {
+        const res = await fetch(`/api/v1/posts/feed?page=${feedPage}&size=10`, { headers: App.getCatHeaders() });
+        if (res.ok) {
+            const posts = await res.json();
+            const html = posts.map(renderPost).join('');
+            if (append) {
+                container.innerHTML += html;
+            } else {
+                container.innerHTML = html || '<div class="text-center py-8 text-gray-500">No hay meows en tu feed. ¡Sigue a otros gatos!</div>';
+            }
+            document.getElementById('load-more-btn').classList.toggle('hidden', posts.length < 10);
+        }
+    } catch (err) {
+        if (!append) container.innerHTML = '<p class="text-center py-8 text-red-500">Error al cargar el feed.</p>';
+    }
+}
+
+function loadMoreFeed() {
+    feedPage++;
+    loadFeed(true);
+}
+
+function renderPost(post) {
+    return `
+        <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-5 mb-4">
+            <div class="flex justify-between items-start">
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="App.showCatProfile('${post.catId}')">
+                    <span class="text-lg">🐱</span>
+                    <span class="font-medium text-gray-800 text-sm">${post.catId.substring(0, 8)}...</span>
+                </div>
+                <span class="text-xs text-gray-400">${App.timeAgo(post.createdAt)}</span>
+            </div>
+            <p class="text-gray-700 mt-3">${post.content}</p>
+            ${post.imageUrl ? `<img src="${post.imageUrl}" class="mt-3 rounded-lg max-h-64 w-full object-cover">` : ''}
+            <div class="flex items-center space-x-4 mt-3 pt-3 border-t border-gray-50">
+                <button onclick="toggleLike('${post.id}')" class="flex items-center space-x-1 text-sm text-gray-500 hover:text-red-500 transition">
+                    <span>❤️</span><span id="like-count-${post.id}">${post.likeCount || 0}</span>
+                </button>
+                <button onclick="toggleComments('${post.id}')" class="flex items-center space-x-1 text-sm text-gray-500 hover:text-cat-600 transition">
+                    <span>💬</span><span>${post.commentCount || 0}</span>
+                </button>
+            </div>
+            <div id="comments-${post.id}" class="hidden mt-3 pt-3 border-t border-gray-50">
+                <div id="comments-list-${post.id}"></div>
+                <form onsubmit="return addComment(event, '${post.id}')" class="flex space-x-2 mt-2">
+                    <input type="text" placeholder="Comentar..." required
+                           class="flex-1 text-sm px-3 py-1.5 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
+                    <button type="submit" class="text-sm bg-cat-100 text-cat-700 px-3 py-1.5 rounded-lg hover:bg-cat-200">Enviar</button>
+                </form>
+            </div>
+        </div>`;
+}
+
+async function toggleLike(postId) {
+    if (!App.requireCat()) return;
+    try {
+        const statusRes = await fetch(`/api/v1/likes/post/${postId}/status`, { headers: App.getCatHeaders() });
+        const status = await statusRes.json();
+        const method = status.liked ? 'DELETE' : 'POST';
+        const res = await fetch(`/api/v1/likes/post/${postId}`, { method, headers: App.getCatHeaders() });
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById(`like-count-${postId}`).textContent = data.likeCount;
+        }
+    } catch (err) { App.toast('Error al dar like.', 'error'); }
+}
+
+async function toggleComments(postId) {
+    const section = document.getElementById(`comments-${postId}`);
+    section.classList.toggle('hidden');
+    if (!section.classList.contains('hidden')) {
+        loadComments(postId);
+    }
+}
+
+async function loadComments(postId) {
+    const container = document.getElementById(`comments-list-${postId}`);
+    try {
+        const res = await fetch(`/api/v1/comments/post/${postId}?page=0&size=20`, { headers: App.getCatHeaders() });
+        if (res.ok) {
+            const comments = await res.json();
+            container.innerHTML = comments.map(c => `
+                <div class="text-sm py-1.5">
+                    <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${c.catId.substring(0, 8)}...</span>
+                    <span class="text-gray-600">${c.content}</span>
+                    <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
+                </div>
+            `).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
+        }
+    } catch (err) { /* ignore */ }
+}
+
+async function addComment(e, postId) {
+    e.preventDefault();
+    if (!App.requireCat()) return;
+    const input = e.target.querySelector('input');
+    try {
+        const res = await fetch('/api/v1/comments', {
+            method: 'POST',
+            headers: App.getHeaders(),
+            body: JSON.stringify({ postId, content: input.value })
+        });
+        if (res.ok || res.status === 201) {
+            input.value = '';
+            loadComments(postId);
+            App.toast('Comentario añadido 💬');
+        }
+    } catch (err) { App.toast('Error al comentar.', 'error'); }
+}
+
+loadFeed();
+</script>

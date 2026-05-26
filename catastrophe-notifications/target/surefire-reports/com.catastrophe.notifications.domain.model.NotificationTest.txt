@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.catastrophe.notifications.domain.model.NotificationTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s -- in com.catastrophe.notifications.domain.model.NotificationTest
