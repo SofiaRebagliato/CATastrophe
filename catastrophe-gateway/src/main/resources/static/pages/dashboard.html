@@ -56,10 +56,9 @@
                                    placeholder="Siamés">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Edad (meses)</label>
-                            <input type="number" id="cat-age" name="ageMonths" min="0"
-                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none"
-                                   placeholder="12">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de nacimiento</label>
+                            <input type="date" id="cat-birthdate" name="birthDate"
+                                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-cat-500 focus:border-cat-500 outline-none">
                         </div>
                     </div>
                     <div>
@@ -107,10 +106,10 @@ async function loadMyCats() {
                              onclick="App.showCatProfile('${cat.id}')">
                             <div class="flex items-center justify-between mb-2">
                                 <div class="flex items-center space-x-3">
-                                    ${cat.avatarUrl ? `<img src="${cat.avatarUrl}" class="w-10 h-10 rounded-full object-cover">` : '<span class="text-2xl">🐱</span>'}
+                                    ${cat.avatarUrl ? `<img src="${cat.avatarUrl}" class="w-10 h-10 rounded-full object-cover" onerror="this.outerHTML='<span class=\\'text-2xl\\'>🐱</span>'">` : '<span class="text-2xl">🐱</span>'}
                                     <div>
-                                        <h4 class="font-semibold text-gray-900">${cat.name}</h4>
-                                        <p class="text-xs text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageMonths ? cat.ageMonths + ' meses' : ''}</p>
+                                        <h4 class="font-semibold text-gray-900">${cat.name} ${cat.isBirthday ? '🎂' : ''}</h4>
+                                        <p class="text-xs text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageDisplay || ''}</p>
                                     </div>
                                 </div>
                                 <span class="text-xs bg-cat-100 text-cat-700 px-2 py-1 rounded-full font-medium">
@@ -156,10 +155,10 @@ async function handleAddCat(e) {
     try {
         const body = { name: document.getElementById('cat-name').value };
         const breed = document.getElementById('cat-breed').value;
-        const age = document.getElementById('cat-age').value;
+        const birthDate = document.getElementById('cat-birthdate').value;
         const bio = document.getElementById('cat-bio').value;
         if (breed) body.breed = breed;
-        if (age) body.ageMonths = parseInt(age);
+        if (birthDate) body.birthDate = birthDate;
         if (bio) body.bio = bio;
 
         const res = await fetch('/api/v1/cats', {
@@ -179,7 +178,8 @@ async function handleAddCat(e) {
             App.showLogin();
             App.toast('Tu sesión ha expirado.', 'error');
         } else {
-            errorDiv.textContent = '❌ No se pudo registrar el gato.';
+            const data = await res.json().catch(() => null);
+            errorDiv.textContent = '❌ ' + (data?.message || 'No se pudo registrar el gato.');
             errorDiv.classList.remove('hidden');
         }
     } catch (err) {

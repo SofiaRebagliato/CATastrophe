@@ -34,10 +34,10 @@ async function loadCatProfile(catId) {
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
                 <div class="flex items-start justify-between">
                     <div class="flex items-center space-x-4">
-                        ${cat.avatarUrl ? `<img src="${cat.avatarUrl}" class="w-16 h-16 rounded-full object-cover">` : '<span class="text-5xl">🐱</span>'}
+                        ${cat.avatarUrl ? `<img src="${cat.avatarUrl}" class="w-16 h-16 rounded-full object-cover" onerror="this.outerHTML='<span class=\\'text-5xl\\'>🐱</span>'">` : '<span class="text-5xl">🐱</span>'}
                         <div>
-                            <h2 class="text-xl font-bold text-gray-900">${cat.name}</h2>
-                            <p class="text-sm text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageMonths ? cat.ageMonths + ' meses' : ''}</p>
+                            <h2 class="text-xl font-bold text-gray-900">${cat.name} ${cat.isBirthday ? '🎂 ¡Feliz cumpleaños!' : ''}</h2>
+                            <p class="text-sm text-gray-500">${cat.breed || 'Sin raza'} · ${cat.ageDisplay || ''}</p>
                             <div class="flex space-x-3 mt-1 text-xs text-gray-500">
                                 <span><strong>${counts.followers}</strong> seguidores</span>
                                 <span><strong>${counts.following}</strong> seguidos</span>
@@ -74,13 +74,35 @@ async function loadCatProfile(catId) {
         const postsContainer = document.getElementById('cat-posts');
         if (postsRes.ok) {
             const posts = await postsRes.json();
-            postsContainer.innerHTML = posts.map(p => `
-                <div class="bg-white rounded-xl border border-gray-100 p-4 mb-3">
-                    <p class="text-gray-700">${p.content}</p>
-                    ${p.imageUrl ? `<img src="${p.imageUrl}" class="mt-2 rounded-lg max-h-48 object-cover">` : ''}
-                    <div class="text-xs text-gray-400 mt-2">❤️ ${p.likeCount || 0} · 💬 ${p.commentCount || 0} · ${App.timeAgo(p.createdAt)}</div>
-                </div>
-            `).join('') || '<p class="text-gray-500 text-sm">No hay meows aún.</p>';
+            if (posts.length === 0) {
+                postsContainer.innerHTML = '<p class="text-gray-500 text-sm">No hay meows aún.</p>';
+            } else {
+                // Resolve cat names for comments
+                await App.resolveCatNames([id]);
+                postsContainer.innerHTML = posts.map(p => `
+                    <div class="bg-white rounded-xl border border-gray-100 p-4 mb-3">
+                        <p class="text-gray-700">${p.content}</p>
+                        ${p.imageUrl ? `<img src="${p.imageUrl}" class="mt-2 rounded-lg max-h-48 object-cover">` : ''}
+                        <div class="flex items-center space-x-4 mt-2 text-xs text-gray-400">
+                            <button onclick="toggleLikeProfile('${p.id}')" class="flex items-center space-x-1 hover:text-red-500 transition">
+                                <span>❤️</span><span id="like-count-${p.id}">${p.likeCount || 0}</span>
+                            </button>
+                            <button onclick="toggleCommentsProfile('${p.id}')" class="flex items-center space-x-1 hover:text-cat-600 transition">
+                                <span>💬</span><span>${p.commentCount || 0}</span>
+                            </button>
+                            <span>${App.timeAgo(p.createdAt)}</span>
+                        </div>
+                        <div id="comments-${p.id}" class="hidden mt-3 pt-2 border-t border-gray-50">
+                            <div id="comments-list-${p.id}"></div>
+                            <form onsubmit="return addCommentProfile(event, '${p.id}')" class="flex space-x-2 mt-2">
+                                <input type="text" placeholder="Comentar..." required
+                                       class="flex-1 text-sm px-3 py-1.5 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
+                                <button type="submit" class="text-sm bg-cat-100 text-cat-700 px-3 py-1.5 rounded-lg hover:bg-cat-200">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                `).join('');
+            }
         }
     } catch (err) {
         container.innerHTML = '<p class="text-red-500">Error al cargar el perfil.</p>';
@@ -110,8 +132,75 @@ async function refreshAvatar(catId) {
         if (res.ok) {
             App.toast('¡Avatar actualizado! 📸');
             loadCatProfile(catId);
+        } else {
+            App.toast('Error al actualizar avatar.', 'error');
         }
     } catch (err) { App.toast('Error al actualizar avatar.', 'error'); }
+}
+
+async function toggleLikeProfile(postId) {
+    if (!App.requireCat()) return;
+    try {
+        const statusRes = await fetch(`/api/v1/likes/post/${postId}/status`, { headers: App.getCatHeaders() });
+        if (!statusRes.ok) return;
+        const status = await statusRes.json();
+        const method = status.liked ? 'DELETE' : 'POST';
+        const res = await fetch(`/api/v1/likes/post/${postId}`, { method, headers: App.getCatHeaders() });
+        if (res.ok) {
+            const data = await res.json();
+            document.getElementById(`like-count-${postId}`).textContent = data.likeCount;
+        } else {
+            const err = await res.json().catch(() => null);
+            App.toast(err?.message || 'No se pudo dar like.', 'error');
+        }
+    } catch (err) { App.toast('Error al dar like.', 'error'); }
+}
+
+async function toggleCommentsProfile(postId) {
+    const section = document.getElementById(`comments-${postId}`);
+    section.classList.toggle('hidden');
+    if (!section.classList.contains('hidden')) {
+        loadCommentsProfile(postId);
+    }
+}
+
+async function loadCommentsProfile(postId) {
+    const container = document.getElementById(`comments-list-${postId}`);
+    try {
+        const res = await fetch(`/api/v1/comments/post/${postId}?page=0&size=20`, { headers: App.getCatHeaders() });
+        if (res.ok) {
+            const comments = await res.json();
+            await App.resolveCatNames(comments.map(c => c.catId));
+            container.innerHTML = comments.map(c => `
+                <div class="text-sm py-1.5">
+                    <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${App.getCatName(c.catId)}</span>
+                    <span class="text-gray-600">${c.content}</span>
+                    <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
+                </div>
+            `).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
+        }
+    } catch (err) { /* ignore */ }
+}
+
+async function addCommentProfile(e, postId) {
+    e.preventDefault();
+    if (!App.requireCat()) return;
+    const input = e.target.querySelector('input');
+    try {
+        const res = await fetch('/api/v1/comments', {
+            method: 'POST',
+            headers: App.getHeaders(),
+            body: JSON.stringify({ postId, content: input.value })
+        });
+        if (res.ok || res.status === 201) {
+            input.value = '';
+            loadCommentsProfile(postId);
+            App.toast('Comentario añadido 💬');
+        } else {
+            const err = await res.json().catch(() => null);
+            App.toast(err?.message || 'No se pudo comentar.', 'error');
+        }
+    } catch (err) { App.toast('Error al comentar.', 'error'); }
 }
 
 loadCatProfile(window._catProfileId);

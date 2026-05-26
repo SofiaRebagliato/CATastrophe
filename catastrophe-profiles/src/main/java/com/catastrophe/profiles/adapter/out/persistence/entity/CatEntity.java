@@ -2,6 +2,7 @@ package com.catastrophe.profiles.adapter.out.persistence.entity;
 
 import jakarta.persistence.*;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -20,8 +21,8 @@ public class CatEntity {
     @Column(length = 100)
     private String breed;
 
-    @Column(name = "age_months")
-    private Integer ageMonths;
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     @Column(name = "avatar_url", length = 500)
     private String avatarUrl;
@@ -46,14 +47,14 @@ public class CatEntity {
 
     protected CatEntity() {}
 
-    public CatEntity(UUID id, UUID humanId, String name, String breed, Integer ageMonths,
+    public CatEntity(UUID id, UUID humanId, String name, String breed, LocalDate birthDate,
                      String avatarUrl, String bio, int xp, int level, String mood,
                      Instant createdAt, Instant updatedAt) {
         this.id = id;
         this.humanId = humanId;
         this.name = name;
         this.breed = breed;
-        this.ageMonths = ageMonths;
+        this.birthDate = birthDate;
         this.avatarUrl = avatarUrl;
         this.bio = bio;
         this.xp = xp;
@@ -67,7 +68,7 @@ public class CatEntity {
     public UUID getHumanId() { return humanId; }
     public String getName() { return name; }
     public String getBreed() { return breed; }
-    public Integer getAgeMonths() { return ageMonths; }
+    public LocalDate getBirthDate() { return birthDate; }
     public String getAvatarUrl() { return avatarUrl; }
     public String getBio() { return bio; }
     public int getXp() { return xp; }

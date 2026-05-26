@@ -22,6 +22,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -130,7 +131,7 @@ class PersistenceIntegrationTest {
         @Test
         @DisplayName("Guardar y recuperar un gato por id")
         void saveAndFindById() {
-            var cat = Cat.create(savedHumanId, "Luna", "siamese", 12, "Una gatita");
+            var cat = Cat.create(savedHumanId, "Luna", "siamese", LocalDate.of(2025, 5, 1), "Una gatita");
             var saved = catAdapter.save(cat);
 
             assertNotNull(saved.id());
@@ -146,8 +147,8 @@ class PersistenceIntegrationTest {
         @Test
         @DisplayName("Listar gatos de un humano")
         void findByHumanId() {
-            catAdapter.save(Cat.create(savedHumanId, "Luna", null, 12, null));
-            catAdapter.save(Cat.create(savedHumanId, "Sol", null, 8, null));
+            catAdapter.save(Cat.create(savedHumanId, "Luna", null, LocalDate.of(2025, 5, 1), null));
+            catAdapter.save(Cat.create(savedHumanId, "Sol", null, LocalDate.of(2025, 9, 1), null));
 
             var cats = catAdapter.findByHumanId(savedHumanId);
             assertEquals(2, cats.size());
@@ -156,7 +157,7 @@ class PersistenceIntegrationTest {
         @Test
         @DisplayName("existsByHumanIdAndName detecta nombres duplicados")
         void existsByHumanIdAndName() {
-            catAdapter.save(Cat.create(savedHumanId, "Bigotes", null, 24, null));
+            catAdapter.save(Cat.create(savedHumanId, "Bigotes", null, LocalDate.of(2024, 5, 1), null));
 
             assertTrue(catAdapter.existsByHumanIdAndName(savedHumanId, "Bigotes"));
             assertFalse(catAdapter.existsByHumanIdAndName(savedHumanId, "OtroNombre"));
@@ -165,7 +166,7 @@ class PersistenceIntegrationTest {
         @Test
         @DisplayName("Eliminar gato por id")
         void deleteById() {
-            var saved = catAdapter.save(Cat.create(savedHumanId, "Temporal", null, 1, null));
+            var saved = catAdapter.save(Cat.create(savedHumanId, "Temporal", null, LocalDate.of(2025, 1, 1), null));
 
             catAdapter.deleteById(saved.id());
 
@@ -178,8 +179,8 @@ class PersistenceIntegrationTest {
             var human2 = Human.create("otro", "otro@mail.com", "hash", "Otro");
             var human2Id = humanAdapter.save(human2).id();
 
-            catAdapter.save(Cat.create(savedHumanId, "Luna", null, 12, null));
-            catAdapter.save(Cat.create(human2Id, "Luna", null, 6, null));
+            catAdapter.save(Cat.create(savedHumanId, "Luna", null, LocalDate.of(2025, 5, 1), null));
+            catAdapter.save(Cat.create(human2Id, "Luna", null, LocalDate.of(2025, 11, 1), null));
 
             assertEquals(1, catAdapter.findByHumanId(savedHumanId).size());
             assertEquals(1, catAdapter.findByHumanId(human2Id).size());

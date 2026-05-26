@@ -1,6 +1,8 @@
 package com.catastrophe.profiles.domain.model;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.UUID;
 
 /**
@@ -13,7 +15,7 @@ public record Cat(
         UUID humanId,
         String name,
         String breed,
-        Integer ageMonths,
+        LocalDate birthDate,
         String avatarUrl,
         String bio,
         int xp,
@@ -25,13 +27,13 @@ public record Cat(
     /**
      * Factory method para crear un nuevo gato con valores por defecto.
      */
-    public static Cat create(UUID humanId, String name, String breed, Integer ageMonths, String bio) {
+    public static Cat create(UUID humanId, String name, String breed, LocalDate birthDate, String bio) {
         return new Cat(
                 UUID.randomUUID(),
                 humanId,
                 name,
                 breed,
-                ageMonths,
+                birthDate,
                 null, // avatarUrl se asigna después
                 bio,
                 0,    // xp
@@ -43,10 +45,33 @@ public record Cat(
     }
 
     /**
+     * Calcula la edad del gato a partir de su fecha de nacimiento.
+     * Devuelve un texto legible como "2 años" o "8 meses".
+     */
+    public String ageDisplay() {
+        if (birthDate == null) return null;
+        Period period = Period.between(birthDate, LocalDate.now());
+        if (period.getYears() >= 1) {
+            return period.getYears() == 1 ? "1 año" : period.getYears() + " años";
+        }
+        int months = period.getMonths() + period.getYears() * 12;
+        return months <= 1 ? "1 mes" : months + " meses";
+    }
+
+    /**
+     * Comprueba si hoy es el cumpleaños del gato.
+     */
+    public boolean isBirthday() {
+        if (birthDate == null) return false;
+        LocalDate today = LocalDate.now();
+        return birthDate.getMonth() == today.getMonth() && birthDate.getDayOfMonth() == today.getDayOfMonth();
+    }
+
+    /**
      * Devuelve una copia con un nuevo avatar.
      */
     public Cat withAvatar(String avatarUrl) {
-        return new Cat(id, humanId, name, breed, ageMonths, avatarUrl, bio, xp, level, mood, createdAt, Instant.now());
+        return new Cat(id, humanId, name, breed, birthDate, avatarUrl, bio, xp, level, mood, createdAt, Instant.now());
     }
 
     /**
@@ -88,7 +113,7 @@ public record Cat(
             newLevel++;
         }
 
-        return new Cat(id, humanId, name, breed, ageMonths, avatarUrl, bio,
+        return new Cat(id, humanId, name, breed, birthDate, avatarUrl, bio,
                 newXp, newLevel, mood, createdAt, Instant.now());
     }
 }

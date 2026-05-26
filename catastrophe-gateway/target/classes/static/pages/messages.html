@@ -30,20 +30,26 @@ async function loadInbox() {
                 }
             });
 
-            container.innerHTML = Object.entries(conversations).map(([catId, msg]) => `
+            // Resolver nombres de gatos
+            await App.resolveCatNames(Object.keys(conversations));
+
+            container.innerHTML = Object.entries(conversations).map(([catId, msg]) => {
+                const catName = App.getCatDisplayName(catId);
+                const catAvatar = App.getCatAvatar(catId);
+                return `
                 <div class="bg-white rounded-xl border border-gray-100 p-4 mb-3 cursor-pointer hover:shadow-md transition"
                      onclick="App.showConversation('${catId}')">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-2">
-                            <span class="text-lg">🐱</span>
-                            <span class="font-medium text-gray-800 text-sm">${catId.substring(0, 8)}...</span>
+                            ${catAvatar ? `<img src="${catAvatar}" class="w-8 h-8 rounded-full object-cover" onerror="this.outerHTML='<span class=\\'text-lg\\'>🐱</span>'">` : '<span class="text-lg">🐱</span>'}
+                            <span class="font-medium text-gray-800 text-sm">${catName}</span>
                             ${!msg.read && msg.receiverId === App.activeCat.id ? '<span class="w-2 h-2 bg-cat-500 rounded-full"></span>' : ''}
                         </div>
                         <span class="text-xs text-gray-400">${App.timeAgo(msg.createdAt)}</span>
                     </div>
                     <p class="text-sm text-gray-600 mt-1 truncate">${msg.content}</p>
-                </div>
-            `).join('');
+                </div>`;
+            }).join('');
         }
     } catch (err) {
         container.innerHTML = '<p class="text-red-500 text-center">Error al cargar mensajes.</p>';

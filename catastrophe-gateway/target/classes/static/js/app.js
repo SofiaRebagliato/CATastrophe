@@ -6,6 +6,8 @@
 const App = {
     user: null,
     activeCat: null,
+    _catNameCache: {}, // { catId: { name, avatarUrl, humanId } }
+    _notifInterval: null,
 
     async checkSession() {
         try {
@@ -57,6 +59,95 @@ const App = {
         return headers;
     },
 
+    // ── Resolución de nombres de gatos ──
+    async resolveCatNames(catIds) {
+        const unknown = [...new Set(catIds)].filter(id => id && !this._catNameCache[id]);
+        if (unknown.length === 0) return;
+        try {
+            const res = await fetch(`/api/v1/cats/batch?ids=${unknown.join('&ids=')}`);
+            if (res.ok) {
+                const summaries = await res.json();
+                summaries.forEach(s => {
+                    this._catNameCache[s.id] = { name: s.name, avatarUrl: s.avatarUrl, humanId: s.humanId };
+                });
+                // Also resolve human names for display
+                const humanIds = [...new Set(summaries.map(s => s.humanId).filter(id => id && !this._humanNameCache?.[id]))];
+                if (humanIds.length > 0) {
+                    await this._resolveHumanNames(humanIds);
+                }
+            }
+        } catch (e) { /* ignore */ }
+    },
+
+    _humanNameCache: {},
+
+    async _resolveHumanNames(humanIds) {
+        for (const hId of humanIds) {
+            try {
+                const res = await fetch(`/api/v1/humans/${hId}`);
+                if (res.ok) {
+                    const human = await res.json();
+                    this._humanNameCache[hId] = human.displayName || human.username;
+                }
+            } catch (e) { /* ignore */ }
+        }
+    },
+
+    getCatDisplayName(catId) {
+        const cached = this._catNameCache[catId];
+        if (!cached) return catId ? catId.substring(0, 8) + '...' : '???';
+        const humanName = this._humanNameCache?.[cached.humanId];
+        return humanName ? `${cached.name} - ${humanName}` : cached.name;
+    },
+
+    getCatName(catId) {
+        const cached = this._catNameCache[catId];
+        return cached ? cached.name : (catId ? catId.substring(0, 8) + '...' : '???');
+    },
+
+    getCatAvatar(catId) {
+        const cached = this._catNameCache[catId];
+        return cached?.avatarUrl || null;
+    },
+
+    // ── Notificaciones polling ──
+    startNotifPolling() {
+        this.stopNotifPolling();
+        this._updateNotifBadge();
+        this._notifInterval = setInterval(() => this._updateNotifBadge(), 10000);
+    },
+
+    stopNotifPolling() {
+        if (this._notifInterval) {
+            clearInterval(this._notifInterval);
+            this._notifInterval = null;
+        }
+    },
+
+    async _updateNotifBadge() {
+        if (!this.activeCat) return;
+        try {
+            const [notifRes, msgRes] = await Promise.all([
+                fetch('/api/v1/notifications/count', { headers: this.getCatHeaders() }),
+                fetch('/api/v1/messages/unread', { headers: this.getCatHeaders() })
+            ]);
+            let notifCount = 0, msgCount = 0;
+            if (notifRes.ok) { const d = await notifRes.json(); notifCount = d.unreadCount || 0; }
+            if (msgRes.ok) { const d = await msgRes.json(); msgCount = d.unreadCount || 0; }
+
+            const notifBadge = document.getElementById('notif-badge');
+            const msgBadge = document.getElementById('msg-badge');
+            if (notifBadge) {
+                notifBadge.textContent = notifCount > 0 ? notifCount : '';
+                notifBadge.classList.toggle('hidden', notifCount === 0);
+            }
+            if (msgBadge) {
+                msgBadge.textContent = msgCount > 0 ? msgCount : '';
+                msgBadge.classList.toggle('hidden', msgCount === 0);
+            }
+        } catch (e) { /* ignore */ }
+    },
+
     async refreshNav() {
         const nav = document.getElementById('nav-user');
         if (this.user) {
@@ -65,12 +156,18 @@ const App = {
                     ${this.activeCat ? `<span class="text-xs bg-cat-100 text-cat-700 px-2 py-1 rounded-full font-medium">${this.activeCat.name}</span>` : ''}
                     <span class="text-sm text-gray-700">🐾 <strong>${this.user.displayName || this.user.username}</strong></span>
                     <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600 transition" title="Panel">🏠</button>
-                    <button onclick="App.showNotifications()" class="text-sm text-gray-500 hover:text-cat-600 transition" title="Notificaciones">🔔</button>
+                    <button onclick="App.showMessages()" class="relative text-sm text-gray-500 hover:text-cat-600 transition" title="Mensajes">
+                        💬<span id="msg-badge" class="hidden absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"></span>
+                    </button>
+                    <button onclick="App.showNotifications()" class="relative text-sm text-gray-500 hover:text-cat-600 transition" title="Notificaciones">
+                        🔔<span id="notif-badge" class="hidden absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"></span>
+                    </button>
                     <button onclick="App.logout()"
                             class="text-sm bg-cat-100 text-cat-700 px-3 py-1.5 rounded-lg hover:bg-cat-200 transition">
                         Salir
                     </button>
                 </div>`;
+            this.startNotifPolling();
         } else {
             nav.innerHTML = `
                 <div class="flex items-center space-x-2">
@@ -83,6 +180,7 @@ const App = {
                         Registro
                     </button>
                 </div>`;
+            this.stopNotifPolling();
         }
     },
 
@@ -137,6 +235,7 @@ const App = {
         this.user = null;
         this.activeCat = null;
         localStorage.removeItem('activeCatId');
+        this.stopNotifPolling();
         this.refreshNav();
         this.showHome();
         App.toast('Sesión cerrada. Tus gatos te echarán de menos. 🐱', 'info');

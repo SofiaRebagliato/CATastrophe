@@ -6,6 +6,7 @@ com/catastrophe/profiles/domain/model/Cat.class
 com/catastrophe/profiles/adapter/out/messaging/KafkaEventPublisher.class
 com/catastrophe/profiles/adapter/in/web/HumanController.class
 com/catastrophe/profiles/domain/port/in/HumanUseCase$RegisterHumanCommand.class
+com/catastrophe/profiles/adapter/in/web/CatController$CatSummary.class
 com/catastrophe/profiles/adapter/out/external/TheCatApiAdapter.class
 com/catastrophe/profiles/adapter/out/persistence/repository/JpaProcessedXpEventRepository.class
 com/catastrophe/profiles/adapter/in/web/GlobalExceptionHandler.class

@@ -1,6 +1,6 @@
 <div class="fade-in max-w-2xl mx-auto">
     <div class="flex justify-between items-center mb-4">
-        <button onclick="App.showMessages()" class="text-sm text-gray-500 hover:text-cat-600">← Mensajes</button>
+        <button onclick="stopConvRefresh(); App.showMessages()" class="text-sm text-gray-500 hover:text-cat-600">← Mensajes</button>
         <span id="conv-header" class="text-sm font-medium text-gray-700"></span>
     </div>
 
@@ -19,10 +19,16 @@
 
 <script>
 const _otherCatId = window._conversationCatId;
+let _convRefreshInterval = null;
+let _lastMessageCount = 0;
 
 async function loadConversation() {
     if (!App.requireCat() || !_otherCatId) return;
-    document.getElementById('conv-header').textContent = `Conversación con ${_otherCatId.substring(0, 8)}...`;
+
+    // Resolve the other cat's name
+    await App.resolveCatNames([_otherCatId]);
+    const otherName = App.getCatDisplayName(_otherCatId);
+    document.getElementById('conv-header').textContent = `💬 ${otherName}`;
 
     // Mark as read
     fetch(`/api/v1/messages/read/${_otherCatId}`, { method: 'PUT', headers: App.getCatHeaders() });
@@ -33,23 +39,42 @@ async function loadConversation() {
         if (res.ok) {
             const messages = await res.json();
             if (messages.length === 0) {
-                container.innerHTML = '<div class="text-center py-4 text-gray-500 text-sm">Sin mensajes aún. ¡Di hola!</div>';
+                container.innerHTML = '<div class="text-center py-4 text-gray-500 text-sm">Sin mensajes aún. ¡Di hola! 🐱</div>';
+                _lastMessageCount = 0;
                 return;
             }
-            container.innerHTML = messages.map(m => {
-                const isMine = m.senderId === App.activeCat.id;
-                return `
-                    <div class="flex ${isMine ? 'justify-end' : 'justify-start'}">
-                        <div class="max-w-xs px-3 py-2 rounded-xl text-sm ${isMine ? 'bg-cat-100 text-cat-800' : 'bg-gray-100 text-gray-800'}">
-                            <p>${m.content}</p>
-                            <span class="text-xs text-gray-400 mt-1 block">${App.timeAgo(m.createdAt)}</span>
-                        </div>
-                    </div>`;
-            }).join('');
-            container.scrollTop = container.scrollHeight;
+
+            // Only re-render if message count changed (avoid flickering)
+            if (messages.length !== _lastMessageCount) {
+                _lastMessageCount = messages.length;
+                container.innerHTML = messages.map(m => {
+                    const isMine = m.senderId === App.activeCat.id;
+                    return `
+                        <div class="flex ${isMine ? 'justify-end' : 'justify-start'}">
+                            <div class="max-w-xs px-3 py-2 rounded-xl text-sm ${isMine ? 'bg-cat-100 text-cat-800' : 'bg-gray-100 text-gray-800'}">
+                                <p>${m.content}</p>
+                                <span class="text-xs text-gray-400 mt-1 block">${App.timeAgo(m.createdAt)}</span>
+                            </div>
+                        </div>`;
+                }).join('');
+                container.scrollTop = container.scrollHeight;
+            }
         }
     } catch (err) {
         container.innerHTML = '<p class="text-red-500 text-sm text-center">Error al cargar la conversación.</p>';
+    }
+}
+
+function startConvRefresh() {
+    _convRefreshInterval = setInterval(() => {
+        loadConversation();
+    }, 3000); // Refresh every 3 seconds
+}
+
+function stopConvRefresh() {
+    if (_convRefreshInterval) {
+        clearInterval(_convRefreshInterval);
+        _convRefreshInterval = null;
     }
 }
 
@@ -64,12 +89,15 @@ async function sendMessage(e) {
         });
         if (res.ok || res.status === 201) {
             input.value = '';
+            _lastMessageCount = 0; // Force re-render
             loadConversation();
         } else {
-            App.toast('No se pudo enviar el mensaje.', 'error');
+            const err = await res.json().catch(() => null);
+            App.toast(err?.message || 'No se pudo enviar el mensaje.', 'error');
         }
     } catch (err) { App.toast('Error de conexión.', 'error'); }
 }
 
 loadConversation();
+startConvRefresh();
 </script>

@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -48,7 +49,7 @@ public class CatController {
                 human.id(),
                 request.name(),
                 request.breed(),
-                request.ageMonths(),
+                request.birthDate(),
                 request.bio()
         );
         var cat = catUseCase.create(command);
@@ -81,6 +82,20 @@ public class CatController {
         return ResponseEntity.ok(cats);
     }
 
+    /**
+     * Endpoint batch para resolver nombres de gatos por IDs.
+     * Útil para el frontend cuando necesita mostrar nombres en rankings, mensajes, etc.
+     */
+    @GetMapping("/batch")
+    public ResponseEntity<List<CatSummary>> findBatch(@RequestParam List<UUID> ids) {
+        var summaries = ids.stream()
+                .map(id -> catUseCase.findById(id).orElse(null))
+                .filter(cat -> cat != null)
+                .map(cat -> new CatSummary(cat.id(), cat.humanId(), cat.name(), cat.avatarUrl()))
+                .toList();
+        return ResponseEntity.ok(summaries);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<CatResponse> update(@PathVariable UUID id,
                                                @Valid @RequestBody UpdateCatRequest request,
@@ -91,7 +106,7 @@ public class CatController {
         var command = new UpdateCatCommand(
                 request.name(),
                 request.breed(),
-                request.ageMonths(),
+                request.birthDate(),
                 request.bio()
         );
         var cat = catUseCase.update(id, command);
@@ -141,7 +156,7 @@ public class CatController {
             @Size(max = 100, message = "La raza no puede superar los 100 caracteres")
             String breed,
 
-            Integer ageMonths,
+            LocalDate birthDate,
 
             String bio
     ) {}
@@ -149,7 +164,7 @@ public class CatController {
     record UpdateCatRequest(
             @Size(max = 100) String name,
             @Size(max = 100) String breed,
-            Integer ageMonths,
+            LocalDate birthDate,
             String bio
     ) {}
 
@@ -158,7 +173,9 @@ public class CatController {
             UUID humanId,
             String name,
             String breed,
-            Integer ageMonths,
+            LocalDate birthDate,
+            String ageDisplay,
+            boolean isBirthday,
             String avatarUrl,
             String bio,
             int xp,
@@ -168,9 +185,12 @@ public class CatController {
         static CatResponse from(Cat cat) {
             return new CatResponse(
                     cat.id(), cat.humanId(), cat.name(), cat.breed(),
-                    cat.ageMonths(), cat.avatarUrl(), cat.bio(),
+                    cat.birthDate(), cat.ageDisplay(), cat.isBirthday(),
+                    cat.avatarUrl(), cat.bio(),
                     cat.xp(), cat.level(), cat.mood()
             );
         }
     }
+
+    record CatSummary(UUID id, UUID humanId, String name, String avatarUrl) {}
 }

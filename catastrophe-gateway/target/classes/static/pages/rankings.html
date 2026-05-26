@@ -42,6 +42,9 @@ async function loadRanking(type = 'global') {
                 return;
             }
 
+            // Resolve cat names
+            await App.resolveCatNames(entries.map(e => e.catId));
+
             const medals = ['🥇', '🥈', '🥉'];
             container.innerHTML = `
                 <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
@@ -54,13 +57,21 @@ async function loadRanking(type = 'global') {
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-50">
-                            ${entries.map((e, i) => `
+                            ${entries.map((e, i) => {
+                                const avatar = App.getCatAvatar(e.catId);
+                                const displayName = App.getCatDisplayName(e.catId);
+                                return `
                                 <tr class="hover:bg-gray-50 cursor-pointer" onclick="App.showCatProfile('${e.catId}')">
                                     <td class="px-4 py-3 text-sm">${i < 3 ? medals[i] : i + 1}</td>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">${e.catId.substring(0, 12)}...</td>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">
+                                        <div class="flex items-center space-x-2">
+                                            ${avatar ? `<img src="${avatar}" class="w-6 h-6 rounded-full object-cover" onerror="this.style.display='none'">` : '<span>🐱</span>'}
+                                            <span>${displayName}</span>
+                                        </div>
+                                    </td>
                                     <td class="px-4 py-3 text-sm text-right font-semibold text-cat-700">${Math.round(e.score)}</td>
-                                </tr>
-                            `).join('')}
+                                </tr>`;
+                            }).join('')}
                         </tbody>
                     </table>
                 </div>`;
