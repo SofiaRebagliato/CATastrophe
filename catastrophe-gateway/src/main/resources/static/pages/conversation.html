@@ -18,9 +18,9 @@
 </div>
 
 <script>
-const _otherCatId = window._conversationCatId;
-let _convRefreshInterval = null;
-let _lastMessageCount = 0;
+var _otherCatId = window._conversationCatId;
+var _convRefreshInterval = null;
+var _lastMessageCount = 0;
 
 async function loadConversation() {
     if (!App.requireCat() || !_otherCatId) return;

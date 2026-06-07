@@ -32,7 +32,9 @@
 </div>
 
 <script>
-let feedPage = 0;
+// 'var' (no 'let'/'const') para que el script pueda re-ejecutarse sin
+// "Identifier already declared" al reinyectarlo HTMX en cada navegación.
+var feedPage = 0;
 
 async function handleNewMeow(e) {
     e.preventDefault();
@@ -82,6 +84,9 @@ async function loadFeed(append = false) {
                 container.innerHTML = html || '<div class="text-center py-8 text-gray-500">No hay meows en tu feed. ¡Sigue a otros gatos!</div>';
             }
             document.getElementById('load-more-btn').classList.toggle('hidden', posts.length < 10);
+        } else if (!append) {
+            const data = await res.json().catch(() => null);
+            container.innerHTML = `<p class="text-center py-8 text-red-500">No se pudo cargar el feed (${res.status}). ${data?.message || ''}</p>`;
         }
     } catch (err) {
         if (!append) container.innerHTML = '<p class="text-center py-8 text-red-500">Error al cargar el feed.</p>';

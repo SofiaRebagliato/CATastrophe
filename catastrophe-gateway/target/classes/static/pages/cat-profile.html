@@ -110,7 +110,10 @@ async function loadCatProfile(catId) {
         // Load posts
         const postsRes = await fetch(`/api/v1/posts/cat/${id}?page=0&size=20`);
         const postsContainer = document.getElementById('cat-posts');
-        if (postsRes.ok) {
+        if (!postsRes.ok) {
+            const data = await postsRes.json().catch(() => null);
+            postsContainer.innerHTML = `<p class="text-red-500 text-sm">No se pudieron cargar los meows (${postsRes.status}). ${data?.message || ''}</p>`;
+        } else {
             const posts = await postsRes.json();
             if (posts.length === 0) {
                 postsContainer.innerHTML = '<p class="text-gray-500 text-sm">No hay meows aún.</p>';

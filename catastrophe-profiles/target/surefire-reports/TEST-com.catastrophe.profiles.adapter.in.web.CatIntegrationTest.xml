@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="8.85" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="8.886" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ES"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire/surefirebooter-20260607204916053_6.jar /Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire 2026-06-07T20-49-14_004-jvmRun1 surefire-20260607204916053_4tmp surefire_1-20260607204916053_5tmp"/>
+    <property name="sun.java.command" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire/surefirebooter-20260607211616132_6.jar /Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire 2026-06-07T21-16-14_067-jvmRun1 surefire-20260607211616132_4tmp surefire_1-20260607211616132_5tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/test-classes:/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/classes:/Users/srebagli/Projects/CATastrophe/catastrophe-commons/target/catastrophe-commons-0.0.1-SNAPSHOT.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-json/3.4.4/spring-boot-starter-json-3.4.4.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.18.3/jackson-databind-2.18.3.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.18.3/jackson-annotations-2.18.3.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.18.3/jackson-core-2.18.3.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.18.3/jackson-datatype-jdk8-2.18.3.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.18.3/jackson-datatype-jsr310-2.18.3.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/module/jackson-module-parameter-names/2.18.3/jackson-module-parameter-names-2.18.3.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-web/3.4.4/spring-boot-starter-web-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter/3.4.4/spring-boot-starter-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot/3.4.4/spring-boot-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.4.4/spring-boot-autoconfigure-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-logging/3.4.4/spring-boot-starter-logging-3.4.4.jar:/Users/srebagli/.m2/repository/ch/qos/logback/logback-classic/1.5.18/logback-classic-1.5.18.jar:/Users/srebagli/.m2/repository/ch/qos/logback/logback-core/1.5.18/logback-core-1.5.18.jar:/Users/srebagli/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.24.3/log4j-to-slf4j-2.24.3.jar:/Users/srebagli/.m2/repository/org/apache/logging/log4j/log4j-api/2.24.3/log4j-api-2.24.3.jar:/Users/srebagli/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar:/Users/srebagli/.m2/repository/jakarta/annotation/jakarta.annotation-api/2.1.1/jakarta.annotation-api-2.1.1.jar:/Users/srebagli/.m2/repository/org/yaml/snakeyaml/2.3/snakeyaml-2.3.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-tomcat/3.4.4/spring-boot-starter-tomcat-3.4.4.jar:/Users/srebagli/.m2/repository/org/apache/tomcat/embed/tomcat-embed-core/10.1.39/tomcat-embed-core-10.1.39.jar:/Users/srebagli/.m2/repository/org/apache/tomcat/embed/tomcat-embed-websocket/10.1.39/tomcat-embed-websocket-10.1.39.jar:/Users/srebagli/.m2/repository/org/springframework/spring-web/6.2.5/spring-web-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-beans/6.2.5/spring-beans-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-webmvc/6.2.5/spring-webmvc-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-expression/6.2.5/spring-expression-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/3.4.4/spring-boot-starter-data-jpa-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/3.4.4/spring-boot-starter-jdbc-3.4.4.jar:/Users/srebagli/.m2/repository/com/zaxxer/HikariCP/5.1.0/HikariCP-5.1.0.jar:/Users/srebagli/.m2/repository/org/springframework/spring-jdbc/6.2.5/spring-jdbc-6.2.5.jar:/Users/srebagli/.m2/repository/org/hibernate/orm/hibernate-core/6.6.11.Final/hibernate-core-6.6.11.Final.jar:/Users/srebagli/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.1.0/jakarta.persistence-api-3.1.0.jar:/Users/srebagli/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar:/Users/srebagli/.m2/repository/org/jboss/logging/jboss-logging/3.6.1.Final/jboss-logging-3.6.1.Final.jar:/Users/srebagli/.m2/repository/org/hibernate/common/hibernate-commons-annotations/7.0.3.Final/hibernate-commons-annotations-7.0.3.Final.jar:/Users/srebagli/.m2/repository/io/smallrye/jandex/3.2.0/jandex-3.2.0.jar:/Users/srebagli/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/srebagli/.m2/repository/net/bytebuddy/byte-buddy/1.15.11/byte-buddy-1.15.11.jar:/Users/srebagli/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.5/jaxb-runtime-4.0.5.jar:/Users/srebagli/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.5/jaxb-core-4.0.5.jar:/Users/srebagli/.m2/repository/org/eclipse/angus/angus-activation/2.0.2/angus-activation-2.0.2.jar:/Users/srebagli/.m2/repository/org/glassfish/jaxb/txw2/4.0.5/txw2-4.0.5.jar:/Users/srebagli/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar:/Users/srebagli/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar:/Users/srebagli/.m2/repository/org/antlr/antlr4-runtime/4.13.0/antlr4-runtime-4.13.0.jar:/Users/srebagli/.m2/repository/org/springframework/data/spring-data-jpa/3.4.4/spring-data-jpa-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/data/spring-data-commons/3.4.4/spring-data-commons-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/spring-orm/6.2.5/spring-orm-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-aspects/6.2.5/spring-aspects-6.2.5.jar:/Users/srebagli/.m2/repository/org/postgresql/postgresql/42.7.5/postgresql-42.7.5.jar:/Users/srebagli/.m2/repository/org/checkerframework/checker-qual/3.48.3/checker-qual-3.48.3.jar:/Users/srebagli/.m2/repository/org/flywaydb/flyway-database-postgresql/10.21.0/flyway-database-postgresql-10.21.0.jar:/Users/srebagli/.m2/repository/org/flywaydb/flyway-core/10.21.0/flyway-core-10.21.0.jar:/Users/srebagli/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-toml/2.18.3/jackson-dataformat-toml-2.18.3.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-security/3.4.4/spring-boot-starter-security-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/spring-aop/6.2.5/spring-aop-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/security/spring-security-config/6.4.4/spring-security-config-6.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/security/spring-security-web/6.4.4/spring-security-web-6.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-data-redis/3.4.4/spring-boot-starter-data-redis-3.4.4.jar:/Users/srebagli/.m2/repository/io/lettuce/lettuce-core/6.4.2.RELEASE/lettuce-core-6.4.2.RELEASE.jar:/Users/srebagli/.m2/repository/io/netty/netty-common/4.1.119.Final/netty-common-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-handler/4.1.119.Final/netty-handler-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-resolver/4.1.119.Final/netty-resolver-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-buffer/4.1.119.Final/netty-buffer-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-transport-native-unix-common/4.1.119.Final/netty-transport-native-unix-common-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-codec/4.1.119.Final/netty-codec-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/netty/netty-transport/4.1.119.Final/netty-transport-4.1.119.Final.jar:/Users/srebagli/.m2/repository/io/projectreactor/reactor-core/3.7.4/reactor-core-3.7.4.jar:/Users/srebagli/.m2/repository/org/reactivestreams/reactive-streams/1.0.4/reactive-streams-1.0.4.jar:/Users/srebagli/.m2/repository/org/springframework/data/spring-data-redis/3.4.4/spring-data-redis-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/data/spring-data-keyvalue/3.4.4/spring-data-keyvalue-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/spring-oxm/6.2.5/spring-oxm-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-context-support/6.2.5/spring-context-support-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/session/spring-session-data-redis/3.4.2/spring-session-data-redis-3.4.2.jar:/Users/srebagli/.m2/repository/org/springframework/session/spring-session-core/3.4.2/spring-session-core-3.4.2.jar:/Users/srebagli/.m2/repository/org/springframework/spring-jcl/6.2.5/spring-jcl-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/kafka/spring-kafka/3.3.4/spring-kafka-3.3.4.jar:/Users/srebagli/.m2/repository/org/springframework/spring-context/6.2.5/spring-context-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-messaging/6.2.5/spring-messaging-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-tx/6.2.5/spring-tx-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/retry/spring-retry/2.0.11/spring-retry-2.0.11.jar:/Users/srebagli/.m2/repository/org/apache/kafka/kafka-clients/3.8.1/kafka-clients-3.8.1.jar:/Users/srebagli/.m2/repository/com/github/luben/zstd-jni/1.5.6-4/zstd-jni-1.5.6-4.jar:/Users/srebagli/.m2/repository/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar:/Users/srebagli/.m2/repository/org/xerial/snappy/snappy-java/1.1.10.5/snappy-java-1.1.10.5.jar:/Users/srebagli/.m2/repository/io/micrometer/micrometer-observation/1.14.5/micrometer-observation-1.14.5.jar:/Users/srebagli/.m2/repository/io/micrometer/micrometer-commons/1.14.5/micrometer-commons-1.14.5.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-validation/3.4.4/spring-boot-starter-validation-3.4.4.jar:/Users/srebagli/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/10.1.39/tomcat-embed-el-10.1.39.jar:/Users/srebagli/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.2.Final/hibernate-validator-8.0.2.Final.jar:/Users/srebagli/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-actuator/3.4.4/spring-boot-starter-actuator-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/3.4.4/spring-boot-actuator-autoconfigure-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-actuator/3.4.4/spring-boot-actuator-3.4.4.jar:/Users/srebagli/.m2/repository/io/micrometer/micrometer-jakarta9/1.14.5/micrometer-jakarta9-1.14.5.jar:/Users/srebagli/.m2/repository/io/micrometer/micrometer-core/1.14.5/micrometer-core-1.14.5.jar:/Users/srebagli/.m2/repository/org/hdrhistogram/HdrHistogram/2.2.2/HdrHistogram-2.2.2.jar:/Users/srebagli/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-spring-boot3/2.2.0/resilience4j-spring-boot3-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-spring6/2.2.0/resilience4j-spring6-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-annotations/2.2.0/resilience4j-annotations-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-consumer/2.2.0/resilience4j-consumer-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-core/2.2.0/resilience4j-core-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-circularbuffer/2.2.0/resilience4j-circularbuffer-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-framework-common/2.2.0/resilience4j-framework-common-2.2.0.jar:/Users/srebagli/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-micrometer/2.2.0/resilience4j-micrometer-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-bulkhead/2.2.0/resilience4j-bulkhead-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-circuitbreaker/2.2.0/resilience4j-circuitbreaker-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-retry/2.2.0/resilience4j-retry-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-ratelimiter/2.2.0/resilience4j-ratelimiter-2.2.0.jar:/Users/srebagli/.m2/repository/io/github/resilience4j/resilience4j-timelimiter/2.2.0/resilience4j-timelimiter-2.2.0.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-aop/3.4.4/spring-boot-starter-aop-3.4.4.jar:/Users/srebagli/.m2/repository/org/aspectj/aspectjweaver/1.9.23/aspectjweaver-1.9.23.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-starter-test/3.4.4/spring-boot-starter-test-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-test/3.4.4/spring-boot-test-3.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/3.4.4/spring-boot-test-autoconfigure-3.4.4.jar:/Users/srebagli/.m2/repository/com/jayway/jsonpath/json-path/2.9.0/json-path-2.9.0.jar:/Users/srebagli/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/Users/srebagli/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/Users/srebagli/.m2/repository/net/minidev/json-smart/2.5.2/json-smart-2.5.2.jar:/Users/srebagli/.m2/repository/net/minidev/accessors-smart/2.5.2/accessors-smart-2.5.2.jar:/Users/srebagli/.m2/repository/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar:/Users/srebagli/.m2/repository/org/assertj/assertj-core/3.26.3/assertj-core-3.26.3.jar:/Users/srebagli/.m2/repository/org/awaitility/awaitility/4.2.2/awaitility-4.2.2.jar:/Users/srebagli/.m2/repository/org/hamcrest/hamcrest/2.2/hamcrest-2.2.jar:/Users/srebagli/.m2/repository/org/junit/jupiter/junit-jupiter/5.11.4/junit-jupiter-5.11.4.jar:/Users/srebagli/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.11.4/junit-jupiter-api-5.11.4.jar:/Users/srebagli/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/srebagli/.m2/repository/org/junit/platform/junit-platform-commons/1.11.4/junit-platform-commons-1.11.4.jar:/Users/srebagli/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/srebagli/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.11.4/junit-jupiter-params-5.11.4.jar:/Users/srebagli/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.11.4/junit-jupiter-engine-5.11.4.jar:/Users/srebagli/.m2/repository/org/junit/platform/junit-platform-engine/1.11.4/junit-platform-engine-1.11.4.jar:/Users/srebagli/.m2/repository/org/mockito/mockito-core/5.14.2/mockito-core-5.14.2.jar:/Users/srebagli/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar:/Users/srebagli/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:/Users/srebagli/.m2/repository/org/mockito/mockito-junit-jupiter/5.14.2/mockito-junit-jupiter-5.14.2.jar:/Users/srebagli/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar:/Users/srebagli/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar:/Users/srebagli/.m2/repository/org/springframework/spring-core/6.2.5/spring-core-6.2.5.jar:/Users/srebagli/.m2/repository/org/springframework/spring-test/6.2.5/spring-test-6.2.5.jar:/Users/srebagli/.m2/repository/org/xmlunit/xmlunit-core/2.10.0/xmlunit-core-2.10.0.jar:/Users/srebagli/.m2/repository/org/testcontainers/postgresql/1.20.4/postgresql-1.20.4.jar:/Users/srebagli/.m2/repository/org/testcontainers/jdbc/1.20.4/jdbc-1.20.4.jar:/Users/srebagli/.m2/repository/org/testcontainers/database-commons/1.20.4/database-commons-1.20.4.jar:/Users/srebagli/.m2/repository/org/testcontainers/kafka/1.20.4/kafka-1.20.4.jar:/Users/srebagli/.m2/repository/org/testcontainers/testcontainers/1.20.4/testcontainers-1.20.4.jar:/Users/srebagli/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/srebagli/.m2/repository/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2.jar:/Users/srebagli/.m2/repository/org/apache/commons/commons-compress/1.24.0/commons-compress-1.24.0.jar:/Users/srebagli/.m2/repository/org/rnorth/duct-tape/duct-tape/1.0.8/duct-tape-1.0.8.jar:/Users/srebagli/.m2/repository/org/jetbrains/annotations/17.0.0/annotations-17.0.0.jar:/Users/srebagli/.m2/repository/com/github/docker-java/docker-java-api/3.4.0/docker-java-api-3.4.0.jar:/Users/srebagli/.m2/repository/com/github/docker-java/docker-java-transport-zerodep/3.4.0/docker-java-transport-zerodep-3.4.0.jar:/Users/srebagli/.m2/repository/com/github/docker-java/docker-java-transport/3.4.0/docker-java-transport-3.4.0.jar:/Users/srebagli/.m2/repository/net/java/dev/jna/jna/5.13.0/jna-5.13.0.jar:/Users/srebagli/.m2/repository/org/testcontainers/junit-jupiter/1.20.4/junit-jupiter-1.20.4.jar:/Users/srebagli/.m2/repository/org/springframework/security/spring-security-test/6.4.4/spring-security-test-6.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/security/spring-security-core/6.4.4/spring-security-core-6.4.4.jar:/Users/srebagli/.m2/repository/org/springframework/security/spring-security-crypto/6.4.4/spring-security-crypto-6.4.4.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -35,7 +35,7 @@
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire/surefirebooter-20260607204916053_6.jar"/>
+    <property name="surefire.real.class.path" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles/target/surefire/surefirebooter-20260607211616132_6.jar"/>
     <property name="polyglot.engine.WarnInterpreterOnly" value="false"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.9"/>
@@ -51,14 +51,14 @@
     <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
     <property name="java.io.tmpdir" value="/var/folders/sj/khk_kg5n449dl7zmcwsmffbh0000gr/T/"/>
     <property name="com.zaxxer.hikari.pool_number" value="3"/>
-    <property name="catalina.home" value="/private/var/folders/sj/khk_kg5n449dl7zmcwsmffbh0000gr/T/tomcat.0.17720532295411134832"/>
+    <property name="catalina.home" value="/private/var/folders/sj/khk_kg5n449dl7zmcwsmffbh0000gr/T/tomcat.0.10068132501386953107"/>
     <property name="java.version" value="21.0.9"/>
     <property name="user.dir" value="/Users/srebagli/Projects/CATastrophe/catastrophe-profiles"/>
     <property name="os.arch" value="aarch64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="18843"/>
+    <property name="PID" value="25139"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
-    <property name="catalina.base" value="/private/var/folders/sj/khk_kg5n449dl7zmcwsmffbh0000gr/T/tomcat.0.12064015195307763011"/>
+    <property name="catalina.base" value="/private/var/folders/sj/khk_kg5n449dl7zmcwsmffbh0000gr/T/tomcat.0.6675638026822121077"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/srebagli/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -69,31 +69,33 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[catastrophe-profiles] "/>
   </properties>
-  <testcase name="duplicateCatNameReturns422" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="1.03">
-    <system-out><![CDATA[2026-06-07T20:49:29.416+02:00  INFO 18843 --- [catastrophe-profiles] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.catastrophe.profiles.adapter.in.web.CatIntegrationTest]: CatIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-06-07T20:49:29.418+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.catastrophe.profiles.ProfilesApplication for test class com.catastrophe.profiles.adapter.in.web.CatIntegrationTest
-2026-06-07T20:49:29.419+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Creating container for image: confluentinc/cp-kafka:7.7.1
-2026-06-07T20:49:29.435+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Container confluentinc/cp-kafka:7.7.1 is starting: b952cadc265090ff260988e976310c4706dfa3a56f1aa1c5c1289cf715c8f247
-2026-06-07T20:49:29.471+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:29.471+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:29.697+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:29.697+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:30.174+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:30.174+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:30.985+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:30.985+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:31.940+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Container confluentinc/cp-kafka:7.7.1 started in PT2.520694S
-2026-06-07T20:49:31.941+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Creating container for image: redis:7-alpine
-2026-06-07T20:49:31.941+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:31.941+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:31.958+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Container redis:7-alpine is starting: a037e7775950aa5ef6c034f42816c39ec50c7806b06f8ca9a9ac0c968e8d34af
-2026-06-07T20:49:32.140+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Container redis:7-alpine started in PT0.199668S
-2026-06-07T20:49:32.141+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Creating container for image: postgres:16-alpine
-2026-06-07T20:49:32.151+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine is starting: 598bd30919364d6f6b632569ac13e00b2d18b0194af15dae140001a5ff20eb24
-2026-06-07T20:49:32.943+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:32.943+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:33.049+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine started in PT0.908286S
-2026-06-07T20:49:33.049+02:00  INFO 18843 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container is started (JDBC URL: jdbc:postgresql://localhost:35343/catastrophe_profiles?loggerLevel=OFF)
+  <testcase name="duplicateCatNameReturns422" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.922">
+    <system-out><![CDATA[2026-06-07T21:16:29.144+02:00  INFO 25139 --- [catastrophe-profiles] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.catastrophe.profiles.adapter.in.web.CatIntegrationTest]: CatIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-06-07T21:16:29.146+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.catastrophe.profiles.ProfilesApplication for test class com.catastrophe.profiles.adapter.in.web.CatIntegrationTest
+2026-06-07T21:16:29.147+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Creating container for image: confluentinc/cp-kafka:7.7.1
+2026-06-07T21:16:29.171+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Container confluentinc/cp-kafka:7.7.1 is starting: 6dfe7334e5ec081ffe3339e8e2d87754ce81514e3503b948021482dd553f0f55
+2026-06-07T21:16:29.186+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:29.186+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:29.377+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:29.377+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:29.632+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:29.632+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:30.080+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:30.080+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:30.889+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:30.889+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:31.645+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.confluentinc/cp-kafka:7.7.1           : Container confluentinc/cp-kafka:7.7.1 started in PT2.498838S
+2026-06-07T21:16:31.646+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Creating container for image: redis:7-alpine
+2026-06-07T21:16:31.668+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Container redis:7-alpine is starting: cf22cec1f30def5e67315d7ab98d4cdf92e8145afa1564acd8de96ea4a6844fc
+2026-06-07T21:16:31.812+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.redis:7-alpine                        : Container redis:7-alpine started in PT0.165357S
+2026-06-07T21:16:31.812+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Creating container for image: postgres:16-alpine
+2026-06-07T21:16:31.821+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine is starting: 1f587295452e1eeee526038b3f903fc2b8e1dd912a5bd8465e531f0349c031ca
+2026-06-07T21:16:31.890+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:31.890+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:32.893+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:32.893+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:32.896+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container postgres:16-alpine started in PT1.083971S
+2026-06-07T21:16:32.896+02:00  INFO 25139 --- [catastrophe-profiles] [           main] tc.postgres:16-alpine                    : Container is started (JDBC URL: jdbc:postgresql://localhost:34947/catastrophe_profiles?loggerLevel=OFF)
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,39 +106,39 @@
 
  :: Spring Boot ::                (v3.4.4)
 
-2026-06-07T20:49:33.068+02:00  INFO 18843 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Starting CatIntegrationTest using Java 21.0.9 with PID 18843 (started by srebagli in /Users/srebagli/Projects/CATastrophe/catastrophe-profiles)
-2026-06-07T20:49:33.068+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Running with Spring Boot v3.4.4, Spring v6.2.5
-2026-06-07T20:49:33.069+02:00  INFO 18843 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
-2026-06-07T20:49:33.206+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-07T20:49:33.206+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-06-07T20:49:33.216+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 3 JPA repository interfaces.
-2026-06-07T20:49:33.218+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-06-07T20:49:33.218+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-06-07T20:49:33.222+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaCatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-07T20:49:33.222+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaHumanRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-07T20:49:33.222+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaProcessedXpEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
-2026-06-07T20:49:33.222+02:00  INFO 18843 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
-2026-06-07T20:49:33.302+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-06-07T20:49:33.302+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-06-07T20:49:33.302+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
-2026-06-07T20:49:33.310+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
-2026-06-07T20:49:33.310+02:00  INFO 18843 --- [catastrophe-profiles] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 241 ms
-2026-06-07T20:49:33.406+02:00  INFO 18843 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
-2026-06-07T20:49:33.417+02:00  INFO 18843 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@4de42e12
-2026-06-07T20:49:33.417+02:00  INFO 18843 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
-2026-06-07T20:49:33.418+02:00  INFO 18843 --- [catastrophe-profiles] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:35343/catastrophe_profiles?loggerLevel=OFF (PostgreSQL 16.13)
-2026-06-07T20:49:33.427+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
-2026-06-07T20:49:33.427+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.002s)
-2026-06-07T20:49:33.432+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
-2026-06-07T20:49:33.446+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
-2026-06-07T20:49:33.449+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create identity tables"
-2026-06-07T20:49:33.467+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - change age months to birth date"
-2026-06-07T20:49:33.473+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.016s)
-2026-06-07T20:49:33.494+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-06-07T20:49:33.495+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-06-07T20:49:33.499+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-06-07T20:49:33.501+02:00  WARN 18843 --- [catastrophe-profiles] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-06-07T20:49:33.502+02:00  INFO 18843 --- [catastrophe-profiles] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-06-07T21:16:32.921+02:00  INFO 25139 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Starting CatIntegrationTest using Java 21.0.9 with PID 25139 (started by srebagli in /Users/srebagli/Projects/CATastrophe/catastrophe-profiles)
+2026-06-07T21:16:32.921+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Running with Spring Boot v3.4.4, Spring v6.2.5
+2026-06-07T21:16:32.921+02:00  INFO 25139 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+2026-06-07T21:16:33.038+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-07T21:16:33.038+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-07T21:16:33.048+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 3 JPA repository interfaces.
+2026-06-07T21:16:33.049+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-06-07T21:16:33.049+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-06-07T21:16:33.052+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaCatRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-07T21:16:33.053+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaHumanRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-07T21:16:33.053+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.catastrophe.profiles.adapter.out.persistence.repository.JpaProcessedXpEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-06-07T21:16:33.053+02:00  INFO 25139 --- [catastrophe-profiles] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.
+2026-06-07T21:16:33.166+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-06-07T21:16:33.166+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-06-07T21:16:33.166+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2026-06-07T21:16:33.175+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2026-06-07T21:16:33.175+02:00  INFO 25139 --- [catastrophe-profiles] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 253 ms
+2026-06-07T21:16:33.251+02:00  INFO 25139 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2026-06-07T21:16:33.268+02:00  INFO 25139 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@4987e6f9
+2026-06-07T21:16:33.268+02:00  INFO 25139 --- [catastrophe-profiles] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2026-06-07T21:16:33.269+02:00  INFO 25139 --- [catastrophe-profiles] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:34947/catastrophe_profiles?loggerLevel=OFF (PostgreSQL 16.13)
+2026-06-07T21:16:33.276+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-06-07T21:16:33.276+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.002s)
+2026-06-07T21:16:33.281+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-06-07T21:16:33.296+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-06-07T21:16:33.299+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - create identity tables"
+2026-06-07T21:16:33.323+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - change age months to birth date"
+2026-06-07T21:16:33.328+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 2 migrations to schema "public", now at version v2 (execution time 00:00.020s)
+2026-06-07T21:16:33.350+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-07T21:16:33.351+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-07T21:16:33.355+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-07T21:16:33.357+02:00  WARN 25139 --- [catastrophe-profiles] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-07T21:16:33.358+02:00  INFO 25139 --- [catastrophe-profiles] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-3)']
 	Database driver: undefined/unknown
 	Database version: 16.13
@@ -144,29 +146,29 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-06-07T20:49:33.531+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-06-07T20:49:33.538+02:00  INFO 18843 --- [catastrophe-profiles] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-06-07T20:49:33.661+02:00  INFO 18843 --- [catastrophe-profiles] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
-2026-06-07T20:49:33.661+02:00  WARN 18843 --- [catastrophe-profiles] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-06-07T20:49:33.686+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.jackson2.CoreJackson2Module, now registering
-2026-06-07T20:49:33.686+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.jackson2.WebJackson2Module, now registering
-2026-06-07T20:49:33.686+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.server.jackson2.WebServerJackson2Module, now registering
-2026-06-07T20:49:33.686+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.jackson2.WebServletJackson2Module, now registering
-2026-06-07T20:49:33.686+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module com.fasterxml.jackson.datatype.jsr310.JavaTimeModule, now registering
-2026-06-07T20:49:33.846+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
-2026-06-07T20:49:33.873+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, ConcurrentSessionFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
-2026-06-07T20:49:33.944+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:33.945+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:34.097+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
-2026-06-07T20:49:34.097+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-06-07T20:49:34.097+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-06-07T20:49:34.111+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 64499 (http) with context path '/'
-2026-06-07T20:49:34.112+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
+2026-06-07T21:16:33.388+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-07T21:16:33.395+02:00  INFO 25139 --- [catastrophe-profiles] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-07T21:16:33.528+02:00  INFO 25139 --- [catastrophe-profiles] [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-07T21:16:33.528+02:00  WARN 25139 --- [catastrophe-profiles] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-07T21:16:33.563+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.jackson2.CoreJackson2Module, now registering
+2026-06-07T21:16:33.563+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.jackson2.WebJackson2Module, now registering
+2026-06-07T21:16:33.563+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.server.jackson2.WebServerJackson2Module, now registering
+2026-06-07T21:16:33.563+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module org.springframework.security.web.jackson2.WebServletJackson2Module, now registering
+2026-06-07T21:16:33.563+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.jackson2.SecurityJackson2Modules   : Loaded module com.fasterxml.jackson.datatype.jsr310.JavaTimeModule, now registering
+2026-06-07T21:16:33.707+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 4 endpoints beneath base path '/actuator'
+2026-06-07T21:16:33.733+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, ConcurrentSessionFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2026-06-07T21:16:33.894+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:33.895+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:33.950+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring TestDispatcherServlet ''
+2026-06-07T21:16:33.950+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-06-07T21:16:33.950+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-06-07T21:16:33.963+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 51489 (http) with context path '/'
+2026-06-07T21:16:33.963+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.clients.consumer.ConsumerConfig    : ConsumerConfig values: 
 	allow.auto.create.topics = true
 	auto.commit.interval.ms = 5000
 	auto.include.jmx.reporter = true
 	auto.offset.reset = earliest
-	bootstrap.servers = [PLAINTEXT://localhost:40503]
+	bootstrap.servers = [PLAINTEXT://localhost:40581]
 	check.crcs = true
 	client.dns.lookup = use_all_dns_ips
 	client.id = consumer-profiles-xp-applier-2
@@ -260,13 +262,13 @@
 	ssl.truststore.type = JKS
 	value.deserializer = class org.springframework.kafka.support.serializer.JsonDeserializer
 
-2026-06-07T20:49:34.112+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
-2026-06-07T20:49:34.114+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.8.1
-2026-06-07T20:49:34.114+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 70d6ff42debf7e17
-2026-06-07T20:49:34.115+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1780858174114
-2026-06-07T20:49:34.116+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Subscribed to topic(s): catastrophe.gamification
-2026-06-07T20:49:34.120+02:00  INFO 18843 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Started CatIntegrationTest in 1.069 seconds (process running for 18.017)
-2026-06-07T20:49:34.128+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:33.964+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-06-07T21:16:33.966+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.8.1
+2026-06-07T21:16:33.966+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 70d6ff42debf7e17
+2026-06-07T21:16:33.966+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1780859793966
+2026-06-07T21:16:33.967+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.c.c.internals.LegacyKafkaConsumer  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Subscribed to topic(s): catastrophe.gamification
+2026-06-07T21:16:33.971+02:00  INFO 25139 --- [catastrophe-profiles] [           main] c.c.p.adapter.in.web.CatIntegrationTest  : Started CatIntegrationTest in 1.071 seconds (process running for 17.799)
+2026-06-07T21:16:33.980+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -282,7 +284,7 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:34.132+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:33.983+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -294,10 +296,10 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:34.135+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:34.135+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:34.136+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:34.144+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:33.985+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:33.985+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:33.985+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:33.992+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -306,7 +308,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:34.146+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:33.993+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -315,9 +317,9 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:34.160+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Error while fetching metadata with correlation id 2 : {catastrophe.gamification=LEADER_NOT_AVAILABLE}
-2026-06-07T20:49:34.160+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Cluster ID: Aq3szq21R5q2Gi3DfFdSBQ
-2026-06-07T20:49:34.222+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.008+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Error while fetching metadata with correlation id 2 : {catastrophe.gamification=LEADER_NOT_AVAILABLE}
+2026-06-07T21:16:34.008+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.Metadata        : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Cluster ID: Ayni-f5RTtGej6OG6gfp1Q
+2026-06-07T21:16:34.069+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -331,27 +333,23 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:34.226+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.071+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:34.236+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:34.237+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:34.237+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:34.277+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Discovered group coordinator localhost:40503 (id: 2147483646 rack: null)
-2026-06-07T20:49:34.277+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] (Re-)joining group
-2026-06-07T20:49:34.285+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Request joining group due to: need to re-join with the given member-id: consumer-profiles-xp-applier-2-7f7155da-8844-450d-b052-c1087b059ebb
-2026-06-07T20:49:34.285+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] (Re-)joining group
-2026-06-07T20:49:34.292+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Successfully joined group with generation Generation{generationId=1, memberId='consumer-profiles-xp-applier-2-7f7155da-8844-450d-b052-c1087b059ebb', protocol='range'}
-2026-06-07T20:49:34.292+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Finished assignment for group at generation 1: {consumer-profiles-xp-applier-2-7f7155da-8844-450d-b052-c1087b059ebb=Assignment(partitions=[catastrophe.gamification-0])}
-2026-06-07T20:49:34.308+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Successfully synced group in generation Generation{generationId=1, memberId='consumer-profiles-xp-applier-2-7f7155da-8844-450d-b052-c1087b059ebb', protocol='range'}
-2026-06-07T20:49:34.308+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Notifying assignor about the new Assignment(partitions=[catastrophe.gamification-0])
-2026-06-07T20:49:34.308+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Adding newly assigned partitions: catastrophe.gamification-0
-2026-06-07T20:49:34.312+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Found no committed offset for partition catastrophe.gamification-0
-2026-06-07T20:49:34.312+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.075+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:34.075+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:34.075+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:34.127+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Discovered group coordinator localhost:40581 (id: 2147483646 rack: null)
+2026-06-07T21:16:34.127+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] (Re-)joining group
+2026-06-07T21:16:34.136+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Request joining group due to: need to re-join with the given member-id: consumer-profiles-xp-applier-2-d27daf38-0d0a-4fe8-8adb-ef1dd359f30b
+2026-06-07T21:16:34.136+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] (Re-)joining group
+2026-06-07T21:16:34.143+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Successfully joined group with generation Generation{generationId=1, memberId='consumer-profiles-xp-applier-2-d27daf38-0d0a-4fe8-8adb-ef1dd359f30b', protocol='range'}
+2026-06-07T21:16:34.143+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Finished assignment for group at generation 1: {consumer-profiles-xp-applier-2-d27daf38-0d0a-4fe8-8adb-ef1dd359f30b=Assignment(partitions=[catastrophe.gamification-0])}
+2026-06-07T21:16:34.150+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -365,10 +363,14 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:34.316+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Resetting offset for partition catastrophe.gamification-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:40503 (id: 1 rack: null)], epoch=0}}.
-2026-06-07T20:49:34.316+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] o.s.k.l.KafkaMessageListenerContainer    : profiles-xp-applier: partitions assigned: [catastrophe.gamification-0]
-2026-06-07T20:49:34.386+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:34.387+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.158+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Successfully synced group in generation Generation{generationId=1, memberId='consumer-profiles-xp-applier-2-d27daf38-0d0a-4fe8-8adb-ef1dd359f30b', protocol='range'}
+2026-06-07T21:16:34.159+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Notifying assignor about the new Assignment(partitions=[catastrophe.gamification-0])
+2026-06-07T21:16:34.159+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] k.c.c.i.ConsumerRebalanceListenerInvoker : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Adding newly assigned partitions: catastrophe.gamification-0
+2026-06-07T21:16:34.162+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.ConsumerCoordinator  : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Found no committed offset for partition catastrophe.gamification-0
+2026-06-07T21:16:34.165+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.a.k.c.c.internals.SubscriptionState    : [Consumer clientId=consumer-profiles-xp-applier-2, groupId=profiles-xp-applier] Resetting offset for partition catastrophe.gamification-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[localhost:40581 (id: 1 rack: null)], epoch=0}}.
+2026-06-07T21:16:34.165+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] o.s.k.l.KafkaMessageListenerContainer    : profiles-xp-applier: partitions assigned: [catastrophe.gamification-0]
+2026-06-07T21:16:34.222+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:34.223+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -382,10 +384,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:34.397+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:34.400+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=duper, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:34.400+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:34.404+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.232+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:34.235+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=duper, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:34.235+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:34.239+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -399,7 +401,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:34.406+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.242+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -409,9 +411,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:34.945+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:34.945+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:34.979+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.713+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -429,12 +429,12 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:34.984+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'f5f7c607-82aa-49d9-aa44-1f20d809ea2b'
-2026-06-07T20:49:34.989+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
+2026-06-07T21:16:34.718+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '2241aeec-8ed0-4aad-8b15-6c9cd0b885c1'
+2026-06-07T21:16:34.723+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.clients.producer.ProducerConfig    : ProducerConfig values: 
 	acks = -1
 	auto.include.jmx.reporter = true
 	batch.size = 16384
-	bootstrap.servers = [PLAINTEXT://localhost:40503]
+	bootstrap.servers = [PLAINTEXT://localhost:40581]
 	buffer.memory = 33554432
 	client.dns.lookup = use_all_dns_ips
 	client.id = catastrophe-profiles-producer-1
@@ -526,25 +526,25 @@
 	transactional.id = null
 	value.serializer = class org.springframework.kafka.support.serializer.JsonSerializer
 
-2026-06-07T20:49:34.989+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
-2026-06-07T20:49:34.993+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=catastrophe-profiles-producer-1] Instantiated an idempotent producer.
-2026-06-07T20:49:34.999+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.8.1
-2026-06-07T20:49:34.999+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 70d6ff42debf7e17
-2026-06-07T20:49:34.999+02:00  INFO 18843 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1780858174999
-2026-06-07T20:49:35.016+02:00  WARN 18843 --- [catastrophe-profiles] [iles-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=catastrophe-profiles-producer-1] Error while fetching metadata with correlation id 1 : {catastrophe.profiles=LEADER_NOT_AVAILABLE}
-2026-06-07T20:49:35.016+02:00  INFO 18843 --- [catastrophe-profiles] [iles-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=catastrophe-profiles-producer-1] Cluster ID: Aq3szq21R5q2Gi3DfFdSBQ
-2026-06-07T20:49:35.125+02:00  INFO 18843 --- [catastrophe-profiles] [iles-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=catastrophe-profiles-producer-1] ProducerId set to 0 with epoch 0
-2026-06-07T20:49:35.132+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.724+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.c.t.i.KafkaMetricsCollector        : initializing Kafka metrics collector
+2026-06-07T21:16:34.728+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.k.clients.producer.KafkaProducer     : [Producer clientId=catastrophe-profiles-producer-1] Instantiated an idempotent producer.
+2026-06-07T21:16:34.734+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.8.1
+2026-06-07T21:16:34.735+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: 70d6ff42debf7e17
+2026-06-07T21:16:34.735+02:00  INFO 25139 --- [catastrophe-profiles] [           main] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1780859794734
+2026-06-07T21:16:34.747+02:00  WARN 25139 --- [catastrophe-profiles] [iles-producer-1] org.apache.kafka.clients.NetworkClient   : [Producer clientId=catastrophe-profiles-producer-1] Error while fetching metadata with correlation id 1 : {catastrophe.profiles=LEADER_NOT_AVAILABLE}
+2026-06-07T21:16:34.747+02:00  INFO 25139 --- [catastrophe-profiles] [iles-producer-1] org.apache.kafka.clients.Metadata        : [Producer clientId=catastrophe-profiles-producer-1] Cluster ID: Ayni-f5RTtGej6OG6gfp1Q
+2026-06-07T21:16:34.863+02:00  INFO 25139 --- [catastrophe-profiles] [iles-producer-1] o.a.k.c.p.internals.TransactionManager   : [Producer clientId=catastrophe-profiles-producer-1] ProducerId set to 0 with epoch 0
+2026-06-07T21:16:34.871+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:35.140+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:35.141+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=duper, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:35.141+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:35.142+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.880+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:34.882+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=duper, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:34.882+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:34.883+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -558,7 +558,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.144+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.885+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -568,12 +568,14 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.145+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Regla de negocio violada [UNIQUE_CAT_NAME]: Ya tienes un gato llamado 'Duplicado'
-2026-06-07T20:49:35.147+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 0
+2026-06-07T21:16:34.887+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Regla de negocio violada [UNIQUE_CAT_NAME]: Ya tienes un gato llamado 'Duplicado'
+2026-06-07T21:16:34.888+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 0
 ]]></system-out>
   </testcase>
-  <testcase name="cannotModifyOthersCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.537">
-    <system-out><![CDATA[2026-06-07T20:49:35.153+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="cannotModifyOthersCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.56">
+    <system-out><![CDATA[2026-06-07T21:16:34.895+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:34.895+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:34.896+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -589,13 +591,13 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:35.154+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.897+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:35.155+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.898+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -607,16 +609,16 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:35.156+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.898+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:35.157+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:35.157+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.157+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:35.158+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.899+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:34.899+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:34.900+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:34.900+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -625,7 +627,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.159+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.901+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -634,7 +636,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.234+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.972+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -648,17 +650,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:35.235+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.974+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:35.237+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:35.238+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.238+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:35.239+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:34.976+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:34.976+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:34.976+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:34.977+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -672,8 +674,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.311+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:35.312+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.047+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:35.048+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -687,10 +689,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.317+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:35.318+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=humano1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:35.318+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:35.319+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.053+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:35.054+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=humano1, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:35.054+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:35.055+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -704,7 +706,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.320+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.057+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -714,7 +716,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.511+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.253+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -732,19 +734,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:35.513+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'db7414ce-bb15-46b1-a4ca-bb43de94772e'
-2026-06-07T20:49:35.514+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.256+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '8bf3df94-e702-4007-9631-1444d909ef7f'
+2026-06-07T21:16:35.257+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:35.519+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 1
-2026-06-07T20:49:35.520+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:35.521+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.521+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:35.522+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.261+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 1
+2026-06-07T21:16:35.265+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:35.266+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.266+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:35.268+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -753,7 +755,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.523+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.269+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -762,7 +764,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.594+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.354+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -776,17 +778,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:35.595+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.356+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:35.598+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:35.598+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.598+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:35.599+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.360+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:35.360+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.360+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:35.361+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -800,8 +802,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.670+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:35.671+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.432+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:35.432+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -815,10 +817,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.676+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/cats/db7414ce-bb15-46b1-a4ca-bb43de94772e
-2026-06-07T20:49:35.677+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=humano2, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:35.677+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/cats/db7414ce-bb15-46b1-a4ca-bb43de94772e
-2026-06-07T20:49:35.680+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.438+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/cats/8bf3df94-e702-4007-9631-1444d909ef7f
+2026-06-07T21:16:35.439+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=humano2, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:35.439+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/cats/8bf3df94-e702-4007-9631-1444d909ef7f
+2026-06-07T21:16:35.441+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -836,7 +838,7 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:35.682+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.444+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -850,11 +852,11 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.684+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Regla de negocio violada [CAT_OWNERSHIP]: Este gato no te pertenece. ¡Solo su humano asistente puede gestionarlo!
+2026-06-07T21:16:35.446+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Regla de negocio violada [CAT_OWNERSHIP]: Este gato no te pertenece. ¡Solo su humano asistente puede gestionarlo!
 ]]></system-out>
   </testcase>
-  <testcase name="updateOwnCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.389">
-    <system-out><![CDATA[2026-06-07T20:49:35.690+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="updateOwnCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.401">
+    <system-out><![CDATA[2026-06-07T21:16:35.456+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -870,13 +872,13 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:35.691+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.457+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:35.692+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.458+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -888,22 +890,22 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:35.693+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.459+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:35.694+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.460+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:35.696+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:35.696+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.696+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:35.697+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.461+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:35.461+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.461+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:35.462+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -912,7 +914,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.698+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.463+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -921,7 +923,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.770+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.533+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -935,17 +937,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:35.772+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.535+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:35.775+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:35.775+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:35.775+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:35.776+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.538+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:35.538+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.538+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:35.539+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -959,8 +961,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.848+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:35.849+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.609+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:35.610+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -974,10 +976,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.854+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:35.855+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=updater, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:35.855+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:35.856+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.616+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:35.618+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=updater, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:35.618+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:35.619+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -991,7 +993,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:35.861+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.621+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1001,9 +1003,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:35.946+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:35.946+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:36.054+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.820+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1021,19 +1021,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.056+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '4c99bb53-0709-4add-940a-44fa9b2fc1ab'
-2026-06-07T20:49:36.056+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.822+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '724b7109-c1ad-4fc2-83e3-63f08463296e'
+2026-06-07T21:16:35.823+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.062+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 2
-2026-06-07T20:49:36.064+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/cats/4c99bb53-0709-4add-940a-44fa9b2fc1ab
-2026-06-07T20:49:36.065+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=updater, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:36.065+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/cats/4c99bb53-0709-4add-940a-44fa9b2fc1ab
-2026-06-07T20:49:36.066+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.828+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 2
+2026-06-07T21:16:35.832+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/cats/724b7109-c1ad-4fc2-83e3-63f08463296e
+2026-06-07T21:16:35.834+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=updater, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:35.834+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/cats/724b7109-c1ad-4fc2-83e3-63f08463296e
+2026-06-07T21:16:35.835+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1051,7 +1051,7 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.068+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.838+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1065,7 +1065,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.069+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.840+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1083,7 +1083,7 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.073+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.845+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     update
         cats 
     set
@@ -1101,8 +1101,8 @@
         id=?
 ]]></system-out>
   </testcase>
-  <testcase name="deleteOwnCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.374">
-    <system-out><![CDATA[2026-06-07T20:49:36.080+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="deleteOwnCat" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.395">
+    <system-out><![CDATA[2026-06-07T21:16:35.858+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1118,13 +1118,13 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:36.081+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.860+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:36.082+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.862+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1136,16 +1136,16 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:36.083+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.863+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:36.084+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:36.084+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.085+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:36.085+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.864+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:35.864+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.864+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:35.866+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1154,7 +1154,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.086+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.867+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1163,7 +1163,9 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.158+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.877+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:35.877+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:35.945+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1177,17 +1179,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:36.159+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.946+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.163+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:36.163+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.163+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:36.164+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:35.948+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:35.948+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:35.948+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:35.949+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1201,8 +1203,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.235+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:36.236+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.019+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:36.019+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1216,10 +1218,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.241+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:36.242+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=deleter, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:36.243+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:36.244+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.023+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:36.024+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=deleter, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:36.024+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:36.025+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1233,7 +1235,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.245+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.028+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1243,7 +1245,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.432+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.224+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1261,19 +1263,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.433+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'a7c34486-e8f5-44ed-89e5-1577c7eb5c13'
-2026-06-07T20:49:36.433+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.226+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '2a975180-63e1-48c4-b2b3-aa0832268053'
+2026-06-07T21:16:36.226+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.438+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 3
-2026-06-07T20:49:36.441+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/cats/a7c34486-e8f5-44ed-89e5-1577c7eb5c13
-2026-06-07T20:49:36.442+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=deleter, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:36.442+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/cats/a7c34486-e8f5-44ed-89e5-1577c7eb5c13
-2026-06-07T20:49:36.442+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.229+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 3
+2026-06-07T21:16:36.234+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/cats/2a975180-63e1-48c4-b2b3-aa0832268053
+2026-06-07T21:16:36.236+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=deleter, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:36.236+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/cats/2a975180-63e1-48c4-b2b3-aa0832268053
+2026-06-07T21:16:36.237+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1291,7 +1293,7 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.444+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.239+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1305,7 +1307,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.446+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.241+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1323,16 +1325,16 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.447+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.242+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:36.449+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/a7c34486-e8f5-44ed-89e5-1577c7eb5c13
-2026-06-07T20:49:36.450+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.450+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/a7c34486-e8f5-44ed-89e5-1577c7eb5c13
-2026-06-07T20:49:36.450+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.246+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/2a975180-63e1-48c4-b2b3-aa0832268053
+2026-06-07T21:16:36.246+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:36.247+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/2a975180-63e1-48c4-b2b3-aa0832268053
+2026-06-07T21:16:36.247+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1350,11 +1352,11 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.451+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Recurso no encontrado: Cat con id a7c34486-e8f5-44ed-89e5-1577c7eb5c13 no encontrado
+2026-06-07T21:16:36.249+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.in.web.GlobalExceptionHandler    : Recurso no encontrado: Cat con id 2a975180-63e1-48c4-b2b3-aa0832268053 no encontrado
 ]]></system-out>
   </testcase>
-  <testcase name="createCatAuthenticated" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.365">
-    <system-out><![CDATA[2026-06-07T20:49:36.454+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="createCatAuthenticated" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.389">
+    <system-out><![CDATA[2026-06-07T21:16:36.253+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1370,7 +1372,7 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:36.455+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.254+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1382,16 +1384,16 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:36.456+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.255+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:36.457+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:36.457+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.458+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:36.458+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.256+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:36.256+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:36.256+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:36.257+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1400,7 +1402,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.459+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.258+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1409,7 +1411,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.529+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.338+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1423,17 +1425,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:36.531+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.340+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.533+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:36.533+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.533+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:36.534+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.343+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:36.343+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:36.343+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:36.344+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1447,8 +1449,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.605+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:36.606+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.414+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:36.415+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1462,10 +1464,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.610+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:36.611+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=catowner, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:36.611+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:36.612+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.420+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:36.421+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=catowner, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:36.422+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:36.422+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1479,7 +1481,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.614+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.424+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1489,7 +1491,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.810+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.619+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1507,19 +1509,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:36.811+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '4f189878-8b3d-4cfd-b12c-d24f3818ac9b'
-2026-06-07T20:49:36.811+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.621+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'd6cc3c69-0044-4fba-9e21-292bcfa9323b'
+2026-06-07T21:16:36.621+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.815+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 4
+2026-06-07T21:16:36.634+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 4
 ]]></system-out>
   </testcase>
-  <testcase name="listMyCats" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.587">
-    <system-out><![CDATA[2026-06-07T20:49:36.820+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="listMyCats" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.632">
+    <system-out><![CDATA[2026-06-07T21:16:36.642+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1535,13 +1537,13 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:36.821+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.643+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:36.822+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.645+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1553,16 +1555,16 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:36.822+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.645+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:36.824+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:36.824+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.824+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:36.825+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.647+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:36.648+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:36.648+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:36.649+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1571,7 +1573,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.825+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.650+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1580,7 +1582,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:36.897+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.725+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1594,17 +1596,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:36.898+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.728+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:36.901+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:36.901+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:36.901+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:36.902+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.731+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:36.731+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:36.731+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:36.732+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1618,10 +1620,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.948+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:36.948+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:36.973+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:36.974+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.805+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:36.806+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1635,10 +1635,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.979+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:36.981+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:36.981+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:36.982+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.812+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:36.813+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:36.813+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:36.814+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1652,7 +1652,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:36.983+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.816+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1662,7 +1662,9 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:37.176+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:36.845+02:00  INFO 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
+2026-06-07T21:16:36.845+02:00  WARN 25139 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:36107) could not be established. Node may not be available.
+2026-06-07T21:16:37.016+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1680,19 +1682,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:37.177+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '71f31bb7-f911-4595-b464-eb8b5e6bc36d'
-2026-06-07T20:49:37.178+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.019+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '50b648ba-4bbd-4388-b7e8-2a294a8aeb8b'
+2026-06-07T21:16:37.020+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:37.181+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 5
-2026-06-07T20:49:37.183+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:37.184+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:37.185+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:37.185+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.029+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 5
+2026-06-07T21:16:37.036+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:37.037+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:37.038+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:37.040+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1706,7 +1708,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:37.187+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.043+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1716,7 +1718,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:37.383+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.242+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1734,19 +1736,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:37.384+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'ab5dd8a6-fba0-49cf-95e6-1b5e8805685d'
-2026-06-07T20:49:37.385+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.243+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '2be30f2b-5171-4596-8d12-b313101edac0'
+2026-06-07T21:16:37.244+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:37.389+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 6
-2026-06-07T20:49:37.391+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/mine
-2026-06-07T20:49:37.393+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/mine
-2026-06-07T20:49:37.393+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:37.394+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.251+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 6
+2026-06-07T21:16:37.255+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/mine
+2026-06-07T21:16:37.256+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/mine
+2026-06-07T21:16:37.257+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=multicats, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:37.258+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1760,7 +1762,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:37.396+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.260+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1780,8 +1782,8 @@
         ce1_0.human_id=?
 ]]></system-out>
   </testcase>
-  <testcase name="viewCatProfileIsPublic" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.553">
-    <system-out><![CDATA[2026-06-07T20:49:37.408+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+  <testcase name="viewCatProfileIsPublic" classname="com.catastrophe.profiles.adapter.in.web.CatIntegrationTest" time="0.379">
+    <system-out><![CDATA[2026-06-07T21:16:37.274+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1797,19 +1799,19 @@
         ce1_0.xp 
     from
         cats ce1_0
-2026-06-07T20:49:37.409+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.275+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:37.410+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.276+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         cats 
     where
         id=?
-2026-06-07T20:49:37.411+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.277+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1821,16 +1823,16 @@
         he1_0.username 
     from
         humans he1_0
-2026-06-07T20:49:37.412+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.278+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     delete 
     from
         humans 
     where
         id=?
-2026-06-07T20:49:37.413+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
-2026-06-07T20:49:37.413+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:37.413+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
-2026-06-07T20:49:37.414+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.279+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/register
+2026-06-07T21:16:37.279+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:37.280+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/register
+2026-06-07T21:16:37.281+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1839,7 +1841,7 @@
         he1_0.username=? 
     fetch
         first ? rows only
-2026-06-07T20:49:37.415+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.281+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id 
     from
@@ -1848,7 +1850,7 @@
         he1_0.email=? 
     fetch
         first ? rows only
-2026-06-07T20:49:37.487+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.354+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1862,17 +1864,17 @@
         humans he1_0 
     where
         he1_0.id=?
-2026-06-07T20:49:37.488+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.356+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         humans
         (active, created_at, display_name, email, last_login, password_hash, username, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:37.491+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
-2026-06-07T20:49:37.491+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:37.491+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
-2026-06-07T20:49:37.492+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.359+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2026-06-07T21:16:37.359+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:37.359+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2026-06-07T21:16:37.360+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1886,8 +1888,8 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:37.564+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
-2026-06-07T20:49:37.565+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.431+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2026-06-07T21:16:37.432+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1901,10 +1903,10 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:37.569+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
-2026-06-07T20:49:37.570+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=publicviewer, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
-2026-06-07T20:49:37.571+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
-2026-06-07T20:49:37.572+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.438+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/cats
+2026-06-07T21:16:37.439+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] w.c.HttpSessionSecurityContextRepository : Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=publicviewer, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_HUMAN]], Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_HUMAN]]]
+2026-06-07T21:16:37.440+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/cats
+2026-06-07T21:16:37.440+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         he1_0.id,
         he1_0.active,
@@ -1918,7 +1920,7 @@
         humans he1_0 
     where
         he1_0.username=?
-2026-06-07T20:49:37.573+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.443+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id 
     from
@@ -1928,7 +1930,7 @@
         and ce1_0.name=? 
     fetch
         first ? rows only
-2026-06-07T20:49:37.947+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.637+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
@@ -1946,21 +1948,19 @@
         cats ce1_0 
     where
         ce1_0.id=?
-2026-06-07T20:49:37.948+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key '7dae9649-5c53-46f6-8f3c-655509d2cf31'
-2026-06-07T20:49:37.949+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.638+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] c.c.p.a.o.messaging.KafkaEventPublisher  : Publicando evento CatCreated en topic 'catastrophe.profiles' con key 'c82277ae-5237-48b7-900c-f386ce89cef9'
+2026-06-07T21:16:37.638+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     insert 
     into
         cats
         (avatar_url, bio, birth_date, breed, created_at, human_id, level, mood, name, updated_at, xp, id) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2026-06-07T20:49:37.950+02:00  INFO 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Node 1 disconnected.
-2026-06-07T20:49:37.950+02:00  WARN 18843 --- [catastrophe-profiles] [        kafka-1] org.apache.kafka.clients.NetworkClient   : [Consumer clientId=consumer-profiles-xp-applier-1, groupId=profiles-xp-applier] Connection to node 1 (localhost/127.0.0.1:42569) could not be established. Node may not be available.
-2026-06-07T20:49:37.951+02:00 DEBUG 18843 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 7
-2026-06-07T20:49:37.955+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/7dae9649-5c53-46f6-8f3c-655509d2cf31
-2026-06-07T20:49:37.956+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
-2026-06-07T20:49:37.956+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/7dae9649-5c53-46f6-8f3c-655509d2cf31
-2026-06-07T20:49:37.956+02:00 DEBUG 18843 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
+2026-06-07T21:16:37.641+02:00 DEBUG 25139 --- [catastrophe-profiles] [iles-producer-1] c.c.p.a.o.messaging.KafkaEventPublisher  : Evento CatCreated publicado con offset 7
+2026-06-07T21:16:37.645+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/cats/c82277ae-5237-48b7-900c-f386ce89cef9
+2026-06-07T21:16:37.645+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2026-06-07T21:16:37.646+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/cats/c82277ae-5237-48b7-900c-f386ce89cef9
+2026-06-07T21:16:37.646+02:00 DEBUG 25139 --- [catastrophe-profiles] [           main] org.hibernate.SQL                        : 
     select
         ce1_0.id,
         ce1_0.avatar_url,
