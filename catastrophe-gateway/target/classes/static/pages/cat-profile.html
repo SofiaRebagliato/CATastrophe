@@ -59,10 +59,48 @@ async function loadCatProfile(catId) {
                                 </button>
                             </div>
                         ` : ''}
-                        ${isOwn ? `<button onclick="refreshAvatar('${id}')" class="mt-2 text-xs px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">🔄 Nuevo avatar</button>` : ''}
+                        ${isOwn ? `
+                            <div class="mt-2 space-x-1">
+                                <button onclick="refreshAvatar('${id}')" class="text-xs px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">🔄 Avatar</button>
+                                <button onclick="toggleEditCat()" class="text-xs px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">✏️ Editar</button>
+                                <button onclick="deleteCat('${id}')" class="text-xs px-3 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100">🗑️ Eliminar</button>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
-                ${cat.bio ? `<p class="text-gray-600 mt-4 text-sm">${cat.bio}</p>` : ''}
+                ${cat.bio ? `<p id="cat-bio-text" class="text-gray-600 mt-4 text-sm">${cat.bio}</p>` : ''}
+
+                ${isOwn ? `
+                <form id="edit-cat-form" onsubmit="return submitEditCat(event, '${id}')" class="hidden mt-4 pt-4 border-t border-gray-100 space-y-3">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Nombre</label>
+                        <input type="text" id="edit-cat-name" value="${(cat.name || '').replace(/"/g, '&quot;')}" maxlength="100" required
+                               class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-300">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Raza</label>
+                            <input type="text" id="edit-cat-breed" value="${(cat.breed || '').replace(/"/g, '&quot;')}" maxlength="100"
+                                   class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-300">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Fecha de nacimiento</label>
+                            <input type="date" id="edit-cat-birthdate" value="${cat.birthDate || ''}"
+                                   class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-300">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Bio</label>
+                        <textarea id="edit-cat-bio" rows="2" maxlength="500"
+                                  class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-300">${cat.bio || ''}</textarea>
+                    </div>
+                    <div id="edit-cat-error" class="hidden p-2 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700"></div>
+                    <div class="flex space-x-2">
+                        <button type="submit" id="edit-cat-btn" class="text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg hover:bg-cat-700 transition">Guardar cambios</button>
+                        <button type="button" onclick="toggleEditCat()" class="text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg hover:bg-gray-200 transition">Cancelar</button>
+                    </div>
+                </form>
+                ` : ''}
             </div>
 
             <h3 class="text-lg font-semibold text-gray-800 mb-3">📰 Meows</h3>
@@ -136,6 +174,81 @@ async function refreshAvatar(catId) {
             App.toast('Error al actualizar avatar.', 'error');
         }
     } catch (err) { App.toast('Error al actualizar avatar.', 'error'); }
+}
+
+function toggleEditCat() {
+    const form = document.getElementById('edit-cat-form');
+    if (form) form.classList.toggle('hidden');
+}
+
+async function submitEditCat(e, catId) {
+    e.preventDefault();
+    const btn = document.getElementById('edit-cat-btn');
+    const errorDiv = document.getElementById('edit-cat-error');
+    errorDiv.classList.add('hidden');
+    btn.disabled = true;
+    btn.textContent = 'Guardando... ⏳';
+
+    try {
+        const body = { name: document.getElementById('edit-cat-name').value };
+        const breed = document.getElementById('edit-cat-breed').value;
+        const birthDate = document.getElementById('edit-cat-birthdate').value;
+        const bio = document.getElementById('edit-cat-bio').value;
+        // Campos opcionales: solo se envían si tienen valor (null = mantener el actual en backend)
+        body.breed = breed || null;
+        body.birthDate = birthDate || null;
+        body.bio = bio || null;
+
+        const res = await fetch(`/api/v1/cats/${catId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+
+        if (res.ok) {
+            // Si era el gato activo, refrescamos su copia en memoria (nombre en la nav, etc.)
+            if (App.activeCat && App.activeCat.id === catId) {
+                App.activeCat = await res.json();
+                localStorage.setItem('activeCatId', App.activeCat.id);
+                App.refreshNav();
+            }
+            App.toast('¡Perfil actualizado! 🐱');
+            loadCatProfile(catId);
+        } else if (res.status === 401) {
+            App.showLogin();
+            App.toast('Tu sesión ha expirado.', 'error');
+        } else {
+            const data = await res.json().catch(() => null);
+            errorDiv.textContent = '❌ ' + (data?.message || 'No se pudo actualizar el gato.');
+            errorDiv.classList.remove('hidden');
+        }
+    } catch (err) {
+        errorDiv.textContent = '❌ Error al actualizar el gato.';
+        errorDiv.classList.remove('hidden');
+    } finally {
+        btn.disabled = false;
+        btn.textContent = 'Guardar cambios';
+    }
+}
+
+async function deleteCat(catId) {
+    if (!window.confirm('¿Seguro que quieres eliminar este gato? Esta acción es permanente y se borrarán su perfil y su progreso.')) return;
+    try {
+        const res = await fetch(`/api/v1/cats/${catId}`, { method: 'DELETE' });
+        if (res.ok || res.status === 204) {
+            App.clearActiveCatIfDeleted(catId);
+            App.toast('Gato eliminado. 😿');
+            App.showDashboard();
+        } else if (res.status === 401) {
+            App.showLogin();
+            App.toast('Tu sesión ha expirado.', 'error');
+        } else {
+            const data = await res.json().catch(() => null);
+            App.toast(data?.message || 'No se pudo eliminar el gato.', 'error');
+        }
+    } catch (err) {
+        App.toast('Error al eliminar el gato.', 'error');
+    }
 }
 
 async function toggleLikeProfile(postId) {

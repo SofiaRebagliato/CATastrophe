@@ -154,7 +154,7 @@ const App = {
             nav.innerHTML = `
                 <div class="flex items-center space-x-3">
                     ${this.activeCat ? `<span class="text-xs bg-cat-100 text-cat-700 px-2 py-1 rounded-full font-medium">${this.activeCat.name}</span>` : ''}
-                    <span class="text-sm text-gray-700">🐾 <strong>${this.user.displayName || this.user.username}</strong></span>
+                    <button onclick="App.showAccount()" class="text-sm text-gray-700 hover:text-cat-600 transition" title="Mi cuenta">🐾 <strong>${this.user.displayName || this.user.username}</strong></button>
                     <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600 transition" title="Panel">🏠</button>
                     <button onclick="App.showMessages()" class="relative text-sm text-gray-500 hover:text-cat-600 transition" title="Mensajes">
                         💬<span id="msg-badge" class="hidden absolute -top-1 -right-2 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center"></span>
@@ -228,6 +228,18 @@ const App = {
     },
     showBadges() {
         htmx.ajax('GET', '/pages/badges.html', { target: '#main-content', swap: 'innerHTML' });
+    },
+    showAccount() {
+        htmx.ajax('GET', '/pages/account.html', { target: '#main-content', swap: 'innerHTML' });
+    },
+
+    // Si se elimina el gato activo, dejamos de actuar como él.
+    clearActiveCatIfDeleted(catId) {
+        if (this.activeCat && this.activeCat.id === catId) {
+            this.activeCat = null;
+            localStorage.removeItem('activeCatId');
+            this.refreshNav();
+        }
     },
 
     async logout() {
