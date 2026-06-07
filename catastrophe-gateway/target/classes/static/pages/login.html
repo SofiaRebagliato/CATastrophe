@@ -59,6 +59,7 @@ async function handleLogin(e) {
 
         if (res.ok) {
             await App.checkSession();
+            await App.loadActiveCat();
             App.refreshNav();
             App.showDashboard();
             App.toast('¡Bienvenido de vuelta! Tu gato te estaba esperando. 🐱');
