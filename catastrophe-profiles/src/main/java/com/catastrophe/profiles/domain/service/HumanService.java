@@ -65,6 +65,16 @@ public class HumanService implements HumanUseCase {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public java.util.List<Human> search(String query, int limit) {
+        if (query == null || query.isBlank()) {
+            return java.util.List.of();
+        }
+        var safeLimit = Math.min(Math.max(limit, 1), 50);
+        return humanRepository.searchActive(query.trim(), safeLimit);
+    }
+
+    @Override
     public Human update(UUID id, UpdateHumanCommand command) {
         var human = humanRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Human", id));

@@ -23,6 +23,9 @@ public interface HumanUseCase {
     /** Buscar humano por username. */
     Optional<Human> findByUsername(String username);
 
+    /** Buscar humanos activos por username o nombre visible (case-insensitive). */
+    java.util.List<Human> search(String query, int limit);
+
     /** Actualizar datos del humano. */
     Human update(UUID id, UpdateHumanCommand command);
 

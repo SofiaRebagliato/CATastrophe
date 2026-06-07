@@ -17,6 +17,9 @@ public interface CatRepository {
 
     List<Cat> findByHumanId(UUID humanId);
 
+    /** Buscar gatos cuyo nombre contenga el texto dado (case-insensitive). */
+    List<Cat> searchByName(String query, int limit);
+
     boolean existsByHumanIdAndName(UUID humanId, String name);
 
     void deleteById(UUID id);

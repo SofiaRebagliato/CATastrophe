@@ -96,6 +96,21 @@ public class CatController {
         return ResponseEntity.ok(summaries);
     }
 
+    /**
+     * Búsqueda de gatos por nombre (parcial, case-insensitive).
+     * Devuelve un resumen ligero pensado para el buscador del frontend.
+     */
+    @GetMapping("/search")
+    public ResponseEntity<List<CatSummary>> search(
+            @RequestParam(name = "q") String query,
+            @RequestParam(defaultValue = "10") int limit) {
+
+        var results = catUseCase.search(query, limit).stream()
+                .map(cat -> new CatSummary(cat.id(), cat.humanId(), cat.name(), cat.avatarUrl()))
+                .toList();
+        return ResponseEntity.ok(results);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<CatResponse> update(@PathVariable UUID id,
                                                @Valid @RequestBody UpdateCatRequest request,

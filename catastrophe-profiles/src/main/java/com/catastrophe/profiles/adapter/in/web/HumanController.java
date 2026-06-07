@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -35,6 +36,21 @@ public class HumanController {
         return humanUseCase.findById(id)
                 .map(h -> ResponseEntity.ok(HumanResponse.from(h)))
                 .orElseThrow(() -> new ResourceNotFoundException("Human", id));
+    }
+
+    /**
+     * Búsqueda de humanos activos por username o nombre visible.
+     * Devuelve un resumen ligero (sin email ni datos sensibles) para el buscador.
+     */
+    @GetMapping("/search")
+    public ResponseEntity<List<HumanSummary>> search(
+            @RequestParam(name = "q") String query,
+            @RequestParam(defaultValue = "10") int limit) {
+
+        var results = humanUseCase.search(query, limit).stream()
+                .map(h -> new HumanSummary(h.id(), h.username(), h.displayName()))
+                .toList();
+        return ResponseEntity.ok(results);
     }
 
     @PutMapping("/{id}")
@@ -76,6 +92,12 @@ public class HumanController {
     record UpdateHumanRequest(
             @Size(max = 100) String displayName,
             @Email String email
+    ) {}
+
+    record HumanSummary(
+            UUID id,
+            String username,
+            String displayName
     ) {}
 
     record HumanResponse(

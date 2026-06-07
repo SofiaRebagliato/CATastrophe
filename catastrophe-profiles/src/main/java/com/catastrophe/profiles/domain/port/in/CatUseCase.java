@@ -21,6 +21,9 @@ public interface CatUseCase {
     /** Buscar gatos de un humano. */
     List<Cat> findByHumanId(UUID humanId);
 
+    /** Buscar gatos por nombre (case-insensitive, coincidencia parcial). */
+    List<Cat> search(String query, int limit);
+
     /** Actualizar datos de un gato. */
     Cat update(UUID catId, UpdateCatCommand command);
 

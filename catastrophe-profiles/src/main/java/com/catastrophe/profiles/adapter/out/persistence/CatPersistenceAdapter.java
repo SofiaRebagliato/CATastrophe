@@ -4,6 +4,7 @@ import com.catastrophe.profiles.adapter.out.persistence.mapper.CatMapper;
 import com.catastrophe.profiles.adapter.out.persistence.repository.JpaCatRepository;
 import com.catastrophe.profiles.domain.model.Cat;
 import com.catastrophe.profiles.domain.port.out.CatRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -34,6 +35,13 @@ public class CatPersistenceAdapter implements CatRepository {
     public List<Cat> findByHumanId(UUID humanId) {
         return jpaRepository.findByHumanId(humanId).stream()
                 .map(CatMapper::toDomain).toList();
+    }
+
+    @Override
+    public List<Cat> searchByName(String query, int limit) {
+        return jpaRepository
+                .findByNameContainingIgnoreCaseOrderByNameAsc(query, PageRequest.of(0, limit))
+                .stream().map(CatMapper::toDomain).toList();
     }
 
     @Override
