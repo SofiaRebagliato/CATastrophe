@@ -102,8 +102,8 @@ async function getMoodForecast() {
                     <p class="text-sm text-gray-800 font-medium mb-2">🔮 ${data.message || 'Sin mensaje'}</p>
                     <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
                         ${data.dominantTrait ? `<p>🎭 Rasgo: ${traitLabels[data.dominantTrait] || data.dominantTrait}</p>` : ''}
-                        ${data.weather ? `<p>🌤️ Clima: ${data.weather}</p>` : ''}
-                        ${data.fact ? `<p class="col-span-2">🐱 Dato: ${data.fact}</p>` : ''}
+                        ${data.weather ? `<p>🌤️ Clima: ${data.weather.condition || ''} ${data.weather.tempCelsius != null ? Math.round(data.weather.tempCelsius) + '°C' : ''}</p>` : ''}
+                        ${data.fact ? `<p class="col-span-2">🐱 Dato: ${data.fact.text || ''}</p>` : ''}
                     </div>
                 </div>`;
         } else {
