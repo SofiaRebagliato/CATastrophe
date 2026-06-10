@@ -1,7 +1,7 @@
 <div class="fade-in max-w-3xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">🧠 Personalidad y Humor</h2>
+    <div class="flex items-center mb-6">
         <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+        <h2 class="text-2xl font-bold text-gray-900 mx-auto pr-20">🧠 Personalidad y Humor</h2>
     </div>
 
     <!-- Personalidad -->
@@ -73,7 +73,9 @@ async function loadPersonality() {
                                     <span>${(score * 100).toFixed(1)}%</span>
                                 </div>
                                 <div class="w-full bg-gray-200 rounded-full h-2">
-                                    <div class="bg-cat-500 h-2 rounded-full transition-all" style="width: ${score * 100}%"></div>
+                                    <div class="bg-cat-500 h-2 rounded-full"
+                                         style="width:0%; transition: width 0.8s ease-out;"
+                                         data-target="${score * 100}"></div>
                                 </div>
                             </div>
                         `).join('')}
@@ -84,6 +86,14 @@ async function loadPersonality() {
             container.innerHTML = '<p class="text-sm text-gray-500">No hay datos de personalidad aún.</p>';
         }
     } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error al cargar personalidad.</p>'; }
+    // Animate bars after DOM is painted
+    requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+            document.querySelectorAll('[data-target]').forEach(function(el) {
+                el.style.width = el.getAttribute('data-target') + '%';
+            });
+        });
+    });
 }
 
 async function getMoodForecast() {

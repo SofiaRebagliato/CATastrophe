@@ -1,5 +1,5 @@
 <div class="fade-in max-w-2xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
+    <div class="flex items-center mb-6">
         <h2 class="text-2xl font-bold text-gray-900">📰 Feed</h2>
         <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
     </div>
@@ -172,13 +172,19 @@ async function loadComments(postId) {
             const comments = await res.json();
             // Resolve names
             await App.resolveCatNames(comments.map(c => c.catId));
-            container.innerHTML = comments.map(c => `
-                <div class="text-sm py-1.5">
-                    <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${App.getCatName(c.catId)}</span>
-                    <span class="text-gray-600">${c.content}</span>
-                    <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
-                </div>
-            `).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
+            container.innerHTML = comments.map(c => {
+                const isMine = App.activeCat && c.catId === App.activeCat.id;
+                const withinWindow = isMine && (Date.now() - new Date(c.createdAt).getTime() < 5 * 60 * 1000);
+                return `
+                <div class="text-sm py-1.5 flex items-start justify-between group">
+                    <div>
+                        <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${App.getCatName(c.catId)}</span>
+                        <span class="text-gray-600"> ${c.content}</span>
+                        <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
+                    </div>
+                    ${withinWindow ? `<button onclick="deleteComment('${c.id}','${postId}','feed')" class="hidden group-hover:block text-xs text-red-400 hover:text-red-600 ml-2 flex-shrink-0" title="Eliminar">✕</button>` : ''}
+                </div>`;
+            }).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
         }
     } catch (err) { /* ignore */ }
 }
@@ -205,6 +211,22 @@ async function addComment(e, postId) {
             App.toast(err?.message || 'No se pudo comentar.', 'error');
         }
     } catch (err) { App.toast('Error al comentar.', 'error'); }
+}
+
+async function deleteComment(commentId, postId, source) {
+    if (!App.requireCat()) return;
+    try {
+        var res = await fetch('/api/v1/comments/' + commentId, {
+            method: 'DELETE', headers: App.getCatHeaders()
+        });
+        if (res.ok || res.status === 204) {
+            App.toast('Comentario eliminado.');
+            loadComments(postId);
+            var countEl = document.getElementById('comment-count-' + postId);
+            if (countEl && parseInt(countEl.textContent) > 0)
+                countEl.textContent = parseInt(countEl.textContent) - 1;
+        } else { App.toast('No se pudo eliminar el comentario.', 'error'); }
+    } catch (err) { App.toast('Error.', 'error'); }
 }
 
 loadFeed();

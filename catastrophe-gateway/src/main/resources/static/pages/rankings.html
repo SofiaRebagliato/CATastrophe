@@ -1,7 +1,7 @@
 <div class="fade-in max-w-3xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">🏆 Rankings</h2>
+    <div class="flex items-center mb-6">
         <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+        <h2 class="text-2xl font-bold text-gray-900 mx-auto pr-20">🏆 Rankings</h2>
     </div>
 
     <!-- Tabs -->
@@ -48,7 +48,12 @@ async function loadRanking(type = 'global') {
             const medals = ['🥇', '🥈', '🥉'];
             container.innerHTML = `
                 <div class="bg-white rounded-xl border border-gray-100 overflow-hidden">
-                    <table class="w-full">
+                    <table class="w-full table-fixed">
+                        <colgroup>
+                            <col style="width:48px">
+                            <col>
+                            <col style="width:88px">
+                        </colgroup>
                         <thead class="bg-gray-50">
                             <tr>
                                 <th class="px-4 py-3 text-left text-xs font-medium text-gray-500">#</th>
@@ -63,10 +68,10 @@ async function loadRanking(type = 'global') {
                                 return `
                                 <tr class="hover:bg-gray-50 cursor-pointer" onclick="App.showCatProfile('${e.catId}')">
                                     <td class="px-4 py-3 text-sm">${i < 3 ? medals[i] : i + 1}</td>
-                                    <td class="px-4 py-3 text-sm font-medium text-gray-800">
-                                        <div class="flex items-center space-x-2">
-                                            ${avatar ? `<img src="${avatar}" class="w-6 h-6 rounded-full object-cover" onerror="this.style.display='none'">` : '<span>🐱</span>'}
-                                            <span>${displayName}</span>
+                                    <td class="px-4 py-3 text-sm font-medium text-gray-800 truncate">
+                                        <div class="flex items-center space-x-2 min-w-0">
+                                            ${avatar ? `<img src="${avatar}" class="w-6 h-6 rounded-full object-cover flex-shrink-0" onerror="this.style.display='none'">` : '<span class="flex-shrink-0">🐱</span>'}
+                                            <span class="truncate">${displayName}</span>
                                         </div>
                                     </td>
                                     <td class="px-4 py-3 text-sm text-right font-semibold text-cat-700">${Math.round(e.score)}</td>

@@ -28,7 +28,7 @@ async function loadConversation() {
     // Resolve the other cat's name
     await App.resolveCatNames([_otherCatId]);
     const otherName = App.getCatDisplayName(_otherCatId);
-    document.getElementById('conv-header').textContent = `💬 ${otherName}`;
+    document.getElementById('conv-header').innerHTML = `💬 <button onclick="App.showCatProfile('${_otherCatId}')" class="font-semibold text-cat-600 hover:underline">${otherName}</button>`;
 
     // Mark as read
     fetch(`/api/v1/messages/read/${_otherCatId}`, { method: 'PUT', headers: App.getCatHeaders() });
