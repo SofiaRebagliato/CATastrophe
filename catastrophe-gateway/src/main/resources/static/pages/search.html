@@ -1,0 +1,120 @@
+<div class="fade-in max-w-2xl mx-auto">
+    <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600 mb-4">← Panel</button>
+
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-6">
+        <form onsubmit="return runSearch(event)" class="flex space-x-2">
+            <input type="text" id="search-input" placeholder="Buscar personas o gatos..." autocomplete="off"
+                   class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-500 focus:border-cat-500 transition">
+            <button type="submit" class="bg-cat-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-cat-700 transition">🔍</button>
+        </form>
+    </div>
+
+    <div id="search-results">
+        <p class="text-center text-gray-400 py-8 text-sm">Escribe algo para empezar a buscar 🐾</p>
+    </div>
+</div>
+
+<script>
+function runSearch(e) {
+    if (e) e.preventDefault();
+    const q = document.getElementById('search-input').value.trim();
+    const container = document.getElementById('search-results');
+    if (!q) {
+        container.innerHTML = '<p class="text-center text-gray-400 py-8 text-sm">Escribe algo para empezar a buscar 🐾</p>';
+        return false;
+    }
+    container.innerHTML = '<p class="text-center text-gray-400 py-8 text-sm">Buscando... 🐱</p>';
+    doSearch(q);
+    return false;
+}
+
+async function doSearch(q) {
+    const container = document.getElementById('search-results');
+    try {
+        const enc = encodeURIComponent(q);
+        const [humansRes, catsRes] = await Promise.all([
+            fetch(`/api/v1/humans/search?q=${enc}&limit=10`),
+            fetch(`/api/v1/cats/search?q=${enc}&limit=10`)
+        ]);
+
+        const humans = humansRes.ok ? await humansRes.json() : [];
+        const cats = catsRes.ok ? await catsRes.json() : [];
+
+        if (humans.length === 0 && cats.length === 0) {
+            container.innerHTML = `<p class="text-center text-gray-400 py-8 text-sm">Sin resultados para "${q}" 😿</p>`;
+            return;
+        }
+
+        let html = '';
+
+        // ── Personas ──
+        if (humans.length > 0) {
+            html += '<h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">🐾 Personas</h3>';
+            html += '<div class="space-y-2 mb-6">' + humans.map(h => `
+                <div class="bg-white rounded-xl border border-gray-100 p-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold text-gray-900">${h.displayName || h.username}</p>
+                            <p class="text-xs text-gray-500">@${h.username}</p>
+                        </div>
+                        <button onclick="toggleHumanCats('${h.id}')"
+                                class="text-xs px-3 py-1.5 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition">
+                            Ver gatos
+                        </button>
+                    </div>
+                    <div id="human-cats-${h.id}" class="hidden mt-3 pt-3 border-t border-gray-50"></div>
+                </div>
+            `).join('') + '</div>';
+        }
+
+        // ── Gatos ──
+        if (cats.length > 0) {
+            html += '<h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">🐱 Gatos</h3>';
+            html += '<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + cats.map(c => catCardHtml(c)).join('') + '</div>';
+        }
+
+        container.innerHTML = html;
+    } catch (err) {
+        container.innerHTML = '<p class="text-center text-red-500 py-8 text-sm">Error al buscar.</p>';
+    }
+}
+
+function catCardHtml(c) {
+    return `
+        <div onclick="App.showCatProfile('${c.id}')"
+             class="bg-white rounded-xl border border-gray-100 p-4 flex items-center space-x-3 cursor-pointer hover:shadow-md transition">
+            ${c.avatarUrl ? `<img src="${c.avatarUrl}" class="w-10 h-10 rounded-full object-cover" onerror="this.outerHTML='<span class=\\'text-2xl\\'>🐱</span>'">` : '<span class="text-2xl">🐱</span>'}
+            <span class="font-medium text-gray-900">${c.name}</span>
+        </div>`;
+}
+
+async function toggleHumanCats(humanId) {
+    const box = document.getElementById(`human-cats-${humanId}`);
+    if (!box) return;
+    box.classList.toggle('hidden');
+    if (box.classList.contains('hidden')) return;
+
+    box.innerHTML = '<p class="text-xs text-gray-400">Cargando gatos...</p>';
+    try {
+        const res = await fetch(`/api/v1/cats/human/${humanId}`);
+        if (res.ok) {
+            const cats = await res.json();
+            box.innerHTML = cats.length > 0
+                ? '<div class="grid grid-cols-1 sm:grid-cols-2 gap-2">' + cats.map(c => catCardHtml(c)).join('') + '</div>'
+                : '<p class="text-xs text-gray-400">Esta persona no tiene gatos registrados.</p>';
+        } else {
+            box.innerHTML = '<p class="text-xs text-red-400">No se pudieron cargar los gatos.</p>';
+        }
+    } catch (err) {
+        box.innerHTML = '<p class="text-xs text-red-400">Error al cargar los gatos.</p>';
+    }
+}
+
+// Lanzar la búsqueda inicial con el término que venga de la barra de navegación.
+(function init() {
+    const q = window._searchQuery || '';
+    const input = document.getElementById('search-input');
+    if (input) input.value = q;
+    if (q) doSearch(q);
+})();
+</script>

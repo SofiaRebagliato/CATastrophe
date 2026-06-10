@@ -16,6 +16,9 @@ public interface HumanRepository {
 
     Optional<Human> findByUsername(String username);
 
+    /** Buscar humanos activos por username o nombre visible (case-insensitive). */
+    java.util.List<Human> searchActive(String query, int limit);
+
     Optional<Human> findByEmail(String email);
 
     boolean existsByUsername(String username);

@@ -8,6 +8,7 @@ com/catastrophe/profiles/adapter/in/web/HumanController.class
 com/catastrophe/profiles/domain/port/in/HumanUseCase$RegisterHumanCommand.class
 com/catastrophe/profiles/adapter/in/web/CatController$CatSummary.class
 com/catastrophe/profiles/adapter/out/external/TheCatApiAdapter.class
+com/catastrophe/profiles/adapter/in/web/HumanController$HumanSummary.class
 com/catastrophe/profiles/adapter/out/persistence/repository/JpaProcessedXpEventRepository.class
 com/catastrophe/profiles/adapter/in/web/GlobalExceptionHandler.class
 com/catastrophe/profiles/adapter/out/persistence/entity/ProcessedXpEventEntity.class

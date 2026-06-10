@@ -97,6 +97,16 @@ public class CatService implements CatUseCase {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public List<Cat> search(String query, int limit) {
+        if (query == null || query.isBlank()) {
+            return List.of();
+        }
+        var safeLimit = Math.min(Math.max(limit, 1), 50);
+        return catRepository.searchByName(query.trim(), safeLimit);
+    }
+
+    @Override
     public Cat update(UUID catId, UpdateCatCommand command) {
         var cat = catRepository.findById(catId)
                 .orElseThrow(() -> new ResourceNotFoundException("Cat", catId));

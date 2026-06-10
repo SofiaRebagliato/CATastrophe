@@ -4,8 +4,10 @@ import com.catastrophe.profiles.adapter.out.persistence.mapper.HumanMapper;
 import com.catastrophe.profiles.adapter.out.persistence.repository.JpaHumanRepository;
 import com.catastrophe.profiles.domain.model.Human;
 import com.catastrophe.profiles.domain.port.out.HumanRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,6 +34,12 @@ public class HumanPersistenceAdapter implements HumanRepository {
     @Override
     public Optional<Human> findByUsername(String username) {
         return jpaRepository.findByUsername(username).map(HumanMapper::toDomain);
+    }
+
+    @Override
+    public List<Human> searchActive(String query, int limit) {
+        return jpaRepository.searchActive(query, PageRequest.of(0, limit))
+                .stream().map(HumanMapper::toDomain).toList();
     }
 
     @Override
