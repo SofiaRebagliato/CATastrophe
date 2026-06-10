@@ -40,6 +40,12 @@ public class BadgeService implements BadgeUseCase {
 
     @Override
     @Transactional(readOnly = true)
+    public java.util.Optional<Badge> findById(UUID badgeId) {
+        return badgeRepository.findById(badgeId);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public List<CatBadge> findByCat(UUID catId) {
         return catBadgeRepository.findByCatId(catId);
     }

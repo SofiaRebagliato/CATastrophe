@@ -14,6 +14,9 @@ public interface BadgeUseCase {
     /** Listar todos los badges disponibles. */
     List<Badge> findAll();
 
+    /** Buscar badge por ID. */
+    java.util.Optional<Badge> findById(UUID badgeId);
+
     /** Badges ganados por un gato. */
     List<CatBadge> findByCat(UUID catId);
 
