@@ -65,13 +65,24 @@ docker compose up -d
 # 2. Compilar todo
 ./mvnw clean install -DskipTests
 
-# 3. Arrancar el servicio de perfiles (primer microservicio)
-cd catastrophe-profiles
-../mvnw spring-boot:run
+# 3. Arrancar los microservicios (cada uno en una terminal separada)
+# Terminal 1 — Perfiles (8081)
+cd catastrophe-profiles && ../mvnw spring-boot:run
 
-# 4. Arrancar el gateway
-cd ../catastrophe-gateway
-../mvnw spring-boot:run
+# Terminal 2 — Social (8082)
+cd catastrophe-social && ../mvnw spring-boot:run
+
+# Terminal 3 — Aventuras (8083)
+cd catastrophe-adventures && ../mvnw spring-boot:run
+
+# Terminal 4 — Notificaciones (8084)
+cd catastrophe-notifications && ../mvnw spring-boot:run
+
+# Terminal 5 — Analytics (8085)
+cd catastrophe-analytics && ../mvnw spring-boot:run
+
+# Terminal 6 — Gateway (8080)
+cd catastrophe-gateway && ../mvnw spring-boot:run
 ```
 
 ## Módulos

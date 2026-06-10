@@ -63,7 +63,6 @@ async function loadCatProfile(catId) {
                             <div class="mt-2 space-x-1">
                                 <button onclick="refreshAvatar('${id}')" class="text-xs px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">🔄 Avatar</button>
                                 <button onclick="toggleEditCat()" class="text-xs px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200">✏️ Editar</button>
-                                <button onclick="deleteCat('${id}')" class="text-xs px-3 py-1 rounded-lg bg-red-50 text-red-600 hover:bg-red-100">🗑️ Eliminar</button>
                             </div>
                         ` : ''}
                     </div>
@@ -95,9 +94,12 @@ async function loadCatProfile(catId) {
                                   class="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-cat-300">${cat.bio || ''}</textarea>
                     </div>
                     <div id="edit-cat-error" class="hidden p-2 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700"></div>
-                    <div class="flex space-x-2">
-                        <button type="submit" id="edit-cat-btn" class="text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg hover:bg-cat-700 transition">Guardar cambios</button>
-                        <button type="button" onclick="toggleEditCat()" class="text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg hover:bg-gray-200 transition">Cancelar</button>
+                    <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <div class="flex space-x-2">
+                            <button type="submit" id="edit-cat-btn" class="text-sm bg-cat-600 text-white px-4 py-1.5 rounded-lg hover:bg-cat-700 transition">Guardar cambios</button>
+                            <button type="button" onclick="toggleEditCat()" class="text-sm bg-gray-100 text-gray-600 px-4 py-1.5 rounded-lg hover:bg-gray-200 transition">Cancelar</button>
+                        </div>
+                        <button type="button" onclick="deleteCat('${id}')" class="text-xs text-red-500 hover:text-red-700 transition">🗑️ Eliminar perfil</button>
                     </div>
                 </form>
                 ` : ''}
@@ -287,15 +289,33 @@ async function loadCommentsProfile(postId) {
         if (res.ok) {
             const comments = await res.json();
             await App.resolveCatNames(comments.map(c => c.catId));
-            container.innerHTML = comments.map(c => `
-                <div class="text-sm py-1.5">
-                    <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${App.getCatName(c.catId)}</span>
-                    <span class="text-gray-600">${c.content}</span>
-                    <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
-                </div>
-            `).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
+            container.innerHTML = comments.map(c => {
+                const isMine = App.activeCat && c.catId === App.activeCat.id;
+                const withinWindow = isMine && (Date.now() - new Date(c.createdAt).getTime() < 5 * 60 * 1000);
+                return `<div class="text-sm py-1.5 flex items-start justify-between group">
+                    <div>
+                        <span class="font-medium text-gray-700 cursor-pointer" onclick="App.showCatProfile('${c.catId}')">${App.getCatName(c.catId)}</span>
+                        <span class="text-gray-600"> ${c.content}</span>
+                        <span class="text-xs text-gray-400 ml-1">${App.timeAgo(c.createdAt)}</span>
+                    </div>
+                    ${withinWindow ? `<button onclick="deleteCommentProfile('${c.id}','${postId}')" class="hidden group-hover:block text-xs text-red-400 hover:text-red-600 ml-2 flex-shrink-0" title="Eliminar">✕</button>` : ''}
+                </div>`;
+            }).join('') || '<p class="text-xs text-gray-400">Sin comentarios aún.</p>';
         }
     } catch (err) { /* ignore */ }
+}
+
+async function deleteCommentProfile(commentId, postId) {
+    if (!App.requireCat()) return;
+    try {
+        var res = await fetch('/api/v1/comments/' + commentId, {
+            method: 'DELETE', headers: App.getCatHeaders()
+        });
+        if (res.ok || res.status === 204) {
+            App.toast('Comentario eliminado.');
+            loadCommentsProfile(postId);
+        } else { App.toast('No se pudo eliminar el comentario.', 'error'); }
+    } catch (err) { App.toast('Error.', 'error'); }
 }
 
 async function addCommentProfile(e, postId) {

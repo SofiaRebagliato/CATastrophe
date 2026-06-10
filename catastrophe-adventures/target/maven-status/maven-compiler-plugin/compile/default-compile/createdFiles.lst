@@ -57,6 +57,7 @@ com/catastrophe/adventures/adapter/in/web/AdventureController.class
 com/catastrophe/adventures/AdventuresApplication.class
 com/catastrophe/adventures/adapter/in/web/ChallengeController$CreateChallengeRequest.class
 com/catastrophe/adventures/adapter/out/persistence/repository/JpaAdventureRewardRepository.class
+com/catastrophe/adventures/adapter/in/web/BadgeController$EnrichedCatBadgeResponse.class
 com/catastrophe/adventures/adapter/in/web/ChallengeController.class
 com/catastrophe/adventures/domain/port/in/AdventureUseCase.class
 com/catastrophe/adventures/domain/port/in/RankingUseCase.class

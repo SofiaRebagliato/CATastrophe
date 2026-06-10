@@ -31,10 +31,24 @@ public class BadgeController {
     }
 
     @GetMapping("/cat/{catId}")
-    public ResponseEntity<List<CatBadgeResponse>> findByCat(@PathVariable UUID catId) {
-        var catBadges = badgeUseCase.findByCat(catId).stream()
-                .map(CatBadgeResponse::from).toList();
-        return ResponseEntity.ok(catBadges);
+    public ResponseEntity<List<EnrichedCatBadgeResponse>> findByCat(@PathVariable UUID catId) {
+        var catBadges = badgeUseCase.findByCat(catId);
+        var enriched = catBadges.stream()
+                .map(cb -> {
+                    var badge = badgeUseCase.findById(cb.badgeId());
+                    return new EnrichedCatBadgeResponse(
+                            cb.id(),
+                            cb.catId(),
+                            cb.badgeId(),
+                            cb.earnedAt(),
+                            badge.map(Badge::name).orElse("Insignia"),
+                            badge.map(Badge::description).orElse(""),
+                            badge.map(Badge::iconUrl).orElse("🎖️"),
+                            badge.map(Badge::rarity).orElse("common")
+                    );
+                })
+                .toList();
+        return ResponseEntity.ok(enriched);
     }
 
     // ── DTOs ──
@@ -45,6 +59,18 @@ public class BadgeController {
         }
     }
 
+    record EnrichedCatBadgeResponse(
+            UUID id,
+            UUID catId,
+            UUID badgeId,
+            Instant earnedAt,
+            String name,
+            String description,
+            String iconUrl,
+            String rarity
+    ) {}
+
+    // Mantenemos CatBadgeResponse por compatibilidad si se usa en otro lado
     record CatBadgeResponse(UUID id, UUID catId, UUID badgeId, Instant earnedAt) {
         static CatBadgeResponse from(CatBadge cb) {
             return new CatBadgeResponse(cb.id(), cb.catId(), cb.badgeId(), cb.earnedAt());

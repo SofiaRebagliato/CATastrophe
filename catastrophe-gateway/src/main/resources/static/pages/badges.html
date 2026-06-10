@@ -1,88 +1,180 @@
-<div class="fade-in max-w-3xl mx-auto">
-    <div class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-bold text-gray-900">🎖️ Insignias</h2>
-        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600">← Panel</button>
+<div class="fade-in max-w-5xl mx-auto">
+    <div class="flex justify-between items-center mb-8">
+        <div>
+            <h2 class="text-3xl font-bold text-gray-900">🎖️ Insignias</h2>
+            <p class="text-sm text-gray-500 mt-1">Colecciona logros completando aventuras y retos</p>
+        </div>
+        <button onclick="App.showDashboard()" class="text-sm text-gray-500 hover:text-cat-600 transition">← Panel</button>
     </div>
 
     <!-- Mis insignias -->
-    <section class="mb-8">
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">🏅 Mis insignias</h3>
-        <div id="my-badges">
-            <div class="text-center py-4 text-gray-400">Cargando...</div>
+    <section class="mb-12">
+        <div class="flex items-center space-x-2 mb-4">
+            <h3 class="text-2xl font-bold text-gray-800">🏆 Mis Insignias</h3>
+            <span id="badge-count" class="text-sm px-2 py-1 rounded-full bg-cat-100 text-cat-700 font-medium hidden">0</span>
+        </div>
+        <div id="my-badges" class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+            <div class="text-center py-8 text-gray-400">Cargando insignias...</div>
         </div>
     </section>
 
     <!-- Catálogo completo -->
     <section>
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">📋 Todas las insignias</h3>
-        <div id="all-badges">
-            <div class="text-center py-4 text-gray-400">Cargando catálogo...</div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">📚 Catálogo Completo</h3>
+        <div id="all-badges" class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 border border-gray-200">
+            <div class="text-center py-8 text-gray-400">Cargando catálogo...</div>
         </div>
     </section>
 </div>
 
 <script>
-var rarityColors = {
-    COMMON: 'bg-gray-100 text-gray-700',
-    RARE: 'bg-blue-100 text-blue-700',
-    EPIC: 'bg-purple-100 text-purple-700',
-    LEGENDARY: 'bg-yellow-100 text-yellow-700'
+// Mapa de rutas de imagen → emoji (para las rutas /badges/*.png almacenadas en BD)
+var BADGE_ICONS = {
+    'primer-meow':      '🐱',
+    'cazador-novato':   '🏹',
+    'explorador':       '🗺️',
+    'campeon-pvp':      '⚔️',
+    'leyenda-felina':   '👑',
+    'rey-siesta':       '💤',
+    'velocista':        '⚡',
+    'social-butterfly': '🦋'
 };
 
-var rarityLabels = {
-    COMMON: 'Común',
-    RARE: 'Rara',
-    EPIC: 'Épica',
-    LEGENDARY: 'Legendaria'
+var rarityStyle = {
+    common:    { card: 'from-gray-100 to-gray-50 border-gray-200', label: 'bg-gray-200 text-gray-700',   emoji: '⚪', name: 'Común'      },
+    rare:      { card: 'from-blue-100 to-blue-50 border-blue-200', label: 'bg-blue-200 text-blue-800',   emoji: '🔵', name: 'Rara'       },
+    epic:      { card: 'from-purple-100 to-purple-50 border-purple-200', label: 'bg-purple-200 text-purple-800', emoji: '💜', name: 'Épica' },
+    legendary: { card: 'from-yellow-100 to-yellow-50 border-yellow-200', label: 'bg-yellow-200 text-yellow-800', emoji: '⭐', name: 'Legendaria' }
 };
+
+// Devuelve el emoji asociado a la iconUrl guardada en BD (/badges/primer-meow.png)
+function badgeEmoji(iconUrl) {
+    if (!iconUrl) return '🎖️';
+    // Si ya es un emoji (no empieza por /) lo devolvemos tal cual
+    if (!iconUrl.startsWith('/')) return iconUrl;
+    // Extraer la clave del nombre de fichero
+    var key = iconUrl.replace(/^.*\//, '').replace('.png', '');
+    return BADGE_ICONS[key] || '🎖️';
+}
+
+// Cache del catálogo completo para hacer el join en cliente
+var _allBadgesCache = null;
+
+async function getAllBadges() {
+    if (_allBadgesCache) return _allBadgesCache;
+    var res = await fetch('/api/v1/badges');
+    if (!res.ok) return [];
+    _allBadgesCache = await res.json();
+    return _allBadgesCache;
+}
 
 async function loadMyBadges() {
-    if (!App.activeCat) { document.getElementById('my-badges').innerHTML = '<p class="text-sm text-gray-500">Activa un gato.</p>'; return; }
-    const container = document.getElementById('my-badges');
+    var container = document.getElementById('my-badges');
+    if (!App.activeCat) {
+        container.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">Activa un gato para ver tus insignias.</p>';
+        return;
+    }
     try {
-        const res = await fetch(`/api/v1/badges/cat/${App.activeCat.id}`);
-        if (res.ok) {
-            const badges = await res.json();
-            if (badges.length === 0) {
-                container.innerHTML = '<p class="text-sm text-gray-500">Aún no has desbloqueado insignias. ¡Completa aventuras y retos!</p>';
-                return;
-            }
-            container.innerHTML = '<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">' + badges.map(b => `
-                <div class="bg-white rounded-xl border border-gray-100 p-3 text-center">
-                    <span class="text-3xl">${b.iconUrl || '🏅'}</span>
-                    <p class="text-xs font-medium text-gray-800 mt-2">${b.badgeId.substring(0, 8)}</p>
-                    <p class="text-xs text-gray-400">${App.timeAgo(b.earnedAt)}</p>
-                </div>
-            `).join('') + '</div>';
+        // Cargamos el catálogo y las insignias del gato en paralelo
+        var [allBadges, catRes] = await Promise.all([
+            getAllBadges(),
+            fetch('/api/v1/badges/cat/' + App.activeCat.id)
+        ]);
+
+        if (!catRes.ok) {
+            container.innerHTML = '<p class="text-red-500 text-sm text-center py-8">No se pudieron cargar tus insignias ('+catRes.status+').</p>';
+            return;
         }
-    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error.</p>'; }
+
+        var catBadges = await catRes.json();
+        if (catBadges.length === 0) {
+            container.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">Aún no has desbloqueado insignias. ¡Completa aventuras y retos! 🚀</p>';
+            return;
+        }
+
+        // El backend puede devolver la forma antigua {badgeId, earnedAt}
+        // o la enriquecida {name, iconUrl, rarity, earnedAt}.
+        // Hacemos join en cliente con el catálogo para cubrir ambos casos.
+        var badgeMap = {};
+        allBadges.forEach(function(b) { badgeMap[b.id] = b; });
+
+        var enriched = catBadges.map(function(cb) {
+            var detail = badgeMap[cb.badgeId] || {};
+            return {
+                name:      cb.name     || detail.name        || 'Insignia',
+                description: cb.description || detail.description || '',
+                iconUrl:   cb.iconUrl  || detail.iconUrl     || '',
+                rarity:    (cb.rarity  || detail.rarity      || 'common').toLowerCase(),
+                earnedAt:  cb.earnedAt
+            };
+        });
+
+        var countEl = document.getElementById('badge-count');
+        countEl.textContent = enriched.length;
+        countEl.classList.remove('hidden');
+
+        container.innerHTML = '<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">'
+            + enriched.map(function(b) {
+                var s = rarityStyle[b.rarity] || rarityStyle.common;
+                return '<div class="bg-gradient-to-br ' + s.card + ' rounded-2xl border-2 p-4 text-center transition-all duration-200 hover:shadow-lg hover:scale-105 cursor-default">'
+                    + '<div class="text-4xl mb-2">' + badgeEmoji(b.iconUrl) + '</div>'
+                    + '<p class="text-xs font-semibold text-gray-800 mb-1">' + b.name + '</p>'
+                    + '<p class="text-xs text-gray-500">' + App.timeAgo(b.earnedAt) + '</p>'
+                    + '</div>';
+            }).join('')
+            + '</div>';
+    } catch (err) {
+        container.innerHTML = '<p class="text-red-500 text-sm text-center py-8">Error al cargar insignias.</p>';
+    }
 }
 
 async function loadAllBadges() {
-    const container = document.getElementById('all-badges');
+    var container = document.getElementById('all-badges');
     try {
-        const res = await fetch('/api/v1/badges');
-        if (res.ok) {
-            const badges = await res.json();
-            if (badges.length === 0) { container.innerHTML = '<p class="text-sm text-gray-500">No hay insignias definidas.</p>'; return; }
-            container.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">' + badges.map(b => `
-                <div class="bg-white rounded-xl border border-gray-100 p-4">
-                    <div class="flex items-center space-x-3">
-                        <span class="text-2xl">${b.iconUrl || '🎖️'}</span>
-                        <div>
-                            <h4 class="font-semibold text-sm text-gray-800">${b.name}</h4>
-                            <p class="text-xs text-gray-500">${b.description || ''}</p>
-                        </div>
-                    </div>
-                    <span class="inline-block mt-2 text-xs px-2 py-0.5 rounded ${rarityColors[b.rarity] || 'bg-gray-100 text-gray-600'}">
-                        ${rarityLabels[b.rarity] || b.rarity}
-                    </span>
-                </div>
-            `).join('') + '</div>';
+        var badges = await getAllBadges();
+        if (badges.length === 0) {
+            container.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">No hay insignias definidas aún.</p>';
+            return;
         }
-    } catch (err) { container.innerHTML = '<p class="text-red-500 text-sm">Error al cargar insignias.</p>'; }
+
+        var grouped = {};
+        badges.forEach(function(b) {
+            var r = (b.rarity || 'common').toLowerCase();
+            if (!grouped[r]) grouped[r] = [];
+            grouped[r].push(b);
+        });
+
+        var order = ['common', 'rare', 'epic', 'legendary'];
+        var html = '';
+        order.forEach(function(rarity) {
+            if (!grouped[rarity]) return;
+            var s = rarityStyle[rarity];
+            html += '<div class="mb-8">'
+                + '<div class="flex items-center space-x-2 mb-4">'
+                + '<span class="text-2xl">' + s.emoji + '</span>'
+                + '<h4 class="text-lg font-bold text-gray-800">' + s.name + ' (' + grouped[rarity].length + ')</h4>'
+                + '</div>'
+                + '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">'
+                + grouped[rarity].map(function(b) {
+                    return '<div class="bg-gradient-to-br ' + s.card + ' rounded-xl border-2 p-4 flex items-start space-x-3">'
+                        + '<div class="text-3xl flex-shrink-0">' + badgeEmoji(b.iconUrl) + '</div>'
+                        + '<div class="flex-1 min-w-0">'
+                        + '<h5 class="font-semibold text-sm text-gray-900">' + b.name + '</h5>'
+                        + '<p class="text-xs text-gray-600 mt-1">' + (b.description || '') + '</p>'
+                        + '<span class="inline-block mt-2 text-xs px-2 py-0.5 rounded-full ' + s.label + '">' + s.name + '</span>'
+                        + '</div>'
+                        + '</div>';
+                }).join('')
+                + '</div></div>';
+        });
+
+        container.innerHTML = html;
+    } catch (err) {
+        container.innerHTML = '<p class="text-red-500 text-sm text-center py-8">Error al cargar el catálogo.</p>';
+    }
 }
 
 loadMyBadges();
 loadAllBadges();
 </script>
+
