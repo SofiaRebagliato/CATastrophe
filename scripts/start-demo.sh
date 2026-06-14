@@ -108,7 +108,7 @@ start_service() {
   local name=$1 port=$2 jar; jar="$(jar_of "$name")"
   [ -f "$jar" ] || die "No existe el jar de $name: $jar"
   printf '%s→ arrancando %s (puerto %s)…%s\n' "$c_dim" "$name" "$port" "$c_off"
-  java -jar "$jar" > "$LOG_DIR/$name.log" 2>&1 &
+  java --enable-preview -jar "$jar" > "$LOG_DIR/$name.log" 2>&1 &
   echo "$! $name" >> "$PID_FILE"
 }
 wait_health() {
