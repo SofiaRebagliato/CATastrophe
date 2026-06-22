@@ -17,12 +17,6 @@
         <h3 class="text-lg font-semibold text-gray-800 mb-3">🌤️ Pronóstico de humor gatuno</h3>
         <div class="bg-white rounded-xl border border-gray-100 p-4">
             <p class="text-sm text-gray-500 mb-3">Obtén un pronóstico basado en la personalidad de tu gato, el clima y curiosidades felinas.</p>
-            <div class="grid grid-cols-2 gap-3 mb-3">
-                <input type="number" id="mood-lat" step="any" placeholder="Latitud (ej: 39.47)" value="39.47"
-                       class="text-sm px-3 py-2 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
-                <input type="number" id="mood-lon" step="any" placeholder="Longitud (ej: -0.37)" value="-0.37"
-                       class="text-sm px-3 py-2 border border-gray-200 rounded-lg outline-none focus:ring-1 focus:ring-cat-300">
-            </div>
             <button onclick="getMoodForecast()" class="text-sm bg-cat-600 text-white px-4 py-2 rounded-lg hover:bg-cat-700 transition">
                 Consultar humor 🔮
             </button>
@@ -50,6 +44,9 @@ var traitLabels = {
     SOCIAL: '🤝 Social',
     MYSTERIOUS: '🌙 Misterioso'
 };
+
+// El gato no guarda ubicación propia; usamos Valencia por defecto (no se muestra en el front).
+var FORECAST_LAT = 39.47, FORECAST_LON = -0.37;
 
 async function loadPersonality() {
     if (!App.activeCat) { document.getElementById('personality-traits').innerHTML = '<p class="text-sm text-gray-500">Activa un gato primero.</p>'; return; }
@@ -96,24 +93,61 @@ async function loadPersonality() {
     });
 }
 
+// Traduce la condición de OpenWeatherMap (en inglés) a emoji + etiqueta en español.
+function weatherView(w) {
+    if (!w) return null;
+    var d = (w.condition || '').toLowerCase();
+    var emoji = '🌤️', label = w.condition || 'Tiempo';
+    if (d.indexOf('clear') >= 0)                                      { emoji = '☀️'; label = 'Cielo despejado'; }
+    else if (d.indexOf('few') >= 0 || d.indexOf('scattered') >= 0)    { emoji = '⛅'; label = 'Parcialmente nublado'; }
+    else if (d.indexOf('cloud') >= 0)                                 { emoji = '☁️'; label = 'Nublado'; }
+    else if (d.indexOf('drizzle') >= 0)                               { emoji = '🌦️'; label = 'Llovizna'; }
+    else if (d.indexOf('rain') >= 0)                                  { emoji = '🌧️'; label = 'Lluvia'; }
+    else if (d.indexOf('thunder') >= 0 || d.indexOf('storm') >= 0)    { emoji = '⛈️'; label = 'Tormenta'; }
+    else if (d.indexOf('snow') >= 0)                                  { emoji = '❄️'; label = 'Nieve'; }
+    else if (d.indexOf('mist') >= 0 || d.indexOf('fog') >= 0
+             || d.indexOf('haze') >= 0 || d.indexOf('smoke') >= 0)    { emoji = '🌫️'; label = 'Niebla'; }
+    return { emoji: emoji, label: label, temp: w.tempCelsius, source: w.source };
+}
+
+// Indicador de origen del dato: en directo (API) vs caché (fallback del circuit breaker).
+function sourceBadge(source) {
+    if (source === 'CACHE') {
+        return '<span class="text-xs px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 font-medium whitespace-nowrap">⚠️ Datos en caché</span>';
+    }
+    return '<span class="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700 font-medium whitespace-nowrap">● En directo</span>';
+}
+
 async function getMoodForecast() {
     if (!App.activeCat) { App.toast('Activa un gato primero.', 'error'); return; }
-    const lat = document.getElementById('mood-lat').value;
-    const lon = document.getElementById('mood-lon').value;
     const container = document.getElementById('mood-result');
     container.innerHTML = '<p class="text-sm text-gray-400">Consultando...</p>';
 
     try {
-        const res = await fetch(`/api/v1/mood-forecast?catId=${App.activeCat.id}&lat=${lat}&lon=${lon}`);
+        const res = await fetch(`/api/v1/mood-forecast?catId=${App.activeCat.id}&lat=${FORECAST_LAT}&lon=${FORECAST_LON}`);
         if (res.ok) {
             const data = await res.json();
+            const w = weatherView(data.weather);
+            const weatherHtml = w
+                ? `<div class="flex items-center justify-between bg-white rounded-lg p-3 mb-3 border border-cat-100">
+                       <div class="flex items-center space-x-3">
+                           <span class="text-4xl">${w.emoji}</span>
+                           <div>
+                               <p class="text-2xl font-bold text-gray-900 leading-none">${w.temp != null ? Math.round(w.temp) + '°C' : '—'}</p>
+                               <p class="text-xs text-gray-500 mt-1">${w.label}</p>
+                           </div>
+                       </div>
+                       ${sourceBadge(w.source)}
+                   </div>`
+                : `<div class="bg-white rounded-lg p-3 mb-3 border border-cat-100 text-sm text-gray-500">🌐 Clima no disponible ahora mismo (el resto del pronóstico sigue funcionando).</div>`;
+
             container.innerHTML = `
                 <div class="bg-cat-50 border border-cat-200 rounded-lg p-4">
+                    ${weatherHtml}
                     <p class="text-sm text-gray-800 font-medium mb-2">🔮 ${data.message || 'Sin mensaje'}</p>
-                    <div class="grid grid-cols-2 gap-2 text-xs text-gray-600">
+                    <div class="grid grid-cols-1 gap-1 text-xs text-gray-600">
                         ${data.dominantTrait ? `<p>🎭 Rasgo: ${traitLabels[data.dominantTrait] || data.dominantTrait}</p>` : ''}
-                        ${data.weather ? `<p>🌤️ Clima: ${data.weather.condition || ''} ${data.weather.tempCelsius != null ? Math.round(data.weather.tempCelsius) + '°C' : ''}</p>` : ''}
-                        ${data.fact ? `<p class="col-span-2">🐱 Dato: ${data.fact.text || ''}</p>` : ''}
+                        ${data.fact ? `<p>🐱 Dato: ${data.fact.text || ''}</p>` : ''}
                     </div>
                 </div>`;
         } else {

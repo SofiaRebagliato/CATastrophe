@@ -3,6 +3,7 @@ com/catastrophe/adventures/adapter/out/messaging/KafkaEventPublisher.class
 com/catastrophe/adventures/adapter/out/persistence/entity/CatChallengeEntity.class
 com/catastrophe/adventures/adapter/in/web/AdventureController$StartAdventureRequest.class
 com/catastrophe/adventures/adapter/out/persistence/entity/CatAdventureEntity.class
+com/catastrophe/adventures/adapter/in/messaging/BadgeAwardConsumer.class
 com/catastrophe/adventures/domain/port/out/AdventureRepository.class
 com/catastrophe/adventures/adapter/out/persistence/mapper/CatBadgeMapper.class
 com/catastrophe/adventures/adapter/in/web/AdventureController$UpdateProgressRequest.class

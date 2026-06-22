@@ -54,7 +54,7 @@ catastrophe:
   openweather:
     base-url: https://api.openweathermap.org/data/2.5
     # Sin key en dev: el adapter lo detecta y sirve desde caché Redis
-    api-key: ${OPENWEATHER_KEY:}
+    api-key: aadd4a4ad1eb21a8c1146f0a696ea61e
 
 # ── Resilience4j ──
 # Patrón Circuit Breaker para las llamadas externas. Si la API falla

@@ -62,9 +62,18 @@ public class OpenWeatherMapAdapter implements WeatherProvider {
             return cache.getLast(lat, lon);
         }
 
-        var uri = "/weather?lat=%f&lon=%f&units=metric&appid=%s".formatted(lat, lon, apiKey);
+        // OJO: construimos la query con el uriBuilder en lugar de String.formatted("%f").
+        // Spring convierte los double con Double.toString() (independiente del locale),
+        // así evitamos que en una máquina con locale es-ES las coordenadas salgan con
+        // coma decimal (lat=39,47 en vez de 39.47) y OpenWeatherMap responda 400.
         var response = restClient.get()
-                .uri(uri)
+                .uri(uriBuilder -> uriBuilder
+                        .path("/weather")
+                        .queryParam("lat", lat)
+                        .queryParam("lon", lon)
+                        .queryParam("units", "metric")
+                        .queryParam("appid", apiKey)
+                        .build())
                 .retrieve()
                 .body(Map.class);
 

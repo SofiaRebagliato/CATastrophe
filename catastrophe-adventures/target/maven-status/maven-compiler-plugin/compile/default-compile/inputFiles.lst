@@ -1,4 +1,5 @@
 /Users/srebagli/Projects/CATastrophe/catastrophe-adventures/src/main/java/com/catastrophe/adventures/AdventuresApplication.java
+/Users/srebagli/Projects/CATastrophe/catastrophe-adventures/src/main/java/com/catastrophe/adventures/adapter/in/messaging/BadgeAwardConsumer.java
 /Users/srebagli/Projects/CATastrophe/catastrophe-adventures/src/main/java/com/catastrophe/adventures/adapter/in/messaging/GamificationEventConsumer.java
 /Users/srebagli/Projects/CATastrophe/catastrophe-adventures/src/main/java/com/catastrophe/adventures/adapter/in/web/AdventureController.java
 /Users/srebagli/Projects/CATastrophe/catastrophe-adventures/src/main/java/com/catastrophe/adventures/adapter/in/web/BadgeController.java
